@@ -5,8 +5,15 @@ import styles from "./index.module.css";
 export default function Home() {
   const [animalInput, setAnimalInput] = useState("");
   const [result, setResult] = useState();
+  const [spin, setSpin] = useState("Answer Me");
 
+
+  function spinner(source){
+    setSpin("Reading Ur BoyFriend mind...");
+  }
   async function onSubmit(event) {
+   
+
     event.preventDefault();
     try {
       const response = await fetch("/api/generate", {
@@ -21,7 +28,7 @@ export default function Home() {
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-
+      setSpin("Answer Me");
       setResult(data.result);
       setAnimalInput("");
     } catch(error) {
@@ -32,26 +39,37 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <div className="top">
       <Head>
-        <title>OpenAI Quickstart</title>
+        <title>Ask Your Boyfriend</title>
         <link rel="icon" href="/dog.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <h3>Ask me baby </h3>
+        
         <form onSubmit={onSubmit}>
+          <label className={styles.label}>
+          
           <input
             type="text"
             name="animal"
-            placeholder="Enter an animal"
+            placeholder="What is your Question?"
             value={animalInput}
             onChange={(e) => setAnimalInput(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          </label>
+          <button type="submit"  onClick={spinner}>{spin}</button>
         </form>
-        <div className={styles.result}>{result}</div>
+        <div>
+    <div className={styles.wrapper}>
+
+          <img className={styles.img} src="/rabit_icon.png"></img>
+        <div className={styles.result}>
+          {result}
+          </div>
+    </div>
+        </div>
       </main>
     </div>
   );
