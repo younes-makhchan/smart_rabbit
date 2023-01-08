@@ -51,7 +51,8 @@ export default async function (req, res) {
 
 function generatePrompt(animal) {
   const capitalizedAnimal =animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return ` ${capitalizedAnimal}. Exceptionally long answer:`;
+
+  return ` ${capitalizedAnimal}.  answer:`;
 }
 // function generatePrompt(animal) {
 //   const capitalizedAnimal =

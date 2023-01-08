@@ -29,8 +29,11 @@ export default function Home() {
       if (response.status !== 200) {
         throw data.error || new Error(`Request failed with status ${response.status}`);
       }
-      index=data.result.lastIndexOf(".");
+      console.log(data.result);
+      const index=data.result.lastIndexOf(".");
+      console.log(index);
       data.result=data.result.slice(0,index+1);
+      console.log(data.result);
       setSpin("Answer Me");
       setResult(data.result);
       setAnimalInput("");
