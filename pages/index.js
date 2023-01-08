@@ -1,10 +1,11 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
+import Typewriter from 'typewriter-effect';
 
 export default function Home() {
   const [animalInput, setAnimalInput] = useState("");
-  const [result, setResult] = useState();
+  const [result, setResult] = useState("");
   const [spin, setSpin] = useState("Answer Me");
 
 
@@ -37,6 +38,7 @@ export default function Home() {
       alert(error.message);
     }
   }
+  
 
   return (
     <div className="top">
@@ -64,9 +66,17 @@ export default function Home() {
         <div>
     <div className={styles.wrapper}>
 
-          <img className={styles.img} src="/rabit_icon.png"></img>
+          <img className={styles.img} src="/younes.jpg"></img>
         <div className={styles.result}>
-          {result}
+          <Typewriter
+            options={{
+              strings: [result],
+              autoStart: true,
+              pauseFor:3600000,
+              
+            }}
+        />
+        
           </div>
     </div>
         </div>
