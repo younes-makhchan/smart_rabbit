@@ -12,7 +12,7 @@ export default function Home() {
       placeholder: "ما هو سؤالك؟",
       btn_title: "إجابة",
       btn_title_change: "...الأرنب يفكر",
-      note: "تنويه : استخدم العربية،الانجليزية او الفرنسية",
+      note: "ملاحظة: استخدم الإنجليزية والفرنسية والعربية والدارجة (نسخة تجريبية)",
     },
     FR: {
       lang: "frensh",
@@ -21,7 +21,7 @@ export default function Home() {
       placeholder: "Quelle est votre question ?",
       btn_title: "réponse",
       btn_title_change: "Le lapin réfléchit...",
-      note: "Remarque: Utilisez l'anglais, le français ou l'arabe",
+      note: "Remarque: Utilisez l'anglais, le français, l'arabe, darija(beta)",
     },
     EN: {
       lang: "english",
@@ -32,23 +32,38 @@ export default function Home() {
       btn_title_change: "Am thinking...",
       note: "Note: Use English, French or Arabic",
     },
+    Darija: {
+      lang: "darija",
+      smart_rabbit_opening: "salam, 3ndk chi soal?",
+      title: "9niytk Dkiya",
+      placeholder: "ach nahowa soal dylk?",
+      btn_title: "jawbni",
+      btn_title_change: "ana kankfr.....",
+      note: "mola7da:khdm b darija(beta),anglais,francais,arabic",
+    },
   };
 
   const [loaded, setLoaded] = useState(false);
   setTimeout(() => {
     console.log("loaded");
+    if(loaded==false){
+    setResult(language.smart_rabbit_opening);}
     setLoaded(true);
   },1000);
   const [language, setLanguage] = useState(languages["EN"]);
   const [animalInput, setAnimalInput] = useState("");
-  const [result, setResult] = useState(language.smart_rabbit_opening);
+  const [result, setResult] = useState("");
   const [spin, setSpin] = useState(language.btn_title);
   function spinner(source) {
     if (language.lang == "arabic") {
       setSpin("...الأرنب يفكر");
     } else if (language.lang == "frensh") {
       setSpin("Le lapin réfléchit...");
-    } else {
+    } else if(language.lang=="darija"){
+
+      setSpin("ana kanfkr.....");
+    }
+    else {
       setSpin("Am thinking...");
     }
   }
@@ -56,6 +71,8 @@ export default function Home() {
     //set the  language here manualy
     let button = source.target;
     button.parentElement.childNodes.forEach((e, i) => {
+      // e.textContent.replace("(Beta)","");
+      console.log(e.textContent,button.textContent);
       if (e.textContent == button.textContent) {
         e.style =
           " background: #76c836;border: #334425 solid 2px;border-radius: 2px;";
@@ -64,8 +81,7 @@ export default function Home() {
       }
     });
 
-    let str = button.textContent;
-    let str1 = language.smart_rabbit_opening;
+    let str = button.textContent.replace("(Beta)","");
 
     setAnimalInput("");
     setLanguage(languages[str]);
@@ -78,6 +94,9 @@ export default function Home() {
     } else if (str == "EN") {
       setSpin("Answer");
       setResult("Hey, do you have a question for me?");
+    }else{
+      setSpin("jawab");
+      setResult("salam,3ndk chi soal?");
     }
   }
 
@@ -109,6 +128,8 @@ export default function Home() {
         setSpin("réponse");
       } else if (language.lang == "english") {
         setSpin("Answer");
+      }else if (language.lang == "darija") {
+        setSpin("Answer");
       }
 
       setResult(data.result);
@@ -129,7 +150,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={loaded ? styles.remove : styles.loader_wrapper}>
-          <div className={styles.loader} id="loader"></div>
+        <div className={styles.rabbit}></div>
+        <div className={styles.clouds}></div>
         </div>
         <div className={styles.languages_wrapper}>
           <div className={styles.languages}>
@@ -143,6 +165,9 @@ export default function Home() {
               </button>
               <button onClick={changeLanguage} className={styles.EN}style={{background: "#76c836",border:"#334425 solid 2px",borderRadius: "2px"}}  >
                 EN
+              </button>
+              <button onClick={changeLanguage} className={styles.DA}  >
+                Darija(Beta)
               </button>
             </p>
           </div>
@@ -178,6 +203,7 @@ export default function Home() {
                 options={{
                   strings: [result],
                   autoStart: true,
+                  delay:15,
                   pauseFor: 3600000,
                 }}
               />

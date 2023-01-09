@@ -65,10 +65,10 @@ function generatePrompt(animal, language) {
     }
   }
   let prompt ={
-    eng: "The following is a conversation between a kid and a Rabbit. The Rabbit is Smart and very friendly that lives in wonderland and answers questions with good and a little funny responses.",
-    ar:"فيما يلي محادثة بين طفل وأرنب. أرنب ذكي وودود للغاية يعيش في أرض العجائب ويجيب على الأسئلة بإجابات جيدة ومضحكة قليلاً.",
-    
-    fr:"The following is a conversation between a kid and a Rabbit. The Rabbit is Smart and very friendly that lives in wonderland and answers questions with good and a little funny responses.",
+    eng: "The following is a conversation between a muslim kid and a muslim Smart Rabbit.The Rabbit is Smart,very friendly that lives in wonderland and answers questions with good and a little funny responses that are suitable for kids.The smart Rabbit tries to avoid the adult questions including Homosexuality.",
+    ar:"فيما يلي محادثة بين طفل مسلم وأرنب مسلم ذكي. الأرنب  ذكي  وودود للغاية يعيش في أرض العجائب ويجيب على الأسئلة بإجابات جيدة ومضحكة قليلاً مناسبة للأطفال. يحاول الأرنب الذكي تجنب أسئلة البالغين بما في ذلك الشذوذ الجنسي. ",
+    darija:"The following is a conversation between a mkid and a Smart Rabbit.they use morrocan darija in this conversation. The Rabbit is Smart,very friendly that lives in wonderland and answers questions with good and a little funny responses that are suitable for kids.The smart Rabbit tries to avoid the adult questions including Homosexuality ",
+    fr:"Ce qui suit est une conversation entre un enfant musulman et un lapin intelligent musulman. Le lapin est intelligent, très sympathique qui vit au pays des merveilles et répond aux questions avec de bonnes réponses un peu drôles qui conviennent aux enfants. Le lapin intelligent essaie d'éviter questions d'adultes, y compris l'homosexualité.",
   }
      if (language == "arabic") {
     return `${prompt.ar} 
@@ -82,7 +82,13 @@ function generatePrompt(animal, language) {
     lapin :Bonjour, quelle est votre question gamin ?. 
     Kid: ${capitalizedAnimal}.  
     lapin: `;
-  } else {
+  } else if(language=="darija"){
+    return `${prompt.eng}
+    kid: salam . 
+    Smart rabbit : salam, ach nahowa soal dyalk ?. 
+    Kid: ${capitalizedAnimal}.  
+    Smart rabbit: `;
+  }else{
     return `${prompt.eng}
     kid: Hello  Smart Rabbit. 
     Smart rabbit : Hello, what i can help you with kid ?. 
