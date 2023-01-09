@@ -38,7 +38,13 @@ export default function Home() {
   const [result, setResult] = useState(language.smart_rabbit_opening);
   const [spin, setSpin] = useState(language.btn_title);
   function spinner(source) {
-    setSpin(language["btn_title_change"]);
+    if(source.target.textContent=="إجابة"){
+      setSpin("...الأرنب يفكر");
+    }else if(source.target.textContent=="Answer Me"){
+      setSpin( "Le lapin réfléchit...")
+    }else{
+      setSpin("Am thinking...")
+    }
   }
   function changeLanguage(source) { //set the  language here manualy
     let button=source.target;
@@ -67,6 +73,7 @@ export default function Home() {
       setResult("Hey, do you have a question for me?");
     }
   }
+  
   async function onSubmit(event) {
     event.preventDefault();
     try {
@@ -91,8 +98,14 @@ export default function Home() {
       if (index > 0) {
         data.result = data.result.slice(0, index + 1);
       }
-      console.log(data.result);
-      setSpin(language.btn_title_change);
+      if (language.lang == "arabic") {
+        setSpin("إجابة");
+      } else if (language.lang == "frensh") {
+        setSpin("réponse");
+      } else if (language.lang == "english") {
+        setSpin("Answer");
+      }
+
       setResult(data.result);
       // setAnimalInput("");
     } catch (error) {
