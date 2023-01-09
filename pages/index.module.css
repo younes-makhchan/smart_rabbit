@@ -14,11 +14,11 @@
   font-style: normal;
 }
 
-.main{
+.main {
   height: 100vh;
   margin: 0;
-  background-image:url(/background_orange.png) ;
-  margin: -8px; 
+  background-image: url(/background_orange.png);
+  margin: -8px;
 }
 
 .main,
@@ -34,20 +34,23 @@
   align-items: center;
   padding-top: 60px;
 }
-.languages_wrapper{
+.languages_wrapper {
   margin-bottom: 25px;
 }
-.main .languages{
+.main .languages {
   position: absolute;
-  top:10px;
-  left:10px;
-
+  top: 10px;
+  left: 10px;
 }
-.main .languages p{
+.main .languages p {
   display: flex;
   gap: 5px;
 }
-
+.main .languages .active {
+  background: #76c836;
+  border: #334425 solid 2px;
+  border-radius: 2px;
+}
 
 .main .icon {
   width: 34px;
@@ -63,7 +66,7 @@
   border-radius: 5px;
   margin: 16px 0 40px;
 }
-.main h3 img{
+.main h3 img {
   width: 75px;
   position: absolute;
   top: -27px;
@@ -71,18 +74,16 @@
   transform: rotate(29deg) translateX(-50%);
 }
 
-
 .main form {
   display: flex;
   flex-direction: column;
-  
 }
-.main form div{
+.main form div {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.main form i{
+.main form i {
   color: rgb(45, 45, 45);
   align-self: flex-end;
 }
@@ -100,8 +101,7 @@
   border: solid 9px #f88c30;
   outline: none;
   width: 70vw;
-    max-width: 450px;
-
+  max-width: 450px;
 }
 .main ::placeholder {
   color: #8e8ea0;
@@ -121,20 +121,16 @@
   width: 63vw;
   max-width: 450px;
   word-break: break-word;
-
-
 }
-.main .wrapper .img{
+.main .wrapper .img {
   border-radius: 5px;
-    position: absolute;
-    width: 72px;
-    left: -88px;
-    top: -43px;
-
+  position: absolute;
+  width: 72px;
+  left: -88px;
+  top: -43px;
 }
 
-.main .wrapper{
-
+.main .wrapper {
   position: relative;
   background: white;
   border-radius: 15px;
@@ -146,24 +142,21 @@
   margin-left: 73px;
 }
 .main .wrapper::before {
-	content: "";
-    position: absolute;
-    height: 25px;
-    width: 25px;
-    top: 0px;
-    left: -5%;
-    background-color: #fff;
-    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0%);
-    clip-path: polygon(0 0, 100% 100%, 100% 0%);
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  top: 0px;
+  left: -5%;
+  background-color: #fff;
+  -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0%);
+  clip-path: polygon(0 0, 100% 100%, 100% 0%);
 }
-.main .label{
- 
-     
-width: 75px;
-    
+.main .label {
+  width: 75px;
 }
 
-.loader_wrapper{
+.loader_wrapper {
   position: fixed;
   width: 100vw;
   top: 0;
@@ -188,10 +181,14 @@ width: 75px;
 .loader_wrapper .img {
   width: 250px;
 }
-.remove{
+.remove {
   display: none;
 }
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

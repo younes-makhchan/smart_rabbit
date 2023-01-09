@@ -141,7 +141,7 @@ export default function Home() {
               <button onClick={changeLanguage} className={styles.FR}>
                 FR
               </button>
-              <button onClick={changeLanguage} className={styles.EN}>
+              <button onClick={changeLanguage} className={styles.EN}style={{background: "#76c836",border:"#334425 solid 2px",borderRadius: "2px"}}  >
                 EN
               </button>
             </p>
