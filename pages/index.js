@@ -38,7 +38,7 @@ export default function Home() {
   setTimeout(() => {
     console.log("loaded");
     setLoaded(true);
-  }, 750);
+  },1000);
   const [language, setLanguage] = useState(languages["EN"]);
   const [animalInput, setAnimalInput] = useState("");
   const [result, setResult] = useState(language.smart_rabbit_opening);
