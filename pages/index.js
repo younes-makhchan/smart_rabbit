@@ -33,20 +33,20 @@ export default function Home() {
       note: "Note: Use English, French or Arabic",
     },
   };
-  
+
   const [loaded, setLoaded] = useState(false);
-  setTimeout(()=>{
+  setTimeout(() => {
     console.log("loaded");
-      setLoaded(true);
-  },750)
+    setLoaded(true);
+  }, 750);
   const [language, setLanguage] = useState(languages["EN"]);
   const [animalInput, setAnimalInput] = useState("");
   const [result, setResult] = useState(language.smart_rabbit_opening);
   const [spin, setSpin] = useState(language.btn_title);
   function spinner(source) {
-    if (source.target.textContent == "إجابة") {
+    if (language.lang == "arabic") {
       setSpin("...الأرنب يفكر");
-    } else if (source.target.textContent == "Answer") {
+    } else if (language.lang == "frensh") {
       setSpin("Le lapin réfléchit...");
     } else {
       setSpin("Am thinking...");
@@ -99,9 +99,7 @@ export default function Home() {
           new Error(`Request failed with status ${response.status}`)
         );
       }
-      console.log(data.result);
       const index = data.result.lastIndexOf(".");
-      console.log(index);
       if (index > 0) {
         data.result = data.result.slice(0, index + 1);
       }
@@ -129,29 +127,32 @@ export default function Home() {
         <link rel="icon" href="/rabbit_header_orange-min.png" />
       </Head>
 
-      <main
-        className={styles.main}>
-          <div className={loaded? styles.remove:styles.loader_wrapper}>
-             <div className={styles.loader} id="loader"></div>
-          </div>
-        <div className={styles.languages}>
-          <p>
-            Language:
-            <button onClick={changeLanguage} className={styles.AR}>
-              AR
-            </button>
-            <button onClick={changeLanguage} className={styles.FR}>
-              FR
-            </button>
-            <button onClick={changeLanguage} className={styles.EN}>
-              EN
-            </button>
-          </p>
+      <main className={styles.main}>
+        <div className={loaded ? styles.remove : styles.loader_wrapper}>
+          <div className={styles.loader} id="loader"></div>
         </div>
-        <h3>
-          {language.title}
-          <img src="carrot-min.png" className={styles.img}></img>
-        </h3>
+        <div className={styles.languages_wrapper}>
+          <div className={styles.languages}>
+            <p>
+              Language:
+              <button onClick={changeLanguage} className={styles.AR}>
+                AR
+              </button>
+              <button onClick={changeLanguage} className={styles.FR}>
+                FR
+              </button>
+              <button onClick={changeLanguage} className={styles.EN}>
+                EN
+              </button>
+            </p>
+          </div>
+        </div>
+        <div>
+          <h3>
+            {language.title}
+            <img src="carrot-min.png" className={styles.img}></img>
+          </h3>
+        </div>
 
         <form onSubmit={onSubmit}>
           <div>
@@ -188,7 +189,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-     
     </div>
   );
 }

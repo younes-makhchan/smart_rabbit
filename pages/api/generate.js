@@ -51,7 +51,17 @@ export default async function (req, res) {
 }
 
 function generatePrompt(animal,language) {
-  const capitalizedAnimal =animal[0].toUpperCase() + animal.slice(1).toLowerCase();
+  let capitalizedAnimal =animal[0].toUpperCase() + animal.slice(1).toLowerCase();
+  if(capitalizedAnimal.indexOf("?")<0 && capitalizedAnimal.indexOf("؟")<0 ){
+ 
+    if(language=="arabic"){
+      capitalizedAnimal+="؟";
+    }
+    else{ 
+      capitalizedAnimal+='?';
+    };
+  }
+  
   if(language=="arabic"){
     return `kid: مرحبًا أرنبي الذكي. Smart rabbit : مرحبا كيف استطيع مساعدتك؟ . Kid: ${capitalizedAnimal}.  Smart rabbit: `;
 

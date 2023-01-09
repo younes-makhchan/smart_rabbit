@@ -34,6 +34,9 @@
   align-items: center;
   padding-top: 60px;
 }
+.languages_wrapper{
+  margin-bottom: 25px;
+}
 .main .languages{
   position: absolute;
   top:10px;
@@ -44,9 +47,7 @@
   display: flex;
   gap: 5px;
 }
-.main .languages .active{
-   
-}
+
 
 .main .icon {
   width: 34px;
