@@ -16,6 +16,7 @@ export default async function (req, res) {
   }
 
   const animal = req.body.animal || '';
+  const language = req.body.language || '';
   if (animal.trim().length === 0) {
     res.status(400).json({
       error: {
@@ -28,7 +29,7 @@ export default async function (req, res) {
   try {
     const completion = await openai.createCompletion({
       model: "text-davinci-003",
-      prompt: generatePrompt(animal),
+      prompt: generatePrompt(animal,language),
       max_tokens: 100,
       temperature: 0.6,
     });
@@ -49,10 +50,19 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal) {
+function generatePrompt(animal,language) {
   const capitalizedAnimal =animal[0].toUpperCase() + animal.slice(1).toLowerCase();
+  if(language=="arabic"){
+    return `kid: مرحبًا أرنبي الذكي. Smart rabbit : مرحبا كيف استطيع مساعدتك؟ . Kid: ${capitalizedAnimal}.  Smart rabbit: `;
 
-  return ` ${capitalizedAnimal}.  answer:`;
+  }
+  else if(language=="frensh"){
+    return `kid: Bonjour mon lapin Intelligent. Smart rabbit :Bonjour, quelle est votre question gamin ?. Kid: ${capitalizedAnimal}.  Smart rabbit: `;
+
+  }else{
+    return `kid: Hello my Smart Rabbit. Smart rabbit : Hello, what i can help you with kid ?. Kid: ${capitalizedAnimal}.  Smart rabbit: `;
+
+  }
 }
 // function generatePrompt(animal) {
 //   const capitalizedAnimal =

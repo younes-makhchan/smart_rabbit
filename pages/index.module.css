@@ -17,9 +17,10 @@
 .main{
   height: 100vh;
   margin: 0;
-  background-image:url(/background3.jpeg) ;
+  background-image:url(/background_orange.png) ;
   margin: -8px; 
 }
+
 .main,
 .main input {
   font-size: 16px;
@@ -33,31 +34,72 @@
   align-items: center;
   padding-top: 60px;
 }
+.main .languages{
+  position: absolute;
+  top:10px;
+  left:10px;
+
+}
+.main .languages p{
+  display: flex;
+  gap: 5px;
+}
+.main .languages .active{
+   
+}
+
 .main .icon {
   width: 34px;
 }
 .main h3 {
-  font-size: 32px;
+  font-size: 2rem;
+  padding: 15px;
+  position: relative;
   line-height: 40px;
   font-weight: bold;
-  color: #764200;
+  color: white;
+  background: #fb942d;
+  border-radius: 5px;
   margin: 16px 0 40px;
 }
+.main h3 img{
+  width: 75px;
+  position: absolute;
+  top: -27px;
+  left: 50%;
+  transform: rotate(29deg) translateX(-50%);
+}
+
+
 .main form {
   display: flex;
   flex-direction: column;
-  width: 320px;
+  
 }
+.main form div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.main form i{
+  color: rgb(45, 45, 45);
+  align-self: flex-end;
+}
+
 .main input[type="text"] {
-  position: absolute;
+  /* position: absolute;
   top: 142px;
   width: 65%;
-  left: 46.5px;
+  left: 46.5px; */
+  width: 70vw;
+  max-width: 450px;
   padding: 22px 8px;
   border-radius: 26px;
   margin-bottom: 24px;
-  border: #fff;
+  border: solid 9px #f88c30;
   outline: none;
+  width: 70vw;
+    max-width: 450px;
 
 }
 .main ::placeholder {
@@ -67,7 +109,7 @@
 .main button[type="submit"] {
   padding: 12px 0;
   color: rgb(255, 255, 255);
-  background-color: #764200;
+  background-color: #76c836;
   border: none;
   border-radius: 4px;
   text-align: center;
@@ -81,28 +123,43 @@
 
 
 }
-.main .img{
+.main .wrapper .img{
   border-radius: 5px;
-  position: absolute;
-  width: 55px;
-  left: -57px;
-  top: 0;
+    position: absolute;
+    width: 72px;
+    left: -88px;
+    top: -43px;
+
 }
 
 .main .wrapper{
-    position: relative;
-    background: white;
-    border-radius: 15px;
-    padding: 15px;
-    padding-top: 20px;
-    margin-top:15px;
+
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  width: fit-content;
+  padding: 15px;
+  padding-top: 20px;
+  margin-top: 40px;
+  margin-left: 73px;
+}
+.main .wrapper::before {
+	content: "";
+    position: absolute;
+    height: 25px;
+    width: 25px;
+    top: 0px;
+    left: -5%;
+    background-color: #fff;
+    -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0%);
+    clip-path: polygon(0 0, 100% 100%, 100% 0%);
 }
 .main .label{
-  position: relative;
-     height: 250px;
-     background-image: url(/rabbit.png);
-     background-size: 100%;
-     background-position-y: center;
+ 
+     
+width: 75px;
+    
 }
 
 .button--loading{
