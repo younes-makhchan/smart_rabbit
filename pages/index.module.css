@@ -108,6 +108,7 @@
   opacity: 1;
 }
 .main button[type="submit"] {
+  margin-bottom: 15px;
   padding: 12px 0;
   color: rgb(255, 255, 255);
   background-color: #76c836;
