@@ -69,11 +69,11 @@ export default function Home() {
       setSpin("réponse");
       setResult("Salut, avez-vous une question pour moi?");
     } else if (str == "EN") {
-      setSpin("Answer");
+      setSpin("Answer Me");
       setResult("Hey, do you have a question for me?");
     }
   }
-  
+
   async function onSubmit(event) {
     event.preventDefault();
     try {
@@ -103,7 +103,7 @@ export default function Home() {
       } else if (language.lang == "frensh") {
         setSpin("réponse");
       } else if (language.lang == "english") {
-        setSpin("Answer");
+        setSpin("Answer Me");
       }
 
       setResult(data.result);
