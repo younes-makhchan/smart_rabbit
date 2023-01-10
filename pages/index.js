@@ -41,11 +41,19 @@ export default function Home() {
       btn_title_change: "ana kankfr.....",
       note: "mola7da:khdm b darija(beta),anglais,francais,arabic",
     },
+    CH: {
+      lang: "chinese",
+      smart_rabbit_opening: "嘿，你有什么问题要问我吗？",
+      title: "你聪明的兔子",
+      placeholder: "你的问题是什么？",
+      btn_title: "回答",
+      btn_title_change: "我在想....",
+      note: "注意：使用中文",
+    },
   };
 
   const [loaded, setLoaded] = useState(false);
   setTimeout(() => {
-    console.log("loaded");
     if(loaded==false){
     setResult(language.smart_rabbit_opening);}
     setLoaded(true);
@@ -62,6 +70,8 @@ export default function Home() {
     } else if(language.lang=="darija"){
 
       setSpin("ana kanfkr.....");
+    }else if(language.lang=="CH"){
+      setSpin("我在想....");
     }
     else {
       setSpin("Am thinking...");
@@ -72,7 +82,6 @@ export default function Home() {
     let button = source.target;
     button.parentElement.childNodes.forEach((e, i) => {
       // e.textContent.replace("(Beta)","");
-      console.log(e.textContent,button.textContent);
       if (e.textContent == button.textContent) {
         e.style =
           " background: #76c836;border: #334425 solid 2px;border-radius: 2px;";
@@ -94,6 +103,9 @@ export default function Home() {
     } else if (str == "EN") {
       setSpin("Answer");
       setResult("Hey, do you have a question for me?");
+    }else if(str=="CH"){
+      setSpin("回答");
+      setResult("嘿，你有什么问题要问我吗？");
     }else{
       setSpin("jawab");
       setResult("salam,3ndk chi soal?");
@@ -119,17 +131,32 @@ export default function Home() {
         );
       }
       const index = data.result.lastIndexOf(".");
-      if (index > 0) {
-        data.result = data.result.slice(0, index + 1);
-      }
+    
       if (language.lang == "arabic") {
         setSpin("إجابة");
       } else if (language.lang == "frensh") {
         setSpin("réponse");
+        if (index > 0) {
+          data.result = data.result.slice(0, index + 1);
+        }
       } else if (language.lang == "english") {
         setSpin("Answer");
+        if (index > 0) {
+          data.result = data.result.slice(0, index + 1);
+        }
+
       }else if (language.lang == "darija") {
-        setSpin("Answer");
+        if (index > 0) {
+          data.result = data.result.slice(0, index + 1);
+        }
+        setSpin("jawbni");
+      }else{
+        
+        if (index > 0) {
+          data.result = data.result.slice(0, index + 1);
+        }
+        setSpin("回答");
+        
       }
 
       setResult(data.result);
@@ -165,6 +192,9 @@ export default function Home() {
               </button>
               <button onClick={changeLanguage} className={styles.EN}style={{background: "#76c836",border:"#334425 solid 2px",borderRadius: "2px"}}  >
                 EN
+              </button>
+              <button onClick={changeLanguage} className={styles.CH}  >
+                CH
               </button>
               <button onClick={changeLanguage} className={styles.DA}  >
                 Darija(Beta)
