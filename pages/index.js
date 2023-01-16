@@ -1,5 +1,6 @@
 import Head from "next/head";
-import { useState,useRef, useEffect } from "react";
+import 'regenerator-runtime/runtime';
+import { useState } from "react";
 import styles from "./index.module.css";
 import Language from "../components/language"
 import LoadingScreen from "../components/loadingScreen";
@@ -17,6 +18,7 @@ const languages = {
     btn_title: "إجابة",
     btn_title_change: "...الأرنب يفكر",
     note: "",
+    mic:"ar-SA",
   },
   fr: {
     slug:"fr",
@@ -27,6 +29,7 @@ const languages = {
     btn_title: "Réponse",
     btn_title_change: "Le lapin réfléchit...",
     note: "",
+    mic:"fr-FR",
   },
   en: {
     slug:"en",
@@ -37,6 +40,7 @@ const languages = {
     btn_title: "Answer",
     btn_title_change: "Am thinking...",
     note: "",
+    mic:"en-US",
   },
   da: {
     slug:"da",
@@ -47,6 +51,7 @@ const languages = {
     btn_title: "Jawbni",
     btn_title_change: "ana kankfr.....",
     note: "mola7da:darija ba9i khdam 3liha",
+    mic:"ar-SA",
   },
   ch: {
     slug:"ch",
@@ -57,6 +62,7 @@ const languages = {
     btn_title: "回答",
     btn_title_change: "我在想....",
     note: "注意：使用中文",
+    mic:"zh-CH",
   },
 };
 export default function Home() {
@@ -75,8 +81,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <LoadingScreen time={1000}/>
-        <Language languages={languages} selected_language={language} setLanguage={setLanguage} />
-        <Content language={language}/>
+        <Language languages={languages} selected_language={language} setLanguage={setLanguage}  />
+        <Content language={language} />
         
       </main>
     </div>
