@@ -10,6 +10,7 @@
     "static": "next build && next export"
   },
   "dependencies": {
+    "@capacitor-community/speech-recognition": "^2.1.0",
     "@capacitor/android": "^4.6.1",
     "@capacitor/core": "^4.6.1",
     "microsoft-cognitiveservices-speech-sdk": "^1.24.1",

@@ -1,5 +1,5 @@
 import styles from "../pages/index.module.css";
-import { ClipLoader } from "react-spinners";
+import { BarLoader } from "react-spinners";
 import { useState, useEffect } from "react";
 
 
@@ -13,20 +13,21 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
   //form input
   const [animalInput, setAnimalInput] = useState("");
   const sdk = require("microsoft-cognitiveservices-speech-sdk");
+  const subscriptionKey= process.env.SPEECH_KEY;
+  const region= process.env.SPEECH_REGION;
 
   useEffect(() => {
     setResult(language.smart_rabbit_opening);
   }, [language]);
-
   function record(source){
     if(!listening){
 
       setListening(true)
+      console.log
       var speechConfig = sdk.SpeechConfig.fromSubscription(
-        "7b1ff9228c8a40a389ff89dd1eef41aa",
-        "francecentral"
+       subscriptionKey,
+       region
       );
-        console.log("working")
       speechConfig.speechRecognitionLanguage = language.mic;
       var audioConfig  = sdk.AudioConfig.fromDefaultMicrophoneInput();
       let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
@@ -38,6 +39,7 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
           setListening(false)
           console.log(result);
           setAnimalInput(result.text)
+          
           recognizer.close();
           recognizer = undefined;
         },
@@ -117,12 +119,14 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
     <>
       <form onSubmit={onSubmit}>
         <div>
-          <img src="/rabbit_header_orange-min.png" className={styles.label} />
+          {/* <img src="/rabbit_header_orange-min.png" className={styles.label} /> */}
           <div className={styles.inputwrapper}>
+            <img src="search.svg" className={styles.search_icon}/>
             <input
               type="text"
               name="animal"
-              placeholder={language["placeholder"]}
+              // placeholder={language["placeholder"]}
+              placeholder=""
               value={animalInput}
               onChange={(e) => setAnimalInput(e.target.value)}
             />
@@ -131,7 +135,7 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
               className={styles.mic}
               onClick={record}
             >
-              <img src={listening ? "mic_on.png" : "mic.png"} />
+              <img src={ listening?"mic_on.svg":"mic_off.svg"} />
             </button>
           </div>
           <i>{language.note}</i>
@@ -139,7 +143,7 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
 
         <button type="submit" onClick={() => animalInput!=''?setLoadingAnswer(true):undefined}>
           {loadingAnswer ? (
-            <ClipLoader color="#fff" size={15} speedMultiplier={0.5} />
+            <BarLoader color="#fff" size={15} speedMultiplier={0.5} />
           ) : (
             language.btn_title
           )}

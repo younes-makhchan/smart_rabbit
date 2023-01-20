@@ -13,7 +13,7 @@ const languages = {
     slug:"ar",
     lang: "arabic",
     smart_rabbit_opening: "مرحبًا ، هل لديك سؤال لي؟",
-    title: "ارنبك ذكي",
+    title: "الأرنب الذكي",
     placeholder: "ما هو سؤالك؟",
     btn_title: "إجابة",
     btn_title_change: "...الأرنب يفكر",
@@ -24,7 +24,7 @@ const languages = {
   fr: {
     slug:"fr",
     lang: "frensh",
-    title: "Votre Lapin Intelligent",
+    title: "Le lapin Intelligent",
     smart_rabbit_opening: "Salut, avez-vous une question pour moi?",
     placeholder: "Quelle est votre question ?",
     btn_title: "Réponse",
@@ -37,19 +37,19 @@ const languages = {
     slug:"en",
     lang: "english",
     smart_rabbit_opening: "Hey, do you have a question for me?",
-    title: "Your Smart Rabbit",
+    title: "The Smart Rabbit",
     placeholder: "what's your question?",
     btn_title: "Answer",
     btn_title_change: "Am thinking...",
     note: "",
     mic:"en-US",
-    voice:"en-US-AriaNeural"
+    voice:"en-US-Davisneural"
   },
   da: {
     slug:"da",
     lang: "darija",
     smart_rabbit_opening: "salam, 3ndk chi soal?",
-    title: "9niytk Dkiya",
+    title: "9niya Dkiya",
     placeholder: "ach nahowa soal dylk?",
     btn_title: "Jawbni",
     btn_title_change: "ana kankfr.....",
@@ -61,7 +61,7 @@ const languages = {
     slug:"ch",
     lang: "chinese",
     smart_rabbit_opening: "嘿，你有什么问题要问我吗？",
-    title: "你聪明的兔子",
+    title: "聪明的兔子",
     placeholder: "你的问题是什么？",
     btn_title: "回答",
     btn_title_change: "我在想....",
@@ -97,7 +97,9 @@ export default function Home() {
         <History answers={answers} setAnswers={setAnswers}></History>
         <Language languages={languages} selected_language={language} setLanguage={setLanguage}  />
         </div>
+        <div className={styles.content_wrapper}>
         <Content language={language} setAnswers={setAnswers} />
+        </div>
         
       </main>
     </div>

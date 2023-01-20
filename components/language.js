@@ -34,7 +34,7 @@ function Language({ languages, selected_language, setLanguage }) {
               src={"/s_" + selected_language.slug + ".png"}
               className={styles.flag}
             ></img>
-            <span>{selected_language.slug}</span>
+            <span style={{display:"none"}}>{selected_language.slug}</span>
             <img src="/arrow dropdown.png" className={styles.dropdown} ref={img}></img>
           </div>
 
