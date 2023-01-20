@@ -33,3 +33,8 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+#additional files
+apiExpire.txt
+goodApis.txt
+TODO.txt

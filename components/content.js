@@ -1,34 +1,33 @@
-
 import styles from "../pages/index.module.css";
 import { ClipLoader } from "react-spinners";
-import SpeechRecognition, {
-  useSpeechRecognition,
-} from "react-speech-recognition";
+
 import { useState, useRef, useEffect } from "react";
 import RabbitAnswer from "./rabbitAnswer";
+import Question from "./question";
 
-function Content({ language }) {
-  const {
-    transcript,
-    listening,
-    resetTranscript,
-    browserSupportsSpeechRecognition,
-  } = useSpeechRecognition();
-  //for the spinner
-  const [loadingAnswer, setLoadingAnswer] = useState(false);
+
+function Content({ language,setAnswers }) {
+  //you can use question component or try again directley web-speech cognitvie here using next/dynamic 
+
+  const sdk = require("microsoft-cognitiveservices-speech-sdk");
+
+
   //for the result&answer
   const [result, setResult] = useState(language.smart_rabbit_opening);
-  //form input
-  const [animalInput, setAnimalInput] = useState("");
+  //for the sound
+  const [alreadyPlayed,setAlreadyPlayed]=useState(false)
 
-  useEffect(()=>{
-    setResult(language.smart_rabbit_opening)
-  },[language])
- 
-  //on mount  (excute one time when page is ready)
-  useEffect(()=>{
-      setAnimalInput(transcript);
-  },[transcript])
+
+  useEffect(() => {
+    setResult(language.smart_rabbit_opening);
+  }, [language]);
+
+
+  // useEffect(() => {
+  //   setAnimalInput(transcript);
+  // }, [transcript]);
+
+  
   async function onSubmit(event) {
     event.preventDefault();
     try {
@@ -73,41 +72,17 @@ function Content({ language }) {
 
   return (
     <>
+      
+    
       <div>
         <h3>
           {language.title}
           <img src="carrot-min.png" className={styles.img}></img>
         </h3>
       </div>
-
-      <form onSubmit={onSubmit}>
-        <div>
-          <img src="/rabbit_header_orange-min.png" className={styles.label} />
-          <div className={styles.inputwrapper}>
-
-          <input
-            type="text"
-            name="animal"
-            placeholder={language["placeholder"]}
-            value={animalInput}
-            
-            onChange={(e) => setAnimalInput(e.target.value)}
-          />
-          <button type="button" className={styles.mic} onClick={()=>SpeechRecognition.startListening({language:language.mic,continuous: false})}><img src={listening?"mic_on.png":"mic.png"}/></button>
-          </div>
-          <i>{language.note}</i>
-        </div>
-
-        <button type="submit" onClick={() => setLoadingAnswer(true)}>
-          {loadingAnswer ? (
-            <ClipLoader color="#fff" size={15} speedMultiplier={0.5} />
-          ) : (
-            language.btn_title
-          )}
-        </button>
-      </form>
-      <RabbitAnswer answer={result } language={language} />
-          
+      
+       <Question language={language} setAnswers={setAnswers} setResult={setResult} setAlreadyPlayed={setAlreadyPlayed} ></Question>
+      <RabbitAnswer answer={result} language={language} setAlreadyPlayed={setAlreadyPlayed} alreadyPlayed={alreadyPlayed} />
     </>
   );
 }

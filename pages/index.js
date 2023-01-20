@@ -5,7 +5,7 @@ import styles from "./index.module.css";
 import Language from "../components/language"
 import LoadingScreen from "../components/loadingScreen";
 import Content from "../components/content";
-
+import History from "../components/history";
 
 
 const languages = {
@@ -19,6 +19,7 @@ const languages = {
     btn_title_change: "...الأرنب يفكر",
     note: "",
     mic:"ar-SA",
+    voice:"ar-SA-ZariyahNeural"
   },
   fr: {
     slug:"fr",
@@ -30,6 +31,7 @@ const languages = {
     btn_title_change: "Le lapin réfléchit...",
     note: "",
     mic:"fr-FR",
+    voice:"fr-FR-BrigitteNeural"
   },
   en: {
     slug:"en",
@@ -41,6 +43,7 @@ const languages = {
     btn_title_change: "Am thinking...",
     note: "",
     mic:"en-US",
+    voice:"en-US-AriaNeural"
   },
   da: {
     slug:"da",
@@ -51,7 +54,8 @@ const languages = {
     btn_title: "Jawbni",
     btn_title_change: "ana kankfr.....",
     note: "mola7da:darija ba9i khdam 3liha",
-    mic:"ar-SA",
+    mic:"ar-MA",
+    voice:"ar-MA-MounaNeural"
   },
   ch: {
     slug:"ch",
@@ -62,16 +66,23 @@ const languages = {
     btn_title: "回答",
     btn_title_change: "我在想....",
     note: "注意：使用中文",
-    mic:"zh-CH",
+    mic:"zh-CN",
+    voice:"zh-CN-XiaoxiaoNeural"
   },
 };
+
+
+
+
 export default function Home() {
 
 
   
   //better to user Context
   const [language, setLanguage] = useState(languages["en"]);
-  
+  //history
+  const [answers,setAnswers]=useState([]);
+
   return (
     <div className="top">
       <Head>
@@ -81,8 +92,12 @@ export default function Home() {
 
       <main className={styles.main}>
         <LoadingScreen time={1000}/>
+        <div style={{display:"flex",justifyContent:"space-between",flexDirection:"row",width:100+"vw"}}>
+
+        <History answers={answers} setAnswers={setAnswers}></History>
         <Language languages={languages} selected_language={language} setLanguage={setLanguage}  />
-        <Content language={language} />
+        </div>
+        <Content language={language} setAnswers={setAnswers} />
         
       </main>
     </div>

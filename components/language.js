@@ -1,3 +1,4 @@
+import { use, useEffect,useRef } from "react";
 import styles from "../pages/index.module.css";
 
 const border={
@@ -5,6 +6,11 @@ const border={
 }
 function Language({ languages, selected_language, setLanguage }) {
   
+  const img=useRef(null)
+  useEffect(()=>{
+    document.querySelector("#ul").style.display="none"
+    img.current.style.transform="rotate(0deg)"
+  },[selected_language])
   function showMenu(source) {
     const hiddenOptions = source.target.parentElement.childNodes[1];
     if (
@@ -29,10 +35,10 @@ function Language({ languages, selected_language, setLanguage }) {
               className={styles.flag}
             ></img>
             <span>{selected_language.slug}</span>
-            <img src="/arrow dropdown.png" className={styles.dropdown}></img>
+            <img src="/arrow dropdown.png" className={styles.dropdown} ref={img}></img>
           </div>
 
-          <ul className={styles.unselected_languages}>
+          <ul className={styles.unselected_languages} id="ul">
             {Object.keys(languages).map((e, i,arr) => {
               if (e != selected_language.slug)
                 return (
