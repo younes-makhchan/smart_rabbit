@@ -32,7 +32,7 @@ function RabbitAnswer({ answer, language,setAlreadyPlayed,alreadyPlayed }) {
     </voice>
     </speak>`;
     try{
-      let response=await axios.post("http://smart-rabbit.netlify.app/api/azuretoken");
+      let response=await axios.post("https://smart-rabbit.netlify.app/api/azuretoken");
       token=response.data.token;
     }catch(error){
       console.log(error)

@@ -27,7 +27,7 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
       let token
       
       try{
-           const response=await axios.get(`http://smart-rabbit.netlify.app/api/azuretoken`)
+           const response=await axios.get(`https://smart-rabbit.netlify.app/api/azuretoken`)
              token=response.data.token;
          }catch(error){
            console.error(error);
