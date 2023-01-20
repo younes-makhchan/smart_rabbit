@@ -1,10 +1,10 @@
 import styles from "../pages/index.module.css";
 import { BarLoader } from "react-spinners";
 import { useState, useEffect } from "react";
-
+import axios from "axios"
 
 function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
-  
+ 
   //for mic
   const[listening,setListening]=useState(false);
   //for the spinner
@@ -13,25 +13,37 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
   //form input
   const [animalInput, setAnimalInput] = useState("");
   const sdk = require("microsoft-cognitiveservices-speech-sdk");
-  const subscriptionKey= process.env.SPEECH_KEY;
-  const region= process.env.SPEECH_REGION;
 
   useEffect(() => {
     setResult(language.smart_rabbit_opening);
   }, [language]);
-  function record(source){
-    if(!listening){
 
+  async function record(source){
+   
+
+    
+    if(!listening){
+      
+      let token
+      
+      try{
+           const response=await axios.get(`http://smart-rabbit.netlify.app/api/azuretoken`)
+             token=response.data.token;
+         }catch(error){
+           console.error(error);
+           alert(error.message);
+         }
       setListening(true)
-      console.log
-      var speechConfig = sdk.SpeechConfig.fromSubscription(
-       subscriptionKey,
-       region
+
+      var speechConfig = sdk.SpeechConfig.fromAuthorizationToken(
+       token,
+       "francecentral"
       );
       speechConfig.speechRecognitionLanguage = language.mic;
       var audioConfig  = sdk.AudioConfig.fromDefaultMicrophoneInput();
       let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
-  
+    
+        //on the end  setSpeaking(false)
       recognizer.recognizeOnceAsync(
         function (result) {
           // startRecognizeOnceAsyncButton.disabled = false;

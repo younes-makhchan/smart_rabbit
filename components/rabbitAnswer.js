@@ -1,6 +1,7 @@
 import Typewriter from "typewriter-effect";
 import { createElement, useEffect, useRef, useState } from "react";
 import styles from "../pages/index.module.css";
+import axios from "axios";
 // import sdk from "microsoft-cognitiveservices-speech-sdk";
 
 function RabbitAnswer({ answer, language,setAlreadyPlayed,alreadyPlayed }) {
@@ -22,16 +23,22 @@ function RabbitAnswer({ answer, language,setAlreadyPlayed,alreadyPlayed }) {
     setCount(count+1);
   },[answer])
   
-  function loadVoice(){
+  async function loadVoice(){
+    let token;
     let audio=document.querySelector("audio")
     let smml = `<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
     <voice name="${language.voice}">
     <prosody rate="15%" pitch="44%">${answer}</prosody>
     </voice>
     </speak>`;
-
+    try{
+      let response=await axios.post("http://smart-rabbit.netlify.app/api/azuretoken");
+      token=response.data.token;
+    }catch(error){
+      console.log(error)
+    }
   var speechConfig;
-  speechConfig = sdk.SpeechConfig.fromSubscription("7b1ff9228c8a40a389ff89dd1eef41aa", "francecentral");
+  speechConfig = sdk.SpeechConfig.fromAuthorizationToken(token, "francecentral");
   speechConfig.speechSynthesisVoiceName = "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)";
   speechConfig.speechSynthesisOutputFormat = "Audio24Khz160KBitRateMonoMp3";
 

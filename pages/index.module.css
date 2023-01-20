@@ -352,6 +352,7 @@
  * For mobile!
  * */
 @media (max-width: 768px) {
+  
   .card {
     max-width: 375;
   }
@@ -390,12 +391,17 @@
   }
 }
 
-@media (max-height:800px) {
+@media (max-height:650px) {
   .main .content_wrapper{
   
     margin-top: 5vh !important;
   
   
+  }
+}
+@media (max-width:430px) {
+  .main .wrapper .img {
+    left: -80px !important;
   }
 }
 /*
@@ -626,7 +632,7 @@
   border-radius: 5px;
   position: absolute;
   width: 72px;
-  left: -88px;
+  left: -90px;
   top: -43px;
 }
 
