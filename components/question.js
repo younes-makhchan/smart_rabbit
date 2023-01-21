@@ -3,7 +3,7 @@ import { BarLoader } from "react-spinners";
 import { useState, useEffect } from "react";
 import axios from "axios"
 
-function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
+function Question({ language,setResult,setAlreadyPlayed,setAnswers,setRabbitMode}) {
  
   //for mic
   const[listening,setListening]=useState(false);
@@ -24,21 +24,24 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
     
     if(!listening){
       
-      let token
+      let region,subscriptionKey;
       
       try{
            const response=await axios.get(`https://smart-rabbit.netlify.app/api/azuretoken`)
-             token=response.data.token;
+             region=response.data.region;
+             subscriptionKey=response.data.subscriptionKey;
+             console.log(response.data);
          }catch(error){
            console.error(error);
            alert(error.message);
          }
       setListening(true)
 
-      var speechConfig = sdk.SpeechConfig.fromAuthorizationToken(
-       token,
-       "francecentral"
+      var speechConfig = sdk.SpeechConfig.fromSubscription(
+       subscriptionKey,
+       region
       );
+
       speechConfig.speechRecognitionLanguage = language.mic;
       var audioConfig  = sdk.AudioConfig.fromDefaultMicrophoneInput();
       let recognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
@@ -117,6 +120,7 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
 
       setAlreadyPlayed(false)
       setLoadingAnswer(false);
+      setRabbitMode("idle")
       setResult(data.result);
       setAnimalInput("");
     } catch (error) {
@@ -140,7 +144,8 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
               // placeholder={language["placeholder"]}
               placeholder=""
               value={animalInput}
-              onChange={(e) => setAnimalInput(e.target.value)}
+              
+              onChange={(e) => {setAnimalInput(e.target.value);if(e.target.value!=='')setRabbitMode("question");else setRabbitMode("idle")}}
             />
             <button
               type="button"
@@ -153,7 +158,7 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers}) {
           <i>{language.note}</i>
         </div>
 
-        <button type="submit" onClick={() => animalInput!=''?setLoadingAnswer(true):undefined}>
+        <button type="submit" onClick={() => {if(animalInput!=''){setLoadingAnswer(true);setRabbitMode("searching")}}}>
           {loadingAnswer ? (
             <BarLoader color="#fff" size={15} speedMultiplier={0.5} />
           ) : (

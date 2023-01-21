@@ -43,7 +43,7 @@ const languages = {
     btn_title_change: "Am thinking...",
     note: "",
     mic:"en-US",
-    voice:"en-US-Davisneural"
+    voice:"en-US-JaneNeural"
   },
   da: {
     slug:"da",

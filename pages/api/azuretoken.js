@@ -34,18 +34,20 @@ export default async function (req, res) {
   }
 
   try {
-    const headers={
-        headers:{
-          'Content-Type': 'application/x-www-form-urlencoded',
-        "Ocp-Apim-Subscription-Key":subscriptionKey
+    //token
+  //   const headers={
+  //       headers:{
+  //         'Content-Type': 'application/x-www-form-urlencoded',
+  //       "Ocp-Apim-Subscription-Key":subscriptionKey
 
-        }
-    }
-      const response=await axios.post(`https://${region}.api.cognitive.microsoft.com/sts/v1.0/issueToken`,null,headers)
-     console.log(response)
+  //       }
+  //   }
+  //     const response=await axios.post(`https://${region}.api.cognitive.microsoft.com/sts/v1.0/issueToken`,null,headers)
+  //    console.log(response)
     
-   // request  of token here
-   res.status(200).json({ token: response.data })
+  //  // request  of token here
+  //  res.status(200).json({ token: response.data })
+   res.status(200).json({ region: region,subscriptionKey:subscriptionKey })
   } catch (error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {

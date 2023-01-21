@@ -12,8 +12,10 @@ function Content({ language,setAnswers }) {
   const [result, setResult] = useState(language.smart_rabbit_opening);
   //for the sound
   const [alreadyPlayed,setAlreadyPlayed]=useState(false)
+  //three options :idle,question,searching
+  let [rabbiteMode,setRabbitMode]=useState("idle")
 
-
+  
   useEffect(() => {
     setResult(language.smart_rabbit_opening);
   }, [language]);
@@ -32,8 +34,8 @@ function Content({ language,setAnswers }) {
         </h3>
       </div>
       
-       <Question language={language} setAnswers={setAnswers} setResult={setResult} setAlreadyPlayed={setAlreadyPlayed} ></Question>
-      <RabbitAnswer answer={result} language={language} setAlreadyPlayed={setAlreadyPlayed} alreadyPlayed={alreadyPlayed} />
+       <Question language={language} setAnswers={setAnswers} setResult={setResult} setAlreadyPlayed={setAlreadyPlayed} setRabbitMode={setRabbitMode} ></Question>
+      <RabbitAnswer answer={result} language={language} setAlreadyPlayed={setAlreadyPlayed} alreadyPlayed={alreadyPlayed} rabbiteMode={rabbiteMode} />
     </>
   );
 }
