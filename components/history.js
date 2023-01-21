@@ -63,7 +63,7 @@ function History({answers,setAnswers}) {
         <div className={styles.card}>
           <ul className={styles.timeline} style={{display:answers.length>0?"block":"none"}}>
         {  answers.length>0?
-            answers.map((answer,i)=>{
+            answers.slice().reverse().map((answer,i)=>{
                     return (
                         <li key={i} className={styles.timeline__item}>
               <div className={styles.timeline__step}>

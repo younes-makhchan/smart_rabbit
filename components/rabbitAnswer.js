@@ -64,9 +64,9 @@ function RabbitAnswer({ answer, language,setAlreadyPlayed,alreadyPlayed,rabbiteM
     synthesizer.close();
     
     let url = window.URL.createObjectURL(new window.Blob([e.result.audioData]));
-    console.log(url);
+    // console.log(url);
     audio.src=url;
-    console.log(audio);
+    // console.log(audio);
  audio.addEventListener("ended",(event)=>{console.log("ended");setSpeaking(false)})
     };
     synthesizer.speakSsmlAsync(smml);
