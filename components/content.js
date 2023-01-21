@@ -1,4 +1,5 @@
 import styles from "../pages/index.module.css";
+import Image from "next/image"
 import { useState, useEffect } from "react";
 import RabbitAnswer from "./rabbitAnswer";
 import Question from "./question";
@@ -30,7 +31,7 @@ function Content({ language,setAnswers }) {
       <div>
         <h3>
           {language.title}
-          <img src="carrot-min.png" className={styles.img}></img>
+          <Image src="/carrot-min.png" alt="carrot" className={styles.carrot} width="75" height="75"/>
         </h3>
       </div>
       

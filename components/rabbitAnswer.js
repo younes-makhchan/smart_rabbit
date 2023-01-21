@@ -20,9 +20,7 @@ function RabbitAnswer({ answer, language,setAlreadyPlayed,alreadyPlayed,rabbiteM
      
   }, []);
   useEffect(()=>{
-   loadVoice();
-    console.log(count)
-    setCount(count+1);
+   loadVoice(); 
   },[answer])
   
   async function loadVoice(){

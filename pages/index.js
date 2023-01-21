@@ -88,6 +88,7 @@ export default function Home() {
       <Head>
         <title>{language.title}</title>
         <link rel="icon" href="/rabbit_header_orange-min.png" />
+        <meta name="google-site-verification" content="cxDrYFXhDCAmz5Q8d5oDPB4InJrVVgCxYDnRUZlZJvk" />
       </Head>
 
       <main className={styles.main}>

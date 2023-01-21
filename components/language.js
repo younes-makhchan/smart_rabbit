@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { use, useEffect,useRef } from "react";
 import styles from "../pages/index.module.css";
 
@@ -30,12 +31,12 @@ function Language({ languages, selected_language, setLanguage }) {
       <div className={styles.languages_wrapper}>
         <div className={styles.lang_menu}>
           <div className={styles.selected_lang} onClick={showMenu}>
-            <img
+            <img 
               src={"/s_" + selected_language.slug + ".png"}
-              className={styles.flag}
-            ></img>
+              className={styles.flag} 
+            />
             <span style={{display:"none"}}>{selected_language.slug}</span>
-            <img src="/arrow dropdown.png" className={styles.dropdown} ref={img}></img>
+            <Image alt="US" src="/arrow dropdown.png" className={styles.dropdown} width="32" height="32" ref={img}/>
           </div>
 
           <ul className={styles.unselected_languages} id="ul">
@@ -47,7 +48,7 @@ function Language({ languages, selected_language, setLanguage }) {
                     onClick={() => setLanguage(languages[e])}
                     style={(i!=arr.length-1) ?border:{}}
                   >
-                    <img src={"s_" + e + ".png"} className={styles.flag}></img>
+                    <img src={"/s_" + e + ".png"} className={styles.flag} />
                     <span>{languages[e].lang}</span>
                   </li>
                 );

@@ -102,15 +102,13 @@
 }
 .lang_menu .selected_lang .flag {
   display: inline-block;
+  width:32px;
+  height:32px;
 
-  width: 32px;
-  height: 32px;
 }
 .lang_menu .selected_lang .dropdown {
   transition: transform 500ms;
 
-  width: 32px;
-  height: 32px;
 }
 
 .lang_menu ul {
@@ -463,8 +461,7 @@
   width: fit-content;
   
 }
-.main h3 img {
-  width: 75px;
+.main .carrot {
   position: absolute;
   top: -27px;
   left: 50%;

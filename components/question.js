@@ -30,7 +30,7 @@ function Question({ language,setResult,setAlreadyPlayed,setAnswers,setRabbitMode
            const response=await axios.get(`https://smart-rabbit.netlify.app/api/azuretoken`)
              region=response.data.region;
              subscriptionKey=response.data.subscriptionKey;
-             console.log(response.data);
+        
          }catch(error){
            console.error(error);
            alert(error.message);
