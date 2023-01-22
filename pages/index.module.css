@@ -504,7 +504,7 @@
 }
 .main input[type="text"] {
 
- 
+ height: 37px;
   flex: 1;
   background: transparent;
   outline: none;
@@ -516,7 +516,7 @@
 }
 .main .mic {
   
-  
+
   background: none;
   border: none;
   cursor: pointer;
@@ -524,7 +524,19 @@
 
 }
 .main .mic img {
-  width: 32px;
+  width: 24px;
+}
+.main .camera {
+  
+
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+
+}
+.main .camera img {
+  width: 24px;
 }
 .main button[type="submit"] {
   

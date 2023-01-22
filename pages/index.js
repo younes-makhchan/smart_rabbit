@@ -65,10 +65,34 @@ const languages = {
     placeholder: "你的问题是什么？",
     btn_title: "回答",
     btn_title_change: "我在想....",
-    note: "注意：使用中文",
+    note: "注意 ：使用中文",
     mic:"zh-CN",
     voice:"zh-CN-XiaoxiaoNeural"
   },
+  kr:{
+    slug:"kr",
+    lang: "korean",
+    smart_rabbit_opening: "이봐, 나에게 질문이 있니?",
+    title: "똑똑한 토끼",
+    placeholder: "당신의 질문은 무엇입니까?",
+    btn_title: "대답",
+    btn_title_change: "생각하고 있습니다 ...",
+    note: "사용하다 : 한국어",
+    mic:"ko-KR",
+    voice:"ko-KR-SunHiNeural"
+  },
+  jp: {
+    slug:"jp",
+    lang: "japanese",
+    smart_rabbit_opening: "ねえ、私に質問がありますか?",
+    title: "スマートラビット",
+    placeholder: "あなたの質問は何ですか?",
+    btn_title: "答える",
+    btn_title_change: "考えています...",
+    note: "用途 : 日本語",
+    mic:"ja-JP",
+    voice:"ja-JP-AoiNeural"
+  }
 };
 
 

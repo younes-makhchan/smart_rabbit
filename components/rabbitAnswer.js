@@ -15,12 +15,13 @@ function RabbitAnswer({ answer, language,setAlreadyPlayed,alreadyPlayed,rabbiteM
   useEffect(() => {
     resultBox.current.style =
       "max-height:" +
-      (window.innerHeight - resultBox.current.getBoundingClientRect().y - 100) +
+      (window.innerHeight - resultBox.current.getBoundingClientRect().y - 95) +
       "px";
      
   }, []);
   useEffect(()=>{
-   loadVoice(); 
+  //  loadVoice(); 
+   console.log("changed")
   },[answer])
   
   async function loadVoice(){
@@ -31,7 +32,8 @@ function RabbitAnswer({ answer, language,setAlreadyPlayed,alreadyPlayed,rabbiteM
     <prosody rate="5%" pitch="20%">${answer}</prosody>
     </voice>
     </speak>`;
-   
+    console.log(smml)
+
     try{
       let response=await axios.post("https://smart-rabbit.netlify.app/api/azuretoken");
       subscriptionKey=response.data.subscriptionKey;

@@ -1,6 +1,7 @@
 import styles from "../pages/index.module.css";
 import { BarLoader } from "react-spinners";
 import { useState,useRef, useEffect } from "react";
+import { Capacitor } from '@capacitor/core';
 import axios from "axios";
 
 function Question({
@@ -33,9 +34,15 @@ function Question({
     subscribe();
   }, []);
   async function subscribe() {
+    let url;
+    if(Capacitor.isNativePlatform()){
+      url="srm-nine.vercel.app";
+    }else{
+      url=window.location.href.indexOf("netlify")>-1? "smart-rabbit.netlify.app":"srm-nine.vercel.app";
+    }
     try {
       const response = await axios.get(
-        `https://smart-rabbit.netlify.app/api/azuretoken`
+        `https://${url}/api/azuretoken`
       );
       region = response.data.region;
       subscriptionKey = response.data.subscriptionKey;
@@ -148,7 +155,9 @@ function Question({
       recognizer.stopContinuousRecognitionAsync();
     }
   }
-
+  function camera(){
+    
+  }
   async function onSubmit(event) {
     if (!event.detail || event.detail == 1) {
       //activate on first click only to avoid hiding again on multiple clicks
@@ -251,6 +260,9 @@ function Question({
             <button type="button" className={styles.mic} onClick={record}>
               <img src={listening ? "stop_circle.svg" : "mic_off.svg"} />
             </button>
+            {/* <button type="button" className={styles.camera} onClick={camera}>
+              <img src={"camera.svg"} />
+            </button> */}
           </div>
           <i>{language.note}</i>
         </div>
