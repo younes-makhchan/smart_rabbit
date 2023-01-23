@@ -101,18 +101,21 @@ function Voice ({answer,voice,setRabbitMode}){
       }
       
       async function play(source) {
-        let audio=document.querySelector("audio")
-        if(!speaking){
-             
-                audio.play();
-    
-              setRabbitMode("speaking")
-              setSpeaking(true);
-        }else if(speaking){
-          setRabbitMode("idle")
-          audio.currentTime=0;
-          audio.pause();
-          setSpeaking(false);
+        if(!laoding){
+            let audio=document.querySelector("audio")
+            if(!speaking){
+                
+                    audio.play();
+        
+                  setRabbitMode("speaking")
+                  setSpeaking(true);
+            }else if(speaking){
+              setRabbitMode("idle")
+              audio.currentTime=0;
+              audio.pause();
+              setSpeaking(false);
+            }
+
         }
      
     
