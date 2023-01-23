@@ -91,7 +91,7 @@ const languages = {
     btn_title_change: "考えています...",
     note: "用途 : 日本語",
     mic:"ja-JP",
-    voice:"ja-JP-AoiNeural"
+    voice:"ja-JP-NanamiNeural"
   }
 };
 

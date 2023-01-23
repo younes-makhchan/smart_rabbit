@@ -1,7 +1,9 @@
 import styles from "../pages/index.module.css";
 import Image from "next/image"
+import sdk from "microsoft-cognitiveservices-speech-sdk";
 import { useState, useEffect } from "react";
 import RabbitAnswer from "./rabbitAnswer";
+import RabbitLens from "./rabbitLens";
 import Question from "./question";
 
 
@@ -34,9 +36,8 @@ function Content({ language,setAnswers }) {
           <Image src="/carrot-min.png" alt="carrot" className={styles.carrot} width="75" height="75"/>
         </h3>
       </div>
-      
        <Question language={language} setAnswers={setAnswers} setResult={setResult} setAlreadyPlayed={setAlreadyPlayed} setRabbitMode={setRabbitMode} ></Question>
-      <RabbitAnswer answer={result} language={language} setAlreadyPlayed={setAlreadyPlayed} alreadyPlayed={alreadyPlayed} rabbiteMode={rabbiteMode} />
+      <RabbitAnswer answer={result} language={language} setAlreadyPlayed={setAlreadyPlayed} alreadyPlayed={alreadyPlayed} rabbiteMode={rabbiteMode} setRabbitMode={setRabbitMode} />
     </>
   );
 }

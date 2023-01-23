@@ -1,8 +1,7 @@
 import styles from "../pages/index.module.css";
 import { BarLoader } from "react-spinners";
-import { useState,useRef, useEffect } from "react";
-import { Capacitor } from '@capacitor/core';
-import axios from "axios";
+import { useState, useRef, useEffect } from "react";
+import Record  from "./record.";
 
 function Question({
   language,
@@ -11,17 +10,15 @@ function Question({
   setAnswers,
   setRabbitMode,
 }) {
-  //for mic
-  const [listening, setListening] = useState(false);
   //for the spinner
   const [loadingAnswer, setLoadingAnswer] = useState(false);
-  const [recognizer, setRecognizer] = useState({});
-
+  const [selectedFile, setSelectedFile] = useState();
+  const [SelectedImage, setSelectedImage] = useState();
   //for the result&answer
   //form input
   const [animalInput, setAnimalInput] = useState("");
-  const sdk = require("microsoft-cognitiveservices-speech-sdk");
-  const input=useRef();
+  const input = useRef();
+  const file = useRef();
   useEffect(() => {
     setResult(language.smart_rabbit_opening);
   }, [language]);
@@ -29,135 +26,70 @@ function Question({
     if (animalInput !== "") setRabbitMode("question");
     else setRabbitMode("idle");
   }, [animalInput]);
-  let region, subscriptionKey;
-  useEffect(() => {
-    subscribe();
-  }, []);
-  async function subscribe() {
-    let url;
-    if(Capacitor.isNativePlatform()){
-      url="srm-nine.vercel.app";
-    }else{
-      url=window.location.href.indexOf("netlify")>-1? "smart-rabbit.netlify.app":"srm-nine.vercel.app";
-    }
-    try {
-      const response = await axios.get(
-        `https://${url}/api/azuretoken`
-      );
-      region = response.data.region;
-      subscriptionKey = response.data.subscriptionKey;
-
-      var speechConfig = sdk.SpeechConfig.fromSubscription(
-        subscriptionKey,
-        region
-      );
-      speechConfig.speechRecognitionLanguage = language.mic;
-      var audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
-      setRecognizer(new sdk.SpeechRecognizer(speechConfig, audioConfig));
-   
-    } catch (error) {
-      console.error(error);
-      alert(error.message);
-    }
-  }
-  function append(text){
-      // it's working very nice
-    // eies nice it's working it's working
- 
-    
 
 
-  }
-  async function record(source) {
-    if (!listening) {
-        //no pause just keep talkin
-      // let a=input.current.value
-      // recognizer.recognizing = (s, e) => {
-      //   console.log(e.result)
-      //   input.current.value=a+e.result.text;
-      //   setRabbitMode("question")
-      // };
-      // recognizer.recognized = (s, e) => {
-      //   if (e.result.reason == sdk.ResultReason.RecognizedSpeech) {
-      //     console.log(e.result)
-      //     console.log(`RECOGNIZED: Text=${e.result.text},animalInput `+animalInput);
-      //     // input.current.value+=e.result.text;
-      //     a=input.current.value;
-          
-      //     // setListening(false);
-      //     // recognizer.stopContinuousRecognitionAsync();
-      //   } 
-      // };
 
-      // recognizer.canceled = (s, e) => {
-      //   console.log(`CANCELED: Reason=${e.reason}`);
+  // function dataURItoBlob(dataURI) {
+  //   // convert base64 to raw binary data held in a string
+  //   // doesn't handle URLEncoded DataURIs - see SO answer #6850276 for code that does this
+  //   var byteString = atob(dataURI.split(",")[1]);
 
-      //   if (e.reason == sdk.CancellationReason.Error) {
-      //     console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
-      //     console.log(`"CANCELED: ErrorDetails=${e.errorDetails}`);
-      //     console.log(
-      //       "CANCELED: Did you set the speech resource key and region values?"
-      //     );
-      //   }
+  //   // separate out the mime component
+  //   var mimeString = dataURI.split(",")[0].split(":")[1].split(";")[0];
 
-      //   recognizer.stopContinuousRecognitionAsync();
-      // };
+  //   // write the bytes of the string to an ArrayBuffer
+  //   var ab = new ArrayBuffer(byteString.length);
 
-      // recognizer.sessionStopped = (s, e) => {
-      //   console.log("\n    Session stopped event.");
-      //   setAnimalInput(input.current.value)
-      //   setListening(false);
-      //   recognizer.stopContinuousRecognitionAsync();
-      // };
- 
+  //   // create a view into the buffer
+  //   var ia = new Uint8Array(ab);
 
-      recognizer.recognizing = (s, e) => {
-        console.log(e.result)
-        setAnimalInput(animalInput+e.result.text)
-    
-      };
-      recognizer.recognized = (s, e) => {
-        if (e.result.reason == sdk.ResultReason.RecognizedSpeech) {
-          console.log(e.result)
-          console.log(`RECOGNIZED: Text=${e.result.text},animalInput `+animalInput);
-          setAnimalInput(animalInput+e.result.text)
-          setListening(false);
-          recognizer.stopContinuousRecognitionAsync();
-        } 
-      };
+  //   // set the bytes of the buffer to the correct values
+  //   for (var i = 0; i < byteString.length; i++) {
+  //     ia[i] = byteString.charCodeAt(i);
+  //   }
 
-      recognizer.canceled = (s, e) => {
-        console.log(`CANCELED: Reason=${e.reason}`);
+  //   // write the ArrayBuffer to a blob, and you're done
+  //   var blob = new Blob([ab], { type: mimeString });
+  //   return blob;
+  // }
 
-        if (e.reason == sdk.CancellationReason.Error) {
-          console.log(`"CANCELED: ErrorCode=${e.errorCode}`);
-          console.log(`"CANCELED: ErrorDetails=${e.errorDetails}`);
-          console.log(
-            "CANCELED: Did you set the speech resource key and region values?"
-          );
-        }
+  // async function createImage({ target }) {
+  //   let imageFile = target;
 
-        recognizer.stopContinuousRecognitionAsync();
-      };
+  //   if (!imageFile.files) {
+  //     return null;
+  //   }
+  //   //our  image
+  //   const file = imageFile.files[0];
+  //   //display image to the client
+  //   const fileReader = new FileReader();
+  //   fileReader.onload = async function () {
+  //     var blob = dataURItoBlob(fileReader.result);
+  //     console.log(blob);
+  //     const response = await axios.post(
+  //       "https://francecentral.api.cognitive.microsoft.com/vision/v3.2/ocr?language=unk&detectOrientation=true&model-version=latest",
+  //       blob,
+  //       {
+  //         headers: {
+  //           "Ocp-Apim-Subscription-Key": "7cb8a95d91ae4eccaade90e96de1b12b",
+  //           "Content-Type": "application/octet-stream",
+  //         },
+  //       }
+  //     );
+  //     const data=response.data;
+  //     console.log(data)
+  //   };
+  //    fileReader.readAsDataURL(file);
+  
+  
+  
+  
+  
+  
+  
+  
+  //   }
 
-      recognizer.sessionStopped = (s, e) => {
-        console.log("\n    Session stopped event.");
-        setListening(false);
-        recognizer.stopContinuousRecognitionAsync();
-      };
- 
-
-      console.log("started");
-      recognizer.startContinuousRecognitionAsync();
-      setListening(true);
-    } else if (listening) {
-      console.log("stop");
-      recognizer.stopContinuousRecognitionAsync();
-    }
-  }
-  function camera(){
-    
-  }
   async function onSubmit(event) {
     if (!event.detail || event.detail == 1) {
       //activate on first click only to avoid hiding again on multiple clicks
@@ -172,6 +104,7 @@ function Question({
           "https://smart-rabbit.netlify.app/api/generate",
           {
             method: "POST",
+            mode:"cors",
             headers: {
               "Content-Type": "application/json",
               "Access-Control-Allow-Methods": "POST",
@@ -191,11 +124,12 @@ function Question({
             new Error(`Request failed with status ${response.status}`)
           );
         }
-        const index = data.result.lastIndexOf(".");
+        // const index = data.result.lastIndexOf(".");
 
-        if (index > 0 && language.lang == "arabic") {
-          data.result = data.result.slice(0, index + 1);
-        }
+        // if (index > 0 &&  ) {
+
+        //   data.result = data.result.slice(0, index + 1);
+        // }
         //answer succes
 
         if (localStorage.getItem("answers") == null) {
@@ -257,11 +191,19 @@ function Question({
                 setAnimalInput(e.target.value);
               }}
             />
-            <button type="button" className={styles.mic} onClick={record}>
-              <img src={listening ? "stop_circle.svg" : "mic_off.svg"} />
-            </button>
-            {/* <button type="button" className={styles.camera} onClick={camera}>
+           <Record setAnimalInput={setAnimalInput} animalInput={animalInput} language={language}></Record>
+            {/* <button
+              type="button"
+              className={styles.camera}
+              onClick={() => file.current.click()}
+            >
               <img src={"camera.svg"} />
+              <input
+                type="file"
+                ref={file}
+                onChange={createImage}
+                style={{ display: "none" }}
+              />
             </button> */}
           </div>
           <i>{language.note}</i>

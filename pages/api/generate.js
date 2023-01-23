@@ -76,6 +76,8 @@ function generatePrompt(animal, language) {
     }
     let prompt ={
       eng: "The following is a conversation between a muslim kid and a muslim Smart Rabbit.The Rabbit is Smart,very friendly that lives in wonderland and answers questions with good and a little funny responses that are suitable for kids.The smart Rabbit tries to avoid the adult questions including Homosexuality.",
+      kr: "다음은 이슬람 아이와 이슬람 스마트 토끼의 대화입니다. 이상한 나라에 사는 토끼는 영리하고 매우 친근하며 아이들에게 적합한 좋은 답변과 약간 재미있는 답변으로 질문에 대답합니다. 똑똑한 토끼는 어른을 피하려고 합니다. 동성애를 포함한 질문.",
+      jp: "以下は、ムスリムの子供とムスリムの賢いうさぎの会話です。うさぎは頭が良く、不思議の国に住んでいるとてもフレンドリーで、子供に適した良い反応と少し面白い反応で質問に答えます。賢いうさぎは大人を避けようとします。 同性愛を含む質問。",
       ar:"فيما يلي محادثة بين طفل مسلم وأرنب مسلم ذكي. الأرنب  ذكي  وودود للغاية يعيش في أرض العجائب ويجيب على الأسئلة بإجابات جيدة ومضحكة قليلاً مناسبة للأطفال. يحاول الأرنب الذكي تجنب أسئلة البالغين بما في ذلك الشذوذ الجنسي. ",
       darija:"The following is a conversation between a mkid and a Smart Rabbit.they use morrocan darija in this conversation. The Rabbit is Smart,very friendly that lives in wonderland and answers questions with good and a little funny responses that are suitable for kids.The smart Rabbit tries to avoid the adult questions including Homosexuality ",
       fr:"Ce qui suit est une conversation entre un enfant musulman et un lapin intelligent musulman. Le lapin est intelligent, très sympathique qui vit au pays des merveilles et répond aux questions avec de bonnes réponses un peu drôles qui conviennent aux enfants. Le lapin intelligent essaie d'éviter questions d'adultes, y compris l'homosexualité.",
@@ -106,6 +108,18 @@ function generatePrompt(animal, language) {
     聪明的兔子：你好，有什么我可以帮助你的? 
     孩子: ${capitalizedAnimal}.  
     聪明的兔子: `;
+  } else if(language=="korean"){
+    return `${prompt.eng}
+    아이: 안녕하세요 똑똑한 토끼입니다.
+    똑똑한 토끼: 안녕하세요, 제가 무엇을 도와드릴까요?.
+    어린이:${capitalizedAnimal}.
+    똑똑한 토끼: `;
+  }else if(language=="japanese"){
+    return `${prompt.eng}
+    子供:こんにちはスマート ラビット。
+    賢いうさぎ : こんにちは、子供のことで何ができますか?
+    子供：${capitalizedAnimal} 。
+    賢いうさぎ: ; `;
   }
   else{
     return `${prompt.eng}
@@ -113,6 +127,8 @@ function generatePrompt(animal, language) {
     Smart rabbit : Hello, what i can help you with kid ?. 
     Kid: ${capitalizedAnimal}.  
     Smart rabbit: `;
+ 
+    
   }
 }
 // function generatePrompt(animal) {

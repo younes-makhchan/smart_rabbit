@@ -453,7 +453,7 @@
   padding: 15px;
   position: relative;
   line-height: 40px;
-  font-weight: bold;
+  font-weight: normal;
   color: white;
   background: #fb942d;
   border-radius: 5px;
@@ -601,6 +601,7 @@
   width: 63vw;
   max-width: 450px;
   padding: 15px;
+  padding-top: 25px;
   padding-right: 25px;
   overflow-y: auto;
 
@@ -608,7 +609,7 @@
 }
 .main .wrapper .speech {
   position: absolute;
-  right: -5px;
+  right: 10px;
   top: 1px;
   background: none;
   outline: none;
@@ -658,7 +659,13 @@
   left: -171px;
   top: -67px;
 }
-
+.main .wrapper .speaking{
+  border-radius: 5px;
+  position: absolute;
+  width: 131px;
+  left: -136px;
+  top: -49px;
+}
 @media (max-width:768px) {
   .main .wrapper .question {
 
@@ -679,6 +686,14 @@
     left: -154px;
     top: -63px;
     width: 183px;
+  }
+
+  .main .wrapper .speaking{
+    border-radius: 5px;
+    position: absolute;
+    width: 115px;
+    left: -116px;
+    top: -48px;
   }
 }
 @media (max-width:425px) {
@@ -705,6 +720,13 @@
   .main .wrapper {
     margin-left: 89px;
   }
+    .main .wrapper .speaking{
+      border-radius: 5px;
+      position: absolute;
+      width: 100px;
+      left: -95px;
+      top: -43px;
+    }
 
 }
 .main .label {
@@ -868,4 +890,101 @@
   90% {
     transform: translate(0, 0);
   }
+}
+
+
+/**********Rabbit Lens***********/
+
+
+.lens{
+  position: absolute;
+  top: 15vh;
+  z-index: 100;
+  padding: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+
+
+}
+.lens .lens_close_wrapper  {
+  display: flex;
+    justify-content: flex-end;
+}
+.lens .lens_close_wrapper button{
+  
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+}
+.lens .lens_close_wrapper button img{
+
+  width: 32px;
+
+}
+.lens .image_wrapper img{
+  max-width: 80vw;
+}
+
+.lens .btn_wrapper button{
+  
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgb(45 35 66 / 40%) 0 2px 4px, rgb(45 35 66 / 30%) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding: 0 5px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+  text-transform: uppercase;
+  height: fit-content;
+  padding: 5px;
+  font-family: cartoon;
+  margin-bottom: 15px;
+  padding: 12px;
+  color: rgb(255, 255, 255);
+  background-color: #76c836;
+  border: none;
+  height: 40px;
+  border-radius: 4px;
+  /* width: 60vw; */
+  max-width: 250px;
+  text-align: center;
+  cursor: pointer;
+}
+.lens .btn_wrapper button:focus {
+  box-shadow: #50b753 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
+}
+
+.lens .btn_wrapper button:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.lens .btn_wrapper button:active {
+  box-shadow: #50b753 0 3px 7px inset;
+  transform: translateY(2px);
 }
