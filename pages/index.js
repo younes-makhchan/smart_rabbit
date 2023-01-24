@@ -19,7 +19,8 @@ const languages = {
     btn_title_change: "...الأرنب يفكر",
     note: "",
     mic:"ar-SA",
-    voice:"ar-SA-ZariyahNeural"
+    voice:"ar-SA-ZariyahNeural",
+    err:"إدخال فارغ"
   },
   fr: {
     slug:"fr",
@@ -31,7 +32,8 @@ const languages = {
     btn_title_change: "Le lapin réfléchit...",
     note: "",
     mic:"fr-FR",
-    voice:"fr-FR-BrigitteNeural"
+    voice:"fr-FR-BrigitteNeural",
+    err:"Entrée vide"
   },
   en: {
     slug:"en",
@@ -43,7 +45,8 @@ const languages = {
     btn_title_change: "Am thinking...",
     note: "",
     mic:"en-US",
-    voice:"en-US-JaneNeural"
+    voice:"en-US-JaneNeural",
+    err:"Empty input "
   },
   da: {
     slug:"da",
@@ -55,7 +58,8 @@ const languages = {
     btn_title_change: "ana kankfr.....",
     note: "mola7da:darija ba9i khdam 3liha",
     mic:"ar-MA",
-    voice:"ar-MA-MounaNeural"
+    voice:"ar-MA-MounaNeural",
+    err:"ma3mrtich blast soal"
   },
   ch: {
     slug:"ch",
@@ -79,7 +83,8 @@ const languages = {
     btn_title_change: "생각하고 있습니다 ...",
     note: "사용하다 : 한국어",
     mic:"ko-KR",
-    voice:"ko-KR-SunHiNeural"
+    voice:"ko-KR-SunHiNeural",
+    err:"빈 입력"
   },
   jp: {
     slug:"jp",
@@ -91,7 +96,8 @@ const languages = {
     btn_title_change: "考えています...",
     note: "用途 : 日本語",
     mic:"ja-JP",
-    voice:"ja-JP-NanamiNeural"
+    voice:"ja-JP-NanamiNeural",
+    err:"空の入力"
   }
 };
 
@@ -111,7 +117,7 @@ export default function Home() {
     <div className="top">
       <Head>
         <title>{language.title}</title>
-        <link rel="icon" href="/rabbit_header_orange-min.png" />
+        <link rel="icon" href="/speaking2.gif" />
         <meta name="google-site-verification" content="cxDrYFXhDCAmz5Q8d5oDPB4InJrVVgCxYDnRUZlZJvk" />
       </Head>
 

@@ -107,19 +107,19 @@ function generatePrompt(animal, language) {
     小朋友：你好，聪明的兔子。
     聪明的兔子：你好，有什么我可以帮助你的? 
     孩子: ${capitalizedAnimal}.  
-    聪明的兔子: `;
+    聪明的兔子(中国語で答える): `;
   } else if(language=="korean"){
     return `${prompt.eng}
     아이: 안녕하세요 똑똑한 토끼입니다.
     똑똑한 토끼: 안녕하세요, 제가 무엇을 도와드릴까요?.
     어린이:${capitalizedAnimal}.
-    똑똑한 토끼: `;
+    똑똑한 토끼(한국어로 답하다): `;
   }else if(language=="japanese"){
     return `${prompt.eng}
     子供:こんにちはスマート ラビット。
     賢いうさぎ : こんにちは、子供のことで何ができますか?
     子供：${capitalizedAnimal} 。
-    賢いうさぎ: ; `;
+    賢いうさぎ(日本語で答える): ; `;
   }
   else{
     return `${prompt.eng}

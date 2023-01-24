@@ -96,7 +96,7 @@ function Question({
       // code here. // It will execute only once on multiple clicks
       event.preventDefault();
       if (animalInput == "") {
-        alert("invalid input");
+        alert(language.err);
         return;
       }
       try {
@@ -168,7 +168,7 @@ function Question({
       } catch (error) {
         // Consider implementing your own error handling logic here
         console.error(error);
-        alert(error.message);
+        alert("something is wrong, please contact the Developer younessmakhchane@gmail.com");
       }
     }
   }
