@@ -67,10 +67,20 @@ function Voice ({answer,voice,setRabbitMode}){
           // console.log("new audio")
           // console.log(audio)
           setLaoding(false);
-          audio.addEventListener("ended",(event)=>{setRabbitMode("idle");
-          console.log("ended");setSpeaking(false); 
+          audio.addEventListener("ended",(event)=>{
+            console.log("ended");setSpeaking(false); 
+
+          });
+          audio.addEventListener("timeupdate",(event)=>{
+            console.log("audio playing")
+            console.log(audio.duration,audio.currentTime)
+            if(audio.currentTime>audio.duration-1){
+              console.log('cut');
+              setRabbitMode("idle");
+            }
+          });
           
-        })
+        
           synthesizer.close();
     
           // console.log(audio);
