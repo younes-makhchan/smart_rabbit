@@ -9,14 +9,14 @@ function Voice ({answer,voice,setRabbitMode}){
     const [synthesizer, setSynthesizer] = useState(undefined);
     const [laoding,setLaoding]=useState(true)
     useEffect(()=>{
-            // subscribe();
+            subscribe();
     },[])
     useEffect(()=>{
         setLaoding(true);
        if(synthesizer){
         // console.log(synthesizer);
         
-            // loadVoice();
+            loadVoice();
     }
       },[answer,synthesizer])
 
