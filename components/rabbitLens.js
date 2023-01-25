@@ -170,7 +170,7 @@ function RabbitLens({language,setAnimalInput}) {
         <input
           type="file"
           ref={file}
-          onChange={(e)=>{    console.log("loading image");          ;createImage(e);}}
+          onChange={(e)=>{    console.log("loading image");createImage(e);}}
           style={{ display: "none" }}
         />
       </button>
@@ -182,7 +182,7 @@ function RabbitLens({language,setAnimalInput}) {
          <div className={styles.lens_close_wrapper} >
          <div>
            <h4 className={styles.selection}>
-             Selection Votre phrase:
+              {language.line_selection}
            </h4>
          </div>
            <button type="button" onClick={close}>

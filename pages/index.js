@@ -21,7 +21,8 @@ const languages = {
     mic:"ar-SA",
     voice:"ar-SA-ZariyahNeural",
     err:"إدخال فارغ",
-    history:"التاريخ"
+    history:"التاريخ",
+    line_selection:"حدد الجمل:",
   },
   fr: {
     slug:"fr",
@@ -36,6 +37,7 @@ const languages = {
     voice:"fr-FR-BrigitteNeural",
     err:"Entrée vide",
     history:"Historique",
+    line_selection:"Sélectionnez les phrases:",
   },
   en: {
     slug:"en",
@@ -49,7 +51,8 @@ const languages = {
     mic:"en-US",
     voice:"en-US-JaneNeural",
     err:"Empty input ",
-    history:"History"
+    history:"History",
+    line_selection:"Select sentences:"
   },
   da: {
     slug:"da",
@@ -64,6 +67,7 @@ const languages = {
     voice:"ar-MA-MounaNeural",
     err:"ma3mrtich blast soal",
     history:"tarikh",
+    line_selection:"khrar ljomal:",
   },
   ch: {
     slug:"ch",
@@ -76,7 +80,8 @@ const languages = {
     note: "注意 ：使用中文",
     mic:"zh-CN",
     voice:"zh-CN-XiaoxiaoNeural",
-    history:"历史"
+    history:"历史",
+    line_selection:"选择句子："
   },
   kr:{
     slug:"kr",
@@ -90,7 +95,8 @@ const languages = {
     mic:"ko-KR",
     voice:"ko-KR-SunHiNeural",
     err:"빈 입력",
-    history:"기록"
+    history:"기록",
+    line_selection:"문장 선택:"
   },
   jp: {
     slug:"jp",
@@ -104,7 +110,9 @@ const languages = {
     mic:"ja-JP",
     voice:"ja-JP-NanamiNeural",
     err:"空の入力",
-    history:"履歴"
+    history:"履歴",
+    line_selection:"文を選択:"
+
   }
 };
 
