@@ -1,8 +1,8 @@
 import styles from "../pages/index.module.css";
 import { BarLoader } from "react-spinners";
 import { useState, useRef, useEffect } from "react";
-import Record  from "./record.";
-import axios from "axios"
+import Record from "./record.";
+import axios from "axios";
 import RabbitLens from "./rabbitLens";
 
 function Question({
@@ -30,10 +30,6 @@ function Question({
     else setRabbitMode("idle");
   }, [animalInput]);
 
-
-
-
-
   async function onSubmit(event) {
     if (!event.detail || event.detail == 1) {
       //activate on first click only to avoid hiding again on multiple clicks
@@ -43,28 +39,25 @@ function Question({
         alert(language.err);
         return;
       }
-      console.log("animal input: "+animalInput);
+      console.log("animal input: " + animalInput);
       try {
-        let url=""
+        let url = "";
         if (Capacitor.isNativePlatform()) {
           url = "https://srm-nine.vercel.app";
-        } 
-        const response = await fetch(
-          url+"/api/generate",
-          {
-            method: "POST",
-            mode:"cors",
-            headers: {
-              "Content-Type": "application/json",
-              "Access-Control-Allow-Methods": "POST",
-              "Access-Control-Allow-Headers": "Content-Type",
-            },
-            body: JSON.stringify({
-              animal: animalInput,
-              language: language.lang,
-            }),
-          }
-        );
+        }
+        const response = await fetch(url + "/api/generate", {
+          method: "POST",
+          mode: "cors",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Methods": "POST",
+            "Access-Control-Allow-Headers": "Content-Type",
+          },
+          body: JSON.stringify({
+            animal: animalInput,
+            language: language.lang,
+          }),
+        });
 
         const data = await response.json();
         if (response.status !== 200) {
@@ -112,13 +105,16 @@ function Question({
         setAlreadyPlayed(false);
         setLoadingAnswer(false);
         setRabbitMode("idle");
-        
+
         setResult(data.result);
         try {
-              let response=await axios.post("/api/answer",{question:animalInput,answer:data.result},{headers:{"Content-Type": "application/json"}})
-            console.log(response);
-            }catch(err){
-            console.log(err)
+          let response = await axios.post(
+            url + "/api/answer",
+            { question: animalInput, answer: data.result },
+            { headers: { "Content-Type": "application/json" } }
+          );
+        } catch (err) {
+          console.log(err);
         }
         setAnimalInput("");
       } catch (error) {
@@ -126,7 +122,9 @@ function Question({
         console.error(error);
         setRabbitMode("idle");
         setLoadingAnswer(false);
-        alert("something is wrong, please contact the Developer younessmakhchane@gmail.com");
+        alert(
+          "something is wrong, please contact the Developer younessmakhchane@gmail.com"
+        );
       }
     }
   }
@@ -149,10 +147,16 @@ function Question({
                 setAnimalInput(e.target.value);
               }}
             />
-           <Record setAnimalInput={setAnimalInput} animalInput={animalInput} language={language}></Record>
-        
-            <RabbitLens setAnimalInput={setAnimalInput} language={language}></RabbitLens>
+            <Record
+              setAnimalInput={setAnimalInput}
+              animalInput={animalInput}
+              language={language}
+            ></Record>
 
+            <RabbitLens
+              setAnimalInput={setAnimalInput}
+              language={language}
+            ></RabbitLens>
           </div>
           <i>{language.note}</i>
         </div>
