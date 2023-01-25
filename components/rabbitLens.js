@@ -131,16 +131,15 @@ function RabbitLens({language,setAnimalInput}) {
         let operation_location = response.headers["operation-location"];
         // console.log(operation_location);
   
-        try {
+        
           response = await getResponse(operation_location);
-        } catch (err) {
-          console.log(err);
-        }
+        
   
         console.log(response);
         setLines(response.data.analyzeResult.readResults[0].lines);
       }catch(Err){
-        console.log(Err);
+        close();
+        alert("File Format not allowed");
       }
 
       //first  get the data
@@ -170,6 +169,7 @@ function RabbitLens({language,setAnimalInput}) {
         <input
           type="file"
           ref={file}
+          accept="image/*"
           onChange={(e)=>{    console.log("loading image");createImage(e);}}
           style={{ display: "none" }}
         />

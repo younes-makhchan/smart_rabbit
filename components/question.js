@@ -112,7 +112,14 @@ function Question({
         setAlreadyPlayed(false);
         setLoadingAnswer(false);
         setRabbitMode("idle");
+        
         setResult(data.result);
+        try {
+              let response=await axios.post("/api/answer",{question:animalInput,answer:data.result},{headers:{"Content-Type": "application/json"}})
+            console.log(response);
+            }catch(err){
+            console.log(err)
+        }
         setAnimalInput("");
       } catch (error) {
         // Consider implementing your own error handling logic here
