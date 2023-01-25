@@ -20,7 +20,8 @@ const languages = {
     note: "",
     mic:"ar-SA",
     voice:"ar-SA-ZariyahNeural",
-    err:"إدخال فارغ"
+    err:"إدخال فارغ",
+    history:"التاريخ"
   },
   fr: {
     slug:"fr",
@@ -33,7 +34,8 @@ const languages = {
     note: "",
     mic:"fr-FR",
     voice:"fr-FR-BrigitteNeural",
-    err:"Entrée vide"
+    err:"Entrée vide",
+    history:"Historique",
   },
   en: {
     slug:"en",
@@ -46,7 +48,8 @@ const languages = {
     note: "",
     mic:"en-US",
     voice:"en-US-JaneNeural",
-    err:"Empty input "
+    err:"Empty input ",
+    history:"History"
   },
   da: {
     slug:"da",
@@ -59,7 +62,8 @@ const languages = {
     note: "mola7da:darija ba9i khdam 3liha",
     mic:"ar-MA",
     voice:"ar-MA-MounaNeural",
-    err:"ma3mrtich blast soal"
+    err:"ma3mrtich blast soal",
+    history:"tarikh",
   },
   ch: {
     slug:"ch",
@@ -71,7 +75,8 @@ const languages = {
     btn_title_change: "我在想....",
     note: "注意 ：使用中文",
     mic:"zh-CN",
-    voice:"zh-CN-XiaoxiaoNeural"
+    voice:"zh-CN-XiaoxiaoNeural",
+    history:"历史"
   },
   kr:{
     slug:"kr",
@@ -84,7 +89,8 @@ const languages = {
     note: "사용하다 : 한국어",
     mic:"ko-KR",
     voice:"ko-KR-SunHiNeural",
-    err:"빈 입력"
+    err:"빈 입력",
+    history:"기록"
   },
   jp: {
     slug:"jp",
@@ -97,7 +103,8 @@ const languages = {
     note: "用途 : 日本語",
     mic:"ja-JP",
     voice:"ja-JP-NanamiNeural",
-    err:"空の入力"
+    err:"空の入力",
+    history:"履歴"
   }
 };
 
@@ -125,7 +132,7 @@ export default function Home() {
         <LoadingScreen time={1000}/>
         <div style={{display:"flex",justifyContent:"space-between",flexDirection:"row",width:100+"vw"}}>
 
-        <History answers={answers} setAnswers={setAnswers}></History>
+        <History answers={answers} setAnswers={setAnswers} language={language}></History>
         <Language languages={languages} selected_language={language} setLanguage={setLanguage}  />
         </div>
         <div className={styles.content_wrapper}>

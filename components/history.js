@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import styles from "../pages/index.module.css";
+import Language from "./language";
 
-function History({answers,setAnswers}) {
+function History({answers,setAnswers,language}) {
 
 
 
@@ -57,7 +58,7 @@ function History({answers,setAnswers}) {
     <div className={styles.history_wrapper}>
       <div className={styles.history_btn_wrapper} onClick={getHistory}>
         <img src="/history.svg"  />
-        <button type="input">History</button>
+        <button type="input">{language.history}</button>
       </div>
       <div className={styles.history} style={{display:display?"block":"none"}}>
         <div className={styles.card}>

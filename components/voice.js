@@ -1,6 +1,7 @@
 import styles from "../pages/index.module.css";
 import { createElement, useEffect, useRef, useState } from "react";
 import {ScaleLoader} from "react-spinners";
+import { Capacitor } from "@capacitor/core";
 import axios from "axios";
 function Voice ({answer,voice,setRabbitMode}){
     let sdk=require("microsoft-cognitiveservices-speech-sdk")
@@ -8,31 +9,27 @@ function Voice ({answer,voice,setRabbitMode}){
     const [synthesizer, setSynthesizer] = useState(undefined);
     const [laoding,setLaoding]=useState(true)
     useEffect(()=>{
-            subscribe();
+            // subscribe();
     },[])
     useEffect(()=>{
         setLaoding(true);
        if(synthesizer){
         // console.log(synthesizer);
         
-            loadVoice();
+            // loadVoice();
     }
       },[answer,synthesizer])
 
     async function subscribe() {
-        let url;
+        let url="";
         let audio=document.querySelector("audio");
         // console.log(audio)
+        
         if (Capacitor.isNativePlatform()) {
-          url = "srm-nine.vercel.app";
-        } else {
-          url =
-            window.location.href.indexOf("netlify") > -1
-              ? "smart-rabbit.netlify.app"
-              : "srm-nine.vercel.app";
-        }
+          url = "https://srm-nine.vercel.app";
+        } 
         try {
-          const response = await axios.get(`https://${url}/api/azuretoken`);
+          const response = await axios.get(`${url}/api/azuretoken`);
           let region = response.data.region;
           let subscriptionKey = response.data.subscriptionKey;
     

@@ -11,7 +11,7 @@ function Record ({setAnimalInput,animalInput,language}){
     let img=useRef();
     useEffect(()=>{
         img.current.style.opacity=0.3;
-        subscribe();
+        // subscribe();
 },[language])
 
     async function subscribe() {
