@@ -177,10 +177,11 @@ function RabbitLens({language,setAnimalInput}) {
      
       {imageUrl==""?"":
        <div  >   
+         <div className={styles.black}></div>
        <div className={styles.lens} style={{display:imageUrl==""?"none":"block"}}>
          <div className={styles.lens_close_wrapper} >
          <div>
-           <h4>
+           <h4 className={styles.selection}>
              Selection Votre phrase:
            </h4>
          </div>

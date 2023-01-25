@@ -918,7 +918,7 @@
 
 .lens{
   position: fixed;
-  top: 15vh;
+  top: 10vh;
   z-index: 100;
   padding: 15px;
   left: 50%;
@@ -926,13 +926,16 @@
   background: white;
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
-
+  max-height: 90vh;
 
 }
 .lens .lens_close_wrapper  {
   display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.lens .lens_close_wrapper .selection  {
+ margin: 0;
 }
 .lens .lens_close_wrapper button{
   
@@ -952,15 +955,18 @@
 }
 .lens .image_wrapper img{
   max-width: 80vw;
+  max-height: 65vh;
 }
-.lens .image_wrapper .black{
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
+  .black{
+  position: fixed;
   top: 0;
   left: 0;
-  background: rgb(0, 0, 0);
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.226);
 }
 
 .lens .image_wrapper p{
