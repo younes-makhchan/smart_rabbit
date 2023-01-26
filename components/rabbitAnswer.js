@@ -35,10 +35,10 @@ import styles from "../pages/index.module.css";
               }}
             />
           </div>
-          <img  className={styles.idle} src="idle.gif"  style={{display:rabbiteMode=="idle"?"block":"none"}}/>
-          <img  className={styles.question} src="question.gif"  style={{display:rabbiteMode=="question"?"block":"none"}} />
-          <img className={styles.searching} src="searching.gif"   style={{display:rabbiteMode=="searching"?"block":"none"}}/>
-          <img className={styles.speaking} src="speaking.gif"   style={{display:rabbiteMode=="speaking"?"block":"none"}}/>
+          <img alt="smart rabbit idle" className={styles.idle} src="idle.gif"  style={{display:rabbiteMode=="idle"?"block":"none"}}/>
+          <img alt="smart rabbit writing question" className={styles.question} src="question.gif"  style={{display:rabbiteMode=="question"?"block":"none"}} />
+          <img alt="smart rabbit searching for answer" className={styles.searching} src="searching.gif"   style={{display:rabbiteMode=="searching"?"block":"none"}}/>
+          <img alt="smart rabbit speaking"  className={styles.speaking} src="speaking.gif"   style={{display:rabbiteMode=="speaking"?"block":"none"}}/>
           
      
           

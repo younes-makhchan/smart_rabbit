@@ -133,9 +133,8 @@ function Question({
     <>
       <form onSubmit={onSubmit}>
         <div>
-          {/* <img src="/rabbit_header_orange-min.png" className={styles.label} /> */}
           <div className={styles.inputwrapper}>
-            <img src="search.svg" className={styles.search_icon} />
+            <img src="search.svg"alt="search icon" className={styles.search_icon} />
             <input
               type="text"
               name="animal"

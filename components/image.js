@@ -53,7 +53,7 @@ function Image({imageUrl,lines,setSelectedLines,selectedLines}){
     <>
           <div className={styles.image_wrapper} style={{height:imageOptions.height+"px"}}>
            
-            <img src={imageUrl} onLoad={loaded} id="lens_img" style={{pointerEvents:"none",filter:filtredLines.length==0?"blur(3px)":"blur(0px)"}} />
+            <img src={imageUrl} alt="image to translate" onLoad={loaded} id="lens_img" style={{pointerEvents:"none",filter:filtredLines.length==0?"blur(3px)":"blur(0px)"}} />
             {/* <div className={styles.black}></div> */}
             { filtredLines.length!=0 ?
                 <svg style={{width:imageOptions.width+"px",height:imageOptions.height+"px",position:"absolute",left:0,top:0}} >

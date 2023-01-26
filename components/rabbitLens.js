@@ -176,7 +176,7 @@ function RabbitLens({language,setAnimalInput}) {
         className={styles.camera}
         onClick={() => file.current.click()}
       >
-        <img src={"camera.svg"}  />
+        <img src={"camera.svg"}  alt="load picture to extract text"/>
         <input
           type="file"
           ref={file}
@@ -197,7 +197,7 @@ function RabbitLens({language,setAnimalInput}) {
            </h4>
          </div>
            <button type="button" onClick={close}>
-             <img src="close.svg" />
+             <img src="close.svg" alt="close extracting picture tab" />
            </button>
          </div>
           <Image imageUrl={imageUrl} setLines={setLines} lines={lines} setSelectedLines={setSelectedLines} selectedLines={selectedLines} ></Image>

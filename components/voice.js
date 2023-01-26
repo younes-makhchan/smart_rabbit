@@ -135,7 +135,7 @@ function Voice ({answer,voice,setRabbitMode}){
        <>
         <button type="button" className={styles.speech} onClick={play}>
         <ScaleLoader color="#76c836" loading={laoding} width={2}  height={14} />  
-        <img
+        <img alt="click for smart rabbit speak "
             style={{display:laoding ?"none":"block"}}
           src={speaking ? "/stop_sound.svg" : "/play_sound.svg"}
           width={"26px"}

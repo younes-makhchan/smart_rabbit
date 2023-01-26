@@ -57,7 +57,7 @@ function History({answers,setAnswers,language}) {
   return (
     <div className={styles.history_wrapper}>
       <div className={styles.history_btn_wrapper} onClick={getHistory}>
-        <img src="/history.svg"  />
+        <img  alt="history icon" src="/history.svg"  />
         <button type="input">{language.history}</button>
       </div>
       <div className={styles.history} style={{display:display?"block":"none"}}>

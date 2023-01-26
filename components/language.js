@@ -31,7 +31,7 @@ function Language({ languages, selected_language, setLanguage }) {
       <div className={styles.languages_wrapper}>
         <div className={styles.lang_menu}>
           <div className={styles.selected_lang} onClick={showMenu}>
-            <img 
+            <img  alt={"flag of "+selected_language.slug}
               src={"/s_" + selected_language.slug + ".png"}
               className={styles.flag} 
             />
@@ -48,7 +48,7 @@ function Language({ languages, selected_language, setLanguage }) {
                     onClick={() => setLanguage(languages[e])}
                     style={(i!=arr.length-1) ?border:{}}
                   >
-                    <img src={"/s_" + e + ".png"} className={styles.flag} />
+                    <img alt={"flag of "+e} src={"/s_" + e + ".png"} className={styles.flag} />
                     <span>{languages[e].lang}</span>
                   </li>
                 );

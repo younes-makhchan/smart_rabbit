@@ -139,7 +139,7 @@ function Record ({setAnimalInput,animalInput,language}){
     return(
        <>
        <button type="button" id="mic" className={styles.mic} onClick={record}>
-              <img ref={img} src={listening ? "stop_circle.svg" : "mic_off.svg"} />
+              <img ref={img} alt=" start recording" src={listening ? "stop_circle.svg" : "mic_off.svg"} />
         </button>
        </> 
     )
