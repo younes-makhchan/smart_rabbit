@@ -78,7 +78,7 @@ function Question({
           localStorage.setItem(
             "answers",
             JSON.stringify([
-              { answer: data.result, question: animalInput, date: new Date() },
+              {  answer: data.result, question: animalInput, date: new Date() },
             ])
           );
         } else {
