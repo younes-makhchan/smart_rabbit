@@ -68,8 +68,20 @@ function RabbitLens({language,setAnimalInput}) {
     if (!imageFile.files) {
       return null;
     }
-    //our  image
+
     const file = imageFile.files[0];
+    try {
+      //our  image
+        console.log(file);
+      if(file.type.indexOf("image")<0) throw new Error("File format not supported")
+      if(file.type.indexOf("image/gif")>-1) throw new Error("File format not supported")
+      
+      
+    } catch (error) {
+      alert("File format not supported(it's not a picture)")
+      close();
+      return;
+    }
     // console.log(file);
     //display image to the client
     const fileReader = new FileReader();
@@ -108,13 +120,13 @@ function RabbitLens({language,setAnimalInput}) {
       // } catch(err){
       //   console.log(err)
       // }
-
-      try{
+      try{ 
+     
         let url=""
         if (Capacitor.isNativePlatform()) {
           url = "https://srm-nine.vercel.app";
         } 
-        
+        //verify first if the type is supported
         let response=await axios.get(url+"/api/image");
         let subscriptionKey=response.data.subscriptionKey;
          response = await axios.post(
@@ -135,11 +147,10 @@ function RabbitLens({language,setAnimalInput}) {
           response = await getResponse(operation_location);
         
   
-        console.log(response);
         setLines(response.data.analyzeResult.readResults[0].lines);
       }catch(Err){
         close();
-        alert("File Format not allowed");
+        alert("File Format not allowed (it's not a picture)");
       }
 
       //first  get the data
@@ -169,7 +180,7 @@ function RabbitLens({language,setAnimalInput}) {
         <input
           type="file"
           ref={file}
-          accept="image/*"
+          
           onChange={(e)=>{    console.log("loading image");createImage(e);}}
           style={{ display: "none" }}
         />
