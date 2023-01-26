@@ -2,10 +2,13 @@ import Head from "next/head";
 import 'regenerator-runtime/runtime';
 import { useState } from "react";
 import styles from "./index.module.css";
-import Language from "../components/language"
 import LoadingScreen from "../components/loadingScreen";
+import dynamic from "next/dynamic";
 import Content from "../components/content";
-import History from "../components/history";
+// import Language from "../components/language"
+// import History from "../components/history";
+const  Language = dynamic(()=> import("../components/language/language"));
+const History = dynamic(()=> import("../components/history"));
 
 
 const languages = {
@@ -131,6 +134,7 @@ export default function Home() {
   return (
     <div className="top">
       <Head>
+        {/* <html lang={language.slug} />  */}
         <title>{language.title}</title>
         <link rel="icon" href="/speaking2.gif" />
         <meta name="author" content="Younes makhchan"/>

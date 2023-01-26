@@ -1,9 +1,7 @@
 import styles from "../pages/index.module.css";
 import Image from "next/image"
-import sdk from "microsoft-cognitiveservices-speech-sdk";
 import { useState, useEffect } from "react";
 import RabbitAnswer from "./rabbitAnswer";
-import RabbitLens from "./rabbitLens";
 import Question from "./question";
 
 

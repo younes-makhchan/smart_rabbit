@@ -4,17 +4,15 @@ export default{
     keywords:"virtual pet,answer questions",
 
     openGraph:{
-        url:"http://smart-rabbit.netlify.app/",
+        url:"https://smart-rabbit.netlify.app/",
         type:'website',
         title:"Smart Rabbit Answers Children Questions And Funny",
-        description:"Free Virtual Pet",
+        description:"Friendly and humorous smart rabbit who loves to answer questions and provide good and funny responses that are suitable for kids. I'm also quite wise and try to avoid adult questions.",
         locale:'en_IE',
         site_name:"The Smart Rabbit",
         images:[
             {   
-                url: 'http://smart-rabbit.netlify.app/gr_thumbnail.png',
-                width: 1200,
-                height: 630,
+                url: 'https://smart-rabbit.netlify.app/gr_thumbnail.png',
                 alt: 'Smart Rabbit Answers Children Questions And Funny',
               },
         ]

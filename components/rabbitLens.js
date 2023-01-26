@@ -1,6 +1,6 @@
 import styles from "../pages/index.module.css";
 import axios from "axios";
-import { useState, useRef, useReducer } from "react";
+import { useState, useRef } from "react";
 import Image from "./image";
 import { Capacitor } from "@capacitor/core";
 
@@ -171,20 +171,22 @@ function RabbitLens({language,setAnimalInput}) {
   }
   return (
     <>
-      <button
+      <button label="picture here"
         type="button"
         className={styles.camera}
         onClick={() => file.current.click()}
       >
         <img src={"camera.svg"}  alt="load picture to extract text"/>
+      </button>
         <input
+          title="picture here"
+          placeholder="picture here"
           type="file"
           ref={file}
           
           onChange={(e)=>{    console.log("loading image");createImage(e);}}
           style={{ display: "none" }}
         />
-      </button>
      
       {imageUrl==""?"":
        <div  >   

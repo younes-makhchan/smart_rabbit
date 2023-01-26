@@ -5,10 +5,10 @@ import { GA_TRACKING_ID } from '../lib/gtag'
 export default class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html lang='en'>
         <Head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9485022839769098"
-     crossOrigin="anonymous"></script>
+        {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9485022839769098"
+     crossOrigin="anonymous"></script> */}
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
             async

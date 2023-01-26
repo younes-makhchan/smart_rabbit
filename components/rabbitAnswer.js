@@ -1,7 +1,7 @@
 import Typewriter from "typewriter-effect";
 import Voice from "./voice";
 
-import { createElement, useEffect, useRef, useState } from "react";
+import {  useEffect, useRef } from "react";
 import styles from "../pages/index.module.css";
 
 
@@ -25,7 +25,8 @@ import styles from "../pages/index.module.css";
       <div>
         <div className={styles.wrapper}>
          <Voice answer={answer} voice={language.voice} setRabbitMode={setRabbitMode}></Voice>
-          <div className={styles.result} ref={resultBox}>
+          <label htmlFor="rabbitAnswer" style={{display:"none"}}  >Rabbit Answer</label>
+          <div alt="Rabbit Answer" id="rabbitAnswer" className={styles.result} ref={resultBox}>
             <Typewriter
               options={{
                 strings: [answer],

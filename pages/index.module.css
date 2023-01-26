@@ -1,7 +1,7 @@
 @font-face {
   font-family: "cartoon";
-  src: url(/cartoon.ttf)
- 
+  src: url(/cartoon.ttf);
+  font-display: fallback;
 }
 
 
@@ -913,6 +913,16 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
 /**********Rabbit Lens***********/
 
 
@@ -952,6 +962,7 @@
 }
 .lens .image_wrapper{
   position: relative;
+  
 }
 .lens .image_wrapper img{
   max-width: 90vw;

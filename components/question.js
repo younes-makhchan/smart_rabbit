@@ -134,10 +134,12 @@ function Question({
       <form onSubmit={onSubmit}>
         <div>
           <div className={styles.inputwrapper}>
-            <img src="search.svg"alt="search icon" className={styles.search_icon} />
-            <input
+          
+             <label htmlFor="question" style={{display:"flex"}}>  <img src="search.svg"alt="search icon" className={styles.search_icon} /></label>
+               <input
               type="text"
-              name="animal"
+              id="question"
+              name="question"
               // placeholder={language["placeholder"]}
               placeholder=""
               ref={input}
@@ -146,6 +148,7 @@ function Question({
                 setAnimalInput(e.target.value);
               }}
             />
+             
             <Record
               setAnimalInput={setAnimalInput}
               animalInput={animalInput}
@@ -159,8 +162,9 @@ function Question({
           </div>
           <i>{language.note}</i>
         </div>
-
+        <label htmlFor="answer" style={{visibility:"hidden"}}>submit your question</label>
         <button
+          id="answer"
           type="submit"
           onClick={() => {
             if (animalInput != "") {

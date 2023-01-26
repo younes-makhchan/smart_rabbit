@@ -133,7 +133,7 @@ function Voice ({answer,voice,setRabbitMode}){
 
     return(
        <>
-        <button type="button" className={styles.speech} onClick={play}>
+        <button type="button" aria-label="Smart rabbit Speak" className={styles.speech} onClick={play}>
         <ScaleLoader color="#76c836" loading={laoding} width={2}  height={14} />  
         <img alt="click for smart rabbit speak "
             style={{display:laoding ?"none":"block"}}

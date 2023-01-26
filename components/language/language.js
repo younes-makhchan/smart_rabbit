@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { use, useEffect,useRef } from "react";
-import styles from "../pages/index.module.css";
+import { useEffect,useRef } from "react";
+import styles from "../../pages/index.module.css";
 
 const border={
   borderBottom: "0.5px solid rgb(195 195 195 / 58%)"
@@ -36,7 +36,7 @@ function Language({ languages, selected_language, setLanguage }) {
               className={styles.flag} 
             />
             <span style={{display:"none"}}>{selected_language.slug}</span>
-            <Image alt="US" src="/arrow dropdown.png" className={styles.dropdown} width="32" height="32" ref={img}/>
+            <Image alt="drop down language" src="/arrow_drop_down.svg" className={styles.dropdown} width="40" height="40" ref={img}/>
           </div>
 
           <ul className={styles.unselected_languages} id="ul">
