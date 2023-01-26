@@ -133,6 +133,7 @@ export default function Home() {
       <Head>
         <title>{language.title}</title>
         <link rel="icon" href="/speaking2.gif" />
+        <meta name="author" content="Younes makhchan"/>
         <meta name="google-site-verification" content="cxDrYFXhDCAmz5Q8d5oDPB4InJrVVgCxYDnRUZlZJvk" />
       </Head>
 

@@ -1,7 +1,8 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import * as gtag from '../lib/gtag'
-
+import { DefaultSeo } from 'next-seo'
+import SEO from "../next-seo.config"
 const App = ({ Component, pageProps }) => {
   const router = useRouter()
   useEffect(() => {
@@ -14,7 +15,12 @@ const App = ({ Component, pageProps }) => {
     }
   }, [router.events])
 
-  return <Component {...pageProps} />
+  return(
+      <>
+      <DefaultSeo {...SEO}/>
+     <Component {...pageProps} />
+      </>
+     )
 }
 
 export default App
