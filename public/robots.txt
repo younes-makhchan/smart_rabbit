@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://smart-rabbit.netlify.app
+
+# Sitemaps
+Sitemap: https://smart-rabbit.netlify.app/sitemap.xml
