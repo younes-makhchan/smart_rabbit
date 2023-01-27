@@ -1,0 +1,151 @@
+ .result {
+  font-weight: bold;
+  width: 63vw;
+  max-width: 450px;
+  padding: 15px;
+  padding-top: 25px;
+  padding-right: 25px;
+  overflow-y: auto;
+
+  word-break: break-word;
+}
+ .result::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+ .result::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px #8080807a;
+  border-radius: 10px;
+}
+
+/* Handle */
+ .result::-webkit-scrollbar-thumb {
+  background: #fb942d;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+ .result::-webkit-scrollbar-thumb:hover {
+  background: #e08428;
+}
+
+
+ .wrapper {
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  width: fit-content;
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  margin-top: 40px;
+  margin-left: 73px;
+}
+ .wrapper::before {
+  content: "";
+  position: absolute;
+  height: 25px;
+  width: 25px;
+  top: 0px;
+  left: -5%;
+  background-color: #fff;
+  -webkit-clip-path: polygon(0 0, 100% 100%, 100% 0%);
+  clip-path: polygon(0 0, 100% 100%, 100% 0%);
+}
+ .wrapper .idle {
+  border-radius: 5px;
+  position: absolute;
+  width: 139px;
+  left: -147px;
+  top: -62px;
+}
+ .wrapper .question {
+  border-radius: 5px;
+  position: absolute;
+  width: 83px;
+  left: -108px;
+  top: -42px;
+}
+ .wrapper .searching {
+  border-radius: 5px;
+  position: absolute;
+  width: 200px;
+  left: -171px;
+  top: -67px;
+}
+ .wrapper .speaking{
+  border-radius: 5px;
+  position: absolute;
+  width: 131px;
+  left: -136px;
+  top: -49px;
+}
+@media (max-width:430px) {
+  .main .wrapper .img {
+    left: -80px !important;
+  }
+}
+@media (max-width:768px) {
+   .wrapper .question {
+
+    width: 72px;
+    left: -95px;
+    top: -39px;
+  }
+   .result{
+    width: 50vw;
+  }
+   .wrapper .idle{
+    width: 122px;
+    left: -130px;
+    top: -58px;
+  }
+   .wrapper .searching{
+
+    left: -154px;
+    top: -63px;
+    width: 183px;
+  }
+
+   .wrapper .speaking{
+    border-radius: 5px;
+    position: absolute;
+    width: 115px;
+    left: -116px;
+    top: -48px;
+  }
+}
+@media (max-width:425px) {
+   .wrapper .idle{
+    width: 110px;
+    left: -111px;
+    top: -53px;
+  }
+   .wrapper .question {
+
+    width: 66px;
+    left: -81px;
+    top: -37px;
+  }
+   .wrapper .searching{
+
+    width: 160px;
+    left: -135px;
+    top: -56px;
+  }
+   .result{
+    width: 55vw;
+  }
+   .wrapper {
+    margin-left: 89px;
+  }
+     .wrapper .speaking{
+      border-radius: 5px;
+      position: absolute;
+      width: 100px;
+      left: -95px;
+      top: -43px;
+    }
+
+}
+

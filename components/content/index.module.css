@@ -1,0 +1,21 @@
+ .title {
+    font-family: cartoon;
+    font-size: 2rem;
+    padding: 15px;
+    position: relative;
+    line-height: 40px;
+    font-weight: normal;
+    color: white;
+    background: #fb942d;
+    border-radius: 5px;
+    margin: 0px 0 40px;
+    width: fit-content;
+    
+  }
+   .carrot {
+    position: absolute;
+    top: -27px;
+    left: 50%;
+    transform: rotate(29deg) translateX(-50%);
+  }
+  

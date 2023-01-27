@@ -1,8 +1,8 @@
-import styles from "../pages/index.module.css";
+import styles from "./index.module.css";
 import Image from "next/image"
 import { useState, useEffect } from "react";
-import RabbitAnswer from "./rabbitAnswer";
-import Question from "./question";
+import RabbitAnswer from "../rabbitAnswer/rabbitAnswer";
+import Question from "../question/question";
 
 
 function Content({ language,setAnswers }) {
@@ -29,10 +29,10 @@ function Content({ language,setAnswers }) {
       
     
       <div>
-        <h3>
+        <h1 className={styles.title}>
           {language.title}
           <Image src="/carrot-min.png" alt="carrot" className={styles.carrot} width="75" height="75"/>
-        </h3>
+        </h1>
       </div>
        <Question language={language} setAnswers={setAnswers} setResult={setResult} setAlreadyPlayed={setAlreadyPlayed} setRabbitMode={setRabbitMode} ></Question>
       <RabbitAnswer answer={result} language={language} setAlreadyPlayed={setAlreadyPlayed} alreadyPlayed={alreadyPlayed} rabbiteMode={rabbiteMode} setRabbitMode={setRabbitMode} />

@@ -1,0 +1,107 @@
+.form .inputwrapper input{ font-size: 16px;
+    line-height: 24px;
+    color: #353740;
+    font-family: "ColfaxAI", Helvetica, sans-serif;} 
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+ .form > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+ .form i {
+    color: rgb(45, 45, 45);
+    align-self: flex-start;
+  }
+ .form .inputwrapper {
+    position: relative;
+    margin-bottom: 25px;
+    display: flex;
+    padding: 3px 8px;
+    border-radius: 26px;
+    background: white;
+    border: solid 5px #f88c30;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    outline: none;
+    width: 80vw;
+    max-width: 584px;
+    align-items: center;
+  }
+ .form .inputwrapper .search_icon{
+    width: 24px;
+    height: 24px;
+  }
+
+ .form input[type="text"] {
+  
+   height: 37px;
+    flex: 1;
+    background: transparent;
+    outline: none;
+    border: none;
+  }
+ .form::placeholder {
+    color: #8e8ea0;
+    opacity: 1;
+  }
+  
+  
+ .form button[type="submit"] {
+    
+    align-items: center;
+    appearance: none;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgb(45 35 66 / 40%) 0 2px 4px, rgb(45 35 66 / 30%) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
+    box-sizing: border-box;
+    
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding: 0 5px;
+    position: relative;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+    text-transform: uppercase;
+    height: fit-content;
+    padding: 5px;
+    font-family: cartoon;
+    margin-bottom: 15px;
+    padding: 12px 0;
+    color: rgb(255, 255, 255);
+    background-color: #76c836;
+    border: none;
+    height: 40px;
+    border-radius: 4px;
+    width: 60vw;
+    max-width: 250px;
+    text-align: center;
+    cursor: pointer;
+  }
+ .form button[type="submit"]:focus {
+    box-shadow: #50b753 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
+  }
+  
+ .form button[type="submit"]:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+ .form button[type="submit"]:active {
+    box-shadow: #50b753 0 3px 7px inset;
+    transform: translateY(2px);
+  }

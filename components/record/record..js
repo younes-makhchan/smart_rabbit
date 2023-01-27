@@ -1,7 +1,9 @@
-import styles from "../pages/index.module.css";
+import styles from "./index.module.css";
 import {  useEffect, useState,useRef } from "react";
 import { Capacitor } from "@capacitor/core";
 import axios from "axios";
+import Image from "next/image"
+
 function Record ({setAnimalInput,animalInput,language}){
     let sdk=require("microsoft-cognitiveservices-speech-sdk")
     const [listening, setListening] = useState(false);
@@ -139,7 +141,7 @@ function Record ({setAnimalInput,animalInput,language}){
     return(
        <>
        <button type="button" id="mic" className={styles.mic} onClick={record}>
-              <img ref={img} alt=" start recording" src={listening ? "stop_circle.svg" : "mic_off.svg"} />
+              <img ref={img} alt=" start recording" src={listening ? "stop_circle.svg" : "mic_off.svg"} width="24" height="24" />
         </button>
        </> 
     )

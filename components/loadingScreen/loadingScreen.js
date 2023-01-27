@@ -1,4 +1,4 @@
-import styles from "../pages/index.module.css";
+import styles from "./index.module.css";
 import { useState, useEffect } from "react";
 
 

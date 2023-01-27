@@ -1,5 +1,4 @@
 import NextCors from 'nextjs-cors';
-import axios from "axios";
 
 
 const subscriptionKey=process.env.SPEECH_KEY

@@ -1,14 +1,14 @@
 import Head from "next/head";
-import 'regenerator-runtime/runtime';
 import { useState } from "react";
 import styles from "./index.module.css";
-import LoadingScreen from "../components/loadingScreen";
+import LoadingScreen from "../components/loadingScreen/loadingScreen";
 import dynamic from "next/dynamic";
-import Content from "../components/content";
+import Content from "../components/content/content";
+import Image from "next/image";
 // import Language from "../components/language"
 // import History from "../components/history";
 const  Language = dynamic(()=> import("../components/language/language"));
-const History = dynamic(()=> import("../components/history"));
+const History = dynamic(()=> import("../components/history/history"));
 
 
 const languages = {
@@ -143,7 +143,10 @@ export default function Home() {
 
       <main className={styles.main}>
         <LoadingScreen time={1000}/>
-        <div style={{display:"flex",justifyContent:"space-between",flexDirection:"row",width:100+"vw"}}>
+        {/* <div style={{zIndex:-1,position:"fixed",width:"100vw",height:"100vh"}}>
+          <Image  alt="background image" src="/2560x1440.png" fill style={{objectFit:"cover"}} priority ></Image>
+        </div> */}
+        <div className={styles.section}>
 
         <History answers={answers} setAnswers={setAnswers} language={language}></History>
         <Language languages={languages} selected_language={language} setLanguage={setLanguage}  />

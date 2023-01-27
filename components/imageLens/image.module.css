@@ -1,0 +1,22 @@
+.image_wrapper{
+    position: relative;
+    
+  }
+   .image_wrapper img{
+    max-width: 90vw;
+    max-height: 65vh;
+    pointer-events: "none";
+  }
+
+  
+   .image_wrapper p{
+    position: absolute;
+    z-index:100 ;
+    margin: 0;
+    min-width: max-content;
+    background: #ffffffc7;
+    border: solid 1px;
+    font-size: 14px;
+    display: flex;  
+    align-items: center;
+  }

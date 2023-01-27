@@ -1,8 +1,8 @@
 import Typewriter from "typewriter-effect";
-import Voice from "./voice";
+import Voice from "../voice/voice";
 
 import {  useEffect, useRef } from "react";
-import styles from "../pages/index.module.css";
+import styles from "./index.module.css";
 
 
 

@@ -12,7 +12,7 @@ export default async function storeAnswer(req,res){
        });
       
     main().catch(error=>console.log(error))
-    console.log(req.body)
+      
     const create=new Answer(req.body);
     create.save().then((r)=>{
             res.status(200).json(create);

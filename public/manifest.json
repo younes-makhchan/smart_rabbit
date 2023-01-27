@@ -1,0 +1,32 @@
+{
+    "theme_color": "#76c836",
+    "background_color": "#f69435",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "The Smart Rabbit",
+    "short_name": "Smart Rabbit",
+    "description": "Friendly and humorous smart rabbit who loves to answer questions and provide good and funny responses that are suitable for kids. I'm also quite wise and try to avoid adult questions.",
+    "icons": [
+        {
+            "src": "/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-256x256.png",
+            "sizes": "256x256",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-384x384.png",
+            "sizes": "384x384",
+            "type": "image/png"
+        },
+        {
+            "src": "/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

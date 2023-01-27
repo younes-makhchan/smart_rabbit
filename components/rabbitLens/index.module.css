@@ -1,0 +1,110 @@
+
+/**********Rabbit Lens***********/
+
+.camera {
+  
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  
+  }
+
+  .lens{
+    position: fixed;
+    top: 10vh;
+    z-index: 100;
+    padding: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 5px;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    max-height: 90vh;
+  
+  }
+  .lens .lens_close_wrapper  {
+    display: flex;
+      justify-content: space-between;
+      align-items: center;
+  }
+  .lens .lens_close_wrapper .selection  {
+   margin: 0;
+   font-size: 1.2rem;
+  }
+  .lens .lens_close_wrapper button{
+    
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  
+  }
+  .lens .lens_close_wrapper button img{
+  
+    width: 32px;
+    
+  }
+  .black{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.226);
+  
+  }
+  .lens .btn_wrapper button{
+    
+    align-items: center;
+    appearance: none;
+    box-shadow: rgb(45 35 66 / 40%) 0 2px 4px, rgb(45 35 66 / 30%) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    display: inline-flex;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    transition: box-shadow .15s,transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow,transform;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 5px;
+    font-family: cartoon;
+    margin-bottom: 15px;
+    padding: 12px;
+    color: rgb(255, 255, 255);
+    background-color: #76c836;
+    border: none;
+    height: 40px;
+    border-radius: 4px;
+    /* width: 60vw; */
+    max-width: 250px;
+    text-align: center;
+    cursor: pointer;
+  }
+  .lens .btn_wrapper button:focus {
+    box-shadow: #50b753 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
+  }
+  
+  .lens .btn_wrapper button:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+  
+  .lens .btn_wrapper button:active {
+    box-shadow: #50b753 0 3px 7px inset;
+    transform: translateY(2px);
+  }
+  

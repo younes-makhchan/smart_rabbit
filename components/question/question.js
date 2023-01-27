@@ -1,9 +1,9 @@
-import styles from "../pages/index.module.css";
+import styles from "./index.module.css";
 import { BarLoader } from "react-spinners";
 import { useState, useRef, useEffect } from "react";
-import Record from "./record.";
+import Record from "../record/record.";
 import axios from "axios";
-import RabbitLens from "./rabbitLens";
+import RabbitLens from "../rabbitLens/rabbitLens";
 
 function Question({
   language,
@@ -131,7 +131,7 @@ function Question({
 
   return (
     <>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} className={styles.form}>
         <div>
           <div className={styles.inputwrapper}>
           

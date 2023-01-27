@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useEffect,useRef } from "react";
-import styles from "../../pages/index.module.css";
+import styles from "./language.module.css";
 
 const border={
   borderBottom: "0.5px solid rgb(195 195 195 / 58%)"

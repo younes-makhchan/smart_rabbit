@@ -1,7 +1,9 @@
-import styles from "../pages/index.module.css";
-import { createElement, useEffect, useRef, useState } from "react";
+import styles from "./index.module.css";
+import {  useEffect, useState } from "react";
 import {ScaleLoader} from "react-spinners";
-import { Capacitor } from "@capacitor/core";
+import { Capacitor } from "@capacitor/core"
+import Image from "next/image"
+
 import axios from "axios";
 function Voice ({answer,voice,setRabbitMode}){
     let sdk=require("microsoft-cognitiveservices-speech-sdk")
@@ -135,10 +137,10 @@ function Voice ({answer,voice,setRabbitMode}){
        <>
         <button type="button" aria-label="Smart rabbit Speak" className={styles.speech} onClick={play}>
         <ScaleLoader color="#76c836" loading={laoding} width={2}  height={14} />  
-        <img alt="click for smart rabbit speak "
+        <Image alt="click for smart rabbit speak "
             style={{display:laoding ?"none":"block"}}
           src={speaking ? "/stop_sound.svg" : "/play_sound.svg"}
-          width={"26px"}
+          width='24' height='24'
         />
       </button>
        </> 

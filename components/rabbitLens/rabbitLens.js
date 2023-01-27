@@ -1,9 +1,10 @@
-import styles from "../pages/index.module.css";
+import styles from "./index.module.css";
 import axios from "axios";
+import Image  from "next/image"
 import { useState, useRef } from "react";
-import Image from "./image";
 import { Capacitor } from "@capacitor/core";
-
+import dynamic  from "next/dynamic";
+const ImageLens =dynamic(()=>import("../imageLens/imageLens"))
 function RabbitLens({language,setAnimalInput}) {
 
   const [imageUrl, setImageUrl] = useState("");
@@ -51,7 +52,7 @@ function RabbitLens({language,setAnimalInput}) {
               "Ocp-Apim-Subscription-Key": "7cb8a95d91ae4eccaade90e96de1b12b",
             },
           });
-          console.log(response);
+          // console.log(response);
           if (response.data.status == "succeeded") {
             clearInterval(intervalId);
             resolve(response);
@@ -72,7 +73,7 @@ function RabbitLens({language,setAnimalInput}) {
     const file = imageFile.files[0];
     try {
       //our  image
-        console.log(file);
+        // console.log(file);
       if(file.type.indexOf("image")<0) throw new Error("File format not supported")
       if(file.type.indexOf("image/gif")>-1) throw new Error("File format not supported")
       
@@ -176,7 +177,7 @@ function RabbitLens({language,setAnimalInput}) {
         className={styles.camera}
         onClick={() => file.current.click()}
       >
-        <img src={"camera.svg"}  alt="load picture to extract text"/>
+        <Image src={"camera.svg"}  alt="load picture to extract text" width="24" height="24" />
       </button>
         <input
           title="picture here"
@@ -184,7 +185,8 @@ function RabbitLens({language,setAnimalInput}) {
           type="file"
           ref={file}
           
-          onChange={(e)=>{    console.log("loading image");createImage(e);}}
+          onChange={(e)=>{    //console.log("loading image");
+          createImage(e);}}
           style={{ display: "none" }}
         />
      
@@ -194,15 +196,15 @@ function RabbitLens({language,setAnimalInput}) {
        <div className={styles.lens} style={{display:imageUrl==""?"none":"block"}}>
          <div className={styles.lens_close_wrapper} >
          <div>
-           <h4 className={styles.selection}>
+           <h2 className={styles.selection}>
               {language.line_selection}
-           </h4>
+           </h2>
          </div>
            <button type="button" onClick={close}>
              <img src="close.svg" alt="close extracting picture tab" />
            </button>
          </div>
-          <Image imageUrl={imageUrl} setLines={setLines} lines={lines} setSelectedLines={setSelectedLines} selectedLines={selectedLines} ></Image>
+          <ImageLens imageUrl={imageUrl} setLines={setLines} lines={lines} setSelectedLines={setSelectedLines} selectedLines={selectedLines} ></ImageLens>
          <div className={styles.btn_wrapper}>
            <button type="button" onClick={send}>Submit</button>
          </div>

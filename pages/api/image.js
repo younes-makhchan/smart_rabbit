@@ -3,25 +3,6 @@ import NextCors from 'nextjs-cors';
 
 
 
-  async function getResponse(url) {
-    return new Promise((resolve, reject) => {
-      let intervalId = setInterval(async () => {
-        try {
-          let response = await axios.get(url, {
-            headers: {
-              "Ocp-Apim-Subscription-Key": process.PICTURE_KEY,
-            },
-          });
-          if (response.data.status == "succeeded") {
-            clearInterval(intervalId);
-            resolve(response);
-          }
-        } catch (err) {
-          reject(err);
-        }
-      }, 1000);
-    });
-  }
 
 
 export default async  function (req,res){

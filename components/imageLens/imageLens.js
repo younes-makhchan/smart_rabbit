@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import {MoonLoader} from "react-spinners"
-import styles from "../pages/index.module.css";
+import styles from "./image.module.css";
 
-function Image({imageUrl,lines,setSelectedLines,selectedLines}){
+
+
+function ImageLens({imageUrl,lines,setSelectedLines,selectedLines}){
 
     const [imageOptions,setImageOptions]=useState({});
     const [filtredLines,setFiltredLines]=useState([])
@@ -26,34 +28,34 @@ function Image({imageUrl,lines,setSelectedLines,selectedLines}){
     },[setImageOptions,lines])
 
     function loaded({target}){
-        // console.log("image loaded")
-       
-        setImageOptions({width:target.width,height:target.height});
-       
+      // console.log("image loaded")
+     
+      setImageOptions({width:target.width,height:target.height});
+     
     
     }
     function rectSelect(source){
-        if(source.target.dataset.active=="true"){
-          delete selectedLines[selectedLines.indexOf(source.target.dataset.text)];
-          setSelectedLines(selectedLines);
-          source.target.style.stroke="#d9d8d8"
-          source.target.setAttribute("data-active","false")
-        }else if(source.target.dataset.active=="false"){
+      if(source.target.dataset.active=="true"){
+        delete selectedLines[selectedLines.indexOf(source.target.dataset.text)];
+        setSelectedLines(selectedLines);
+        source.target.style.stroke="#d9d8d8"
+        source.target.setAttribute("data-active","false")
+      }else if(source.target.dataset.active=="false"){
     
-          source.target.style.stroke="#fb942d"
-         
-          selectedLines.push(source.target.dataset.text);
-          source.target.setAttribute("data-active","true")
-          setSelectedLines(selectedLines);
+        source.target.style.stroke="#fb942d"
+       
+        selectedLines.push(source.target.dataset.text);
+        source.target.setAttribute("data-active","true")
+        setSelectedLines(selectedLines);
     
-        }
-        // console.log(source.target);
       }
+      // console.log(source.target);
+    } 
     return (
     <>
           <div className={styles.image_wrapper} style={{height:imageOptions.height+"px"}}>
            
-            <img src={imageUrl} alt="image to translate" onLoad={loaded} id="lens_img" style={{pointerEvents:"none",filter:filtredLines.length==0?"blur(3px)":"blur(0px)"}} />
+            <img src={imageUrl} alt="image to translate" onLoad={loaded} id="lens_img" style={{filter:filtredLines.length==0?"blur(3px)":"blur(0px)"}} />
             {/* <div className={styles.black}></div> */}
             { filtredLines.length!=0 ?
                 <svg style={{width:imageOptions.width+"px",height:imageOptions.height+"px",position:"absolute",left:0,top:0}} >
@@ -119,4 +121,4 @@ function Image({imageUrl,lines,setSelectedLines,selectedLines}){
     )
 }
 
-export default Image
+export default ImageLens
