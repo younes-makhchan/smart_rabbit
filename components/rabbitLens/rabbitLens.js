@@ -10,9 +10,7 @@ function RabbitLens({language,setAnimalInput}) {
   const [imageUrl, setImageUrl] = useState("");
   const [lines, setLines] = useState([]);
   const [selectedLines,setSelectedLines]=useState([])
-  const [words,setWords]=useState([])
   const file = useRef();
-  const img = useRef();
   function close() {
     setImageUrl("");
 

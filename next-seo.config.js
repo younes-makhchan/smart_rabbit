@@ -14,7 +14,7 @@ export default{
             {   
                 url: 'https://smart-rabbit.netlify.app/gr_thumbnail.png',
                 width: 1200,
-                height: 630,
+                height: 600,
                 alt: 'Smart Rabbit Answers Children Questions And Funny',
               },
         ]

@@ -1,7 +1,7 @@
 import styles from "./index.module.css";
 import {  useEffect, useState } from "react";
-import {ScaleLoader} from "react-spinners";
-import { Capacitor } from "@capacitor/core"
+import ScaleLoader from "react-spinners/ScaleLoader";
+import { Capacitor } from "@capacitor/core/"
 import Image from "next/image"
 
 import axios from "axios";

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import {MoonLoader} from "react-spinners"
+import MoonLoader from "react-spinners/MoonLoader"
 import styles from "./image.module.css";
 
 

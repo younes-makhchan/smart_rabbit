@@ -1,7 +1,7 @@
 {
     "theme_color": "#76c836",
-    "background_color": "#f69435",
-    "display": "standalone",
+    "background_color": "#d29b65",
+    "display": "fullscreen",
     "scope": "/",
     "start_url": "/",
     "name": "The Smart Rabbit",

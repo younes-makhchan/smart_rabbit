@@ -1,5 +1,5 @@
 import styles from "./index.module.css";
-import { BarLoader } from "react-spinners";
+import BarLoader  from "react-spinners/BarLoader";
 import { useState, useRef, useEffect } from "react";
 import Record from "../record/record.";
 import axios from "axios";

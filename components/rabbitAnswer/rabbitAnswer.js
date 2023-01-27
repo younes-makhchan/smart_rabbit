@@ -1,12 +1,11 @@
 import Typewriter from "typewriter-effect";
 import Voice from "../voice/voice";
-
 import {  useEffect, useRef } from "react";
 import styles from "./index.module.css";
 
 
 
- function RabbitAnswer({ answer, language,setAlreadyPlayed,alreadyPlayed,rabbiteMode,setRabbitMode }) {
+ function RabbitAnswer({ answer, language,rabbiteMode,setRabbitMode }) {
   const resultBox = useRef();
 
   
