@@ -36,7 +36,7 @@ function Language({ languages, selected_language, setLanguage }) {
               className={styles.flag} 
             />
             <span style={{display:"none"}}>{selected_language.slug}</span>
-            <Image alt="drop down language" src="/arrow_drop_down.svg" className={styles.dropdown} width="40" height="40" ref={img}/>
+            <Image alt="drop down language" src="/arrow_drop_down.svg" className={styles.dropdown} width="32" height="32" ref={img}/>
           </div>
 
           <ul className={styles.unselected_languages} id="ul">
