@@ -5,6 +5,7 @@ import Record from "../record/record.";
 import axios from "axios";
 import RabbitLens from "../rabbitLens/rabbitLens";
 import InputPrompt from "../inputPrompt/InputPrompt";
+import InstallPWA from "../installPWA/InstallPWA";
 
 async function fetchData(prompt, language, fetchUrl) {
   const response = await fetch(fetchUrl + "/api/generate", {
@@ -75,6 +76,7 @@ const  Question=({
   const [loadingAnswer, setLoadingAnswer] = useState(false);
   const [prompt, setPrompt] = useState("");
   const [generateData,setGeneratedData]=useState(null);
+  const [displayInstallPWA,setDisplayInstallPWA]=useState(false);
   useEffect(() => {
     if (prompt !== ""&& rabbitAnimation!="question") onChangeRabbitAnimation("question");
     let id=setTimeout(()=>{
@@ -114,7 +116,9 @@ useEffect(()=>{
       if(loadingAnswer||prompt=="")return;
       
       setLoadingAnswer(true);
-
+      
+      setDisplayInstallPWA(true);
+      setTimeout(()=>{setDisplayInstallPWA(false);},5000)
         if(prompt=="generate image of the must cute,pretty and beautifull girl!"){
           setTimeout(()=>{
             setGeneratedData({type:"image",result:"person.jpg"});
@@ -139,8 +143,12 @@ useEffect(()=>{
      
   }
 
+  const onChangedisplayInstallPWA=(state)=>{
+      setDisplayInstallPWA(state)
+  }
   return (
     <>
+      {  displayInstallPWA &&  <InstallPWA onChangedisplayInstallPWA={onChangedisplayInstallPWA}/>}
       <form onSubmit={onSubmit} className={styles.form}>
         <div>
           <div className={styles.inputwrapper}>
@@ -161,6 +169,8 @@ useEffect(()=>{
         <label htmlFor="answer" style={{ visibility: "hidden" }}>
           submit your question
         </label>
+        <div>
+
         <button
           id="answer"
           type="submit"
@@ -172,6 +182,18 @@ useEffect(()=>{
             language.btn_title
           )}
         </button>
+        <button
+          id="answer"
+          type="submit"
+        
+        >
+          {loadingAnswer ? (
+            <BarLoader color="#fff" size={15} speedMultiplier={0.5} />
+          ) : (
+            language.btn_title
+          )}
+        </button>
+        </div>
       </form>
     </>
   );

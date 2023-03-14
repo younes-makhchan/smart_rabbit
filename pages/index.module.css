@@ -5,7 +5,7 @@
 }
 
 .main {
-  height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   background-image: url(/background_orange-min.png);
   margin: -8px;
@@ -34,10 +34,10 @@
 
 }
 
-@media (max-height:650px) {
+@media (max-height:900px) {
   .main .content_wrapper{
   
-    margin-top: 5rem !important;
+    margin-top: 2rem !important;
   
   
   }
