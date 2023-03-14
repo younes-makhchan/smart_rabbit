@@ -1,17 +1,18 @@
 import Image from "next/image";
-import { useEffect,useRef } from "react";
+import { useContext, useEffect,useRef } from "react";
+import LanguageContext from "../../context/language-context";
 import styles from "./language.module.css";
 
 const border={
   borderBottom: "0.5px solid rgb(195 195 195 / 58%)"
 }
-function Language({ languages, selected_language, setLanguage }) {
-  
+function Language() {
+    const {languages,language,selectLanguageHandler}=useContext(LanguageContext);
   const img=useRef(null)
   useEffect(()=>{
     document.querySelector("#ul").style.display="none"
     img.current.style.transform="rotate(0deg)"
-  },[selected_language])
+  },[language])
   function showMenu(source) {
     const hiddenOptions = source.target.parentElement.childNodes[1];
     if (
@@ -31,21 +32,21 @@ function Language({ languages, selected_language, setLanguage }) {
       <div className={styles.languages_wrapper}>
         <div className={styles.lang_menu}>
           <div className={styles.selected_lang} onClick={showMenu}>
-            <img  alt={"flag of "+selected_language.slug}
-              src={"/s_" + selected_language.slug + ".png"}
+            <img  alt={"flag of "+language.slug}
+              src={"/s_" + language.slug + ".png"}
               className={styles.flag} 
             />
-            <span style={{display:"none"}}>{selected_language.slug}</span>
+            <span style={{display:"none"}}>{language.slug}</span>
             <Image alt="drop down language" src="/arrow_drop_down.svg" className={styles.dropdown} width="32" height="32" ref={img}/>
           </div>
 
           <ul className={styles.unselected_languages} id="ul">
             {Object.keys(languages).map((e, i,arr) => {
-              if (e != selected_language.slug)
+              if (e != language.slug)
                 return (
                   <li
                     key={e}
-                    onClick={() => setLanguage(languages[e])}
+                    onClick={() => selectLanguageHandler(e)}
                     style={(i!=arr.length-1) ?border:{}}
                   >
                     <img alt={"flag of "+e} src={"/s_" + e + ".png"} className={styles.flag} />

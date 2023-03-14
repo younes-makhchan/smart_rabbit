@@ -32,23 +32,7 @@
     max-width: 584px;
     align-items: center;
   }
- .form .inputwrapper .search_icon{
-    width: 24px;
-    height: 24px;
-  }
 
- .form input[type="text"] {
-  
-   height: 37px;
-    flex: 1;
-    background: transparent;
-    outline: none;
-    border: none;
-  }
- .form::placeholder {
-    color: #8e8ea0;
-    opacity: 1;
-  }
   
   
  .form button[type="submit"] {

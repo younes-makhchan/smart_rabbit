@@ -1,0 +1,16 @@
+.search_icon{
+  width: 24px;
+  height: 24px;
+}
+
+.input_prompt {
+ height: 37px;
+  flex: 1;
+  background: transparent;
+  outline: none;
+  border: none;
+}
+.input_prompt::placeholder {
+  color: #8e8ea0;
+  opacity: 1;
+}

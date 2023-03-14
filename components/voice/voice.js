@@ -5,7 +5,7 @@ import { Capacitor } from "@capacitor/core/"
 import Image from "next/image"
 
 import axios from "axios";
-function Voice ({answer,voice,setRabbitMode}){
+function Voice ({answer,voice,onChangeRabbitAnimation}){
     let sdk=require("microsoft-cognitiveservices-speech-sdk")
     let [speaking, setSpeaking] = useState(false);
     const [synthesizer, setSynthesizer] = useState(undefined);
@@ -75,7 +75,7 @@ function Voice ({answer,voice,setRabbitMode}){
             console.log(audio.duration,audio.currentTime)
             if(audio.currentTime>audio.duration-1){
               console.log('cut');
-              setRabbitMode("idle");
+              onChangeRabbitAnimation("idle");
             }
           });
           
@@ -116,10 +116,10 @@ function Voice ({answer,voice,setRabbitMode}){
                 
                     audio.play();
         
-                  setRabbitMode("speaking")
+                  onChangeRabbitAnimation("speaking")
                   setSpeaking(true);
             }else if(speaking){
-              setRabbitMode("idle")
+              onChangeRabbitAnimation("idle")
               audio.currentTime=0;
               audio.pause();
               setSpeaking(false);

@@ -1,25 +1,38 @@
 import styles from "./index.module.css";
 import Image from "next/image"
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import RabbitAnswer from "../rabbitAnswer/rabbitAnswer";
 import Question from "../question/question";
+import LanguageContext from "../../context/language-context";
 
 
-function Content({ language,setAnswers }) {
+function Content() {
 
-
+  const {language}=useContext(LanguageContext);
 
   //for the result&answer
-  const [result, setResult] = useState(language.smart_rabbit_opening);
+  const [result, setResult] = useState({result:language.smart_rabbit_opening,type:"text"});
   //for the sound
-  const [alreadyPlayed,setAlreadyPlayed]=useState(false)
-  //three options :idle,question,searching
-  let [rabbiteMode,setRabbitMode]=useState("idle")
-
   
+  function onChangeResult(result){
+      setResult(result);
+
+      
+
+
+  }
+  
+
+  let [rabbitAnimation,setRabbitAnimation]=useState("idle")
+
+    function onChangeRabbitAnimation(animation){
+        setRabbitAnimation(animation);
+    }
+
   useEffect(() => {
-    setResult(language.smart_rabbit_opening);
+    setResult({result:language.smart_rabbit_opening,type:"text"});
   }, [language]);
+
 
 
 
@@ -34,8 +47,9 @@ function Content({ language,setAnswers }) {
           <Image src="/carrot-min.png" alt="carrot" className={styles.carrot} width="75" height="75"/>
         </h1>
       </div>
-       <Question language={language} setAnswers={setAnswers} setResult={setResult} setAlreadyPlayed={setAlreadyPlayed} setRabbitMode={setRabbitMode} ></Question>
-      <RabbitAnswer answer={result} language={language} setAlreadyPlayed={setAlreadyPlayed} alreadyPlayed={alreadyPlayed} rabbiteMode={rabbiteMode} setRabbitMode={setRabbitMode} />
+       <Question language={language}  onChangeResult={onChangeResult}  rabbitAnimation={rabbitAnimation} onChangeRabbitAnimation={onChangeRabbitAnimation}/>
+      <RabbitAnswer answer={result.result} answerType={result.type}  onChangeRabbitAnimation={onChangeRabbitAnimation} rabbitAnimation={rabbitAnimation}  />
+
     </>
   );
 }

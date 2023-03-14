@@ -259,3 +259,10 @@
       padding-bottom: 6.85714px;
     }
   }
+
+
+.image{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius:6px;
+  border:solid 1px #dbc9c994;
+}

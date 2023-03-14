@@ -1,0 +1,9 @@
+.image{
+    border-radius:6px;
+    border:solid 1px #dbc9c994;
+    display:flex;
+    margin-inline:auto;
+    max-width: 90%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+}

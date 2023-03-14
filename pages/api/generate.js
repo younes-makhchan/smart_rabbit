@@ -25,9 +25,9 @@ export default async function (req, res) {
     return;
   }
 
-  const animal = req.body.animal || "";
+  const description = req.body.description || "";
   const language = req.body.language || "";
-  if (animal.trim().length === 0) {
+  if (description.trim().length === 0) {
     res.status(400).json({
       error: {
         message: "Please enter a valid question",
@@ -37,13 +37,17 @@ export default async function (req, res) {
   }
 
   try {
-    const completion = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: generatePrompt(animal, language),
-      max_tokens: 200,
-      temperature: 0.6,
-    });
-    res.status(200).json({ result: completion.data.choices[0].text });
+    let result="",type="";
+  
+      if(description.indexOf("imag")>=0||description.indexOf("genera")>=0||description.indexOf("pictu")>=0){        
+        type="image";
+        result =await generateImage(description);
+      }else{
+        type="text";
+       result= await generatePrompt(description,language);
+      }
+    //if image we will give  url , if  text we will give a text reply
+    res.status(200).json({ result,type });
   } catch (error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
@@ -60,18 +64,18 @@ export default async function (req, res) {
   }
 }
 
-function generatePrompt(animal, language) {
+function filtersContext(description, language) {
   
-  let capitalizedAnimal =
-  animal[0].toUpperCase() + animal.slice(1).toLowerCase();
+  let capitalizedDescription =
+  description[0].toUpperCase() + description.slice(1).toLowerCase();
   if (
-    capitalizedAnimal.indexOf("?") < 0 &&
-    capitalizedAnimal.indexOf("؟") < 0
+    capitalizedDescription.indexOf("?") < 0 &&
+    capitalizedDescription.indexOf("؟") < 0
     ) {
       if (language == "arabic") {
-        capitalizedAnimal += "؟";
+        capitalizedDescription += "؟";
       } else {
-        capitalizedAnimal += "?";
+        capitalizedDescription += "?";
       }
     }
     let prompt ={
@@ -83,51 +87,99 @@ function generatePrompt(animal, language) {
       fr:"Ce qui suit est une conversation entre un enfant musulman et un lapin intelligent musulman. Le lapin est intelligent, très sympathique qui vit au pays des merveilles et répond aux questions avec de bonnes réponses un peu drôles qui conviennent aux enfants. Le lapin intelligent essaie d'éviter questions d'adultes, y compris l'homosexualité.",
       ch:"以下是一个穆斯林小孩和一只穆斯林聪明的兔子之间的对话。兔子聪明，非常友好，生活在仙境里，回答问题时会有适合孩子和有趣的回应。聪明的兔子试图避开成人的问题，包括同性恋。",
     }
-    console.log(language);
-    if (language == "arabic") {
-      return `${prompt.ar} 
-      طفل: مرحبًا أرنبي الذكي. 
-      الأرنب ذكي : مرحبا كيف استطيع مساعدتك؟ . 
-      طفل: ${capitalizedAnimal}.  
-      الأرنب ذكي: `;
-    } else if (language == "frensh") {
-      return `${prompt.fr}
-      enfant: Bonjour mon lapin Intelligent. 
-      lapin :Bonjour, quelle est votre question gamin ?. 
-      Kid: ${capitalizedAnimal}.  
-      lapin: `;
-    } else if(language=="darija"){
+
+    switch(language){
+      case "arabic": 
+        return `${prompt.ar} 
+        طفل: مرحبًا أرنبي الذكي. 
+        الأرنب ذكي : مرحبا كيف استطيع مساعدتك؟ . 
+        طفل: ${capitalizedDescription}.  
+        الأرنب ذكي: `
+
+       case "frensh":
+
+        return `${prompt.fr}
+        enfant: Bonjour mon lapin Intelligent. 
+        lapin :Bonjour, quelle est votre question gamin ?. 
+        Kid: ${capitalizedDescription}.  
+        lapin: `;
+      case "darija":
+
+        return `${prompt.eng}
+        kid: salam . 
+        Smart rabbit : salam, ach nahowa soal dyalk ?. 
+        Kid: ${capitalizedDescription}.  
+        Smart rabbit: `;
+      case "chinese":
+      return `${prompt.ch}
+      小朋友：你好，聪明的兔子。
+      聪明的兔子：你好，有什么我可以帮助你的? 
+      孩子: ${capitalizedDescription}.  
+      聪明的兔子(中国語で答える): `;
+   case "korean":
       return `${prompt.eng}
-      kid: salam . 
-      Smart rabbit : salam, ach nahowa soal dyalk ?. 
-      Kid: ${capitalizedAnimal}.  
+      아이: 안녕하세요 똑똑한 토끼입니다.
+      똑똑한 토끼: 안녕하세요, 제가 무엇을 도와드릴까요?.
+      어린이:${capitalizedDescription}.
+      똑똑한 토끼(한국어로 답하다): `;
+   case "japanese":
+      return `${prompt.eng}
+      子供:こんにちはスマート ラビット。
+      賢いうさぎ : こんにちは、子供のことで何ができますか?
+      子供：${capitalizedDescription} 。
+      賢いうさぎ(日本語で答える): ; `;
+    default:
+      return `${prompt.eng}
+      kid: Hello  Smart Rabbit. 
+      Smart rabbit : Hello, what i can help you with kid ?. 
+      Kid: ${capitalizedDescription}.  
       Smart rabbit: `;
-    }else if(language=="chinese"){
-    return `${prompt.ch}
-    小朋友：你好，聪明的兔子。
-    聪明的兔子：你好，有什么我可以帮助你的? 
-    孩子: ${capitalizedAnimal}.  
-    聪明的兔子(中国語で答える): `;
-  } else if(language=="korean"){
-    return `${prompt.eng}
-    아이: 안녕하세요 똑똑한 토끼입니다.
-    똑똑한 토끼: 안녕하세요, 제가 무엇을 도와드릴까요?.
-    어린이:${capitalizedAnimal}.
-    똑똑한 토끼(한국어로 답하다): `;
-  }else if(language=="japanese"){
-    return `${prompt.eng}
-    子供:こんにちはスマート ラビット。
-    賢いうさぎ : こんにちは、子供のことで何ができますか?
-    子供：${capitalizedAnimal} 。
-    賢いうさぎ(日本語で答える): ; `;
-  }
-  else{
-    return `${prompt.eng}
-    kid: Hello  Smart Rabbit. 
-    Smart rabbit : Hello, what i can help you with kid ?. 
-    Kid: ${capitalizedAnimal}.  
-    Smart rabbit: `;
- 
+   
+      
     
+    }
+
+  
+}
+
+async function generatePrompt(prompt,language){
+  console.log( filtersContext(prompt,language));
+  const completion = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: filtersContext(prompt,language),
+    max_tokens: 200,
+    temperature: 0.6,
+  });
+
+  console.log("generate")
+  return completion.data.choices[0].text;
+} 
+
+async function enhanceDescription(description){
+
+  console.log("enhancing!!");
+  const enhanceDescription= await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: "a user provided this description "+description+". I want  you to  give more details about this description (maximum 30 words ) with keeping the meaning to help DALL-E give better accurate image.",
+    max_tokens: 100,
+    temperature: 0.6,
+  });
+  console.log("enhanced text :"+enhanceDescription.data.choices[0].text)
+  return enhanceDescription.data.choices[0].text;
+}
+
+
+async function generateImage(description){
+
+  if(description.split(" ").length<10){
+    console.log("enhancing picture");
+    description= await enhanceDescription(description);
   }
+  const completion = await openai.createImage({
+    prompt: description,
+    n: 1,
+    size: "256x256",
+  });
+ 
+  return completion.data.data[0].url;
 }

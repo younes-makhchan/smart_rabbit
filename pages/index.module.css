@@ -27,7 +27,7 @@
 }
 .main .content_wrapper{
   
-  margin-top: 20vh;
+  margin-top: 10rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -37,7 +37,15 @@
 @media (max-height:650px) {
   .main .content_wrapper{
   
-    margin-top: 5vh !important;
+    margin-top: 5rem !important;
+  
+  
+  }
+}
+@media (max-width:650px) {
+  .main .content_wrapper{
+  
+    margin-top: 5rem !important;
   
   
   }

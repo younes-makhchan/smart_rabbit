@@ -1,20 +1,30 @@
 import NextCors from "nextjs-cors";
-import main from "../../database/connection"
+import connection from "../../database/connection"
 import Answer from "../../database/schema"
-
+/**
+ * 
+ * @param {import('next').NextApiRequest} req 
+ * @param {import('next').NextApiResponse} res 
+ */
 export default async function storeAnswer(req,res){
-    
-    await NextCors(req, res, {
-        // Options
-        methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-        origin: '*',
-        optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-    });
-    
-    main().catch(error=>console.log(error))
+    try{
+
+        await NextCors(req, res, {
+            // Options
+            methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+            origin: '*',
+            optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+        });
         
-    const create=new Answer(req.body);
-    create.save().then((r)=>{
-            res.status(200).json(create);
-    }).catch((e)=>console.log(e));
+        await connection();
+        console.log("Database Connected");
+        const create=new Answer(req.body);
+        create.save();
+        res.status(200).json(create);
+        res.end();
+        
+        
+    }catch(e){
+        console.log(e);res.status(403).json()
+    }
 }

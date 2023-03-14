@@ -2,10 +2,12 @@ import Typewriter from "typewriter-effect";
 import Voice from "../voice/voice";
 import {  useEffect, useRef } from "react";
 import styles from "./index.module.css";
+import GeneratedAnswer from "../generatedAnswer/generatedAnswer";
+import GeneratedImage from "../generatedImage/GeneratedImage";
 
 
 
- function RabbitAnswer({ answer, language,rabbiteMode,setRabbitMode }) {
+ function RabbitAnswer({ answerType,answer,rabbitAnimation,onChangeRabbitAnimation }) {
   const resultBox = useRef();
 
   
@@ -23,29 +25,16 @@ import styles from "./index.module.css";
     <>
       <div>
         <div className={styles.wrapper}>
-         <Voice answer={answer} voice={language.voice} setRabbitMode={setRabbitMode}></Voice>
           <label htmlFor="rabbitAnswer" style={{display:"none"}}  >Rabbit Answer</label>
           <div alt="Rabbit Answer" id="rabbitAnswer" className={styles.result} ref={resultBox}>
-            <Typewriter
-              options={{
-                strings: [answer],
-                autoStart: true,
-                delay: 15,
-                pauseFor: 3600000,
-              }}
-            />
+           {answerType=="text" && <GeneratedAnswer answer={answer} onChangeRabbitAnimation={onChangeRabbitAnimation}/>}
+           {answerType=="image" && <GeneratedImage answer={answer}/>}
+            
           </div>
-          <img alt="smart rabbit idle" className={styles.idle} src="idle.gif"  style={{display:rabbiteMode=="idle"?"block":"none"}}/>
-          <img alt="smart rabbit writing question" className={styles.question} src="question.gif"  style={{display:rabbiteMode=="question"?"block":"none"}} />
-          <img alt="smart rabbit searching for answer" className={styles.searching} src="searching.gif"   style={{display:rabbiteMode=="searching"?"block":"none"}}/>
-          <img alt="smart rabbit speaking"  className={styles.speaking} src="speaking.gif"   style={{display:rabbiteMode=="speaking"?"block":"none"}}/>
-          
-     
-          
+          <img alt={"smart rabbit "+rabbitAnimation} className={styles[rabbitAnimation]} src={rabbitAnimation+".gif" } />
         </div>
       </div>
       <div>
-        <audio src="" style={{"display":"none"}}></audio>
       </div>
     </>
   );
