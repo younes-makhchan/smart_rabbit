@@ -14,7 +14,7 @@ import GeneratedImage from "../generatedImage/GeneratedImage";
   useEffect(() => {
     resultBox.current.style =
       "max-height:" +
-      (window.innerHeight - resultBox.current.getBoundingClientRect().y - 95) +
+      (window.innerHeight - resultBox.current.getBoundingClientRect().y - 10) +
       "px";
   }, []);
   
