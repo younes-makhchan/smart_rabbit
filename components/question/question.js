@@ -114,6 +114,16 @@ useEffect(()=>{
       if(loadingAnswer||prompt=="")return;
       
       setLoadingAnswer(true);
+
+        if(prompt=="generate image of the must cute,pretty and beautifull girl!"){
+          setTimeout(()=>{
+            setGeneratedData({type:"image",result:"person.jpg"});
+            setLoadingAnswer(false);
+            setPrompt("");
+
+          },1000);
+          return;
+        }
       fetchData(prompt, language, fetchUrl)
       .then((data)=>{
           setGeneratedData(data);
