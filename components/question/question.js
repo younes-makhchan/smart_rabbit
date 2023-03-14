@@ -94,7 +94,7 @@ useEffect(()=>{
   if(!generateData)return;
   onChangeResult({ result: generateData.result, type: generateData.type });
   //don't save image in history
-  if(type!="image"){
+  if(generateData.type!="image"){
     saveHistory(prompt, generateData.result, generateData.type);
     
   }
