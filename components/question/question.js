@@ -133,6 +133,7 @@ useEffect(()=>{
         })
       .catch( (error)=> {
         console.error(error);
+        setLoadingAnswer(false);
         alert("something is wrong, please contact the Developer younessmakhchane@gmail.com");
       })
      
