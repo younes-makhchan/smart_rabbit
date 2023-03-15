@@ -1,6 +1,6 @@
 .languages_wrapper {
-    align-self: flex-end;
-    margin: 10px 10px 15px 0px;
+ 
+    margin: 10px 10px 15px auto;
   }
   
   .lang_menu {

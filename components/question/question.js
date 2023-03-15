@@ -23,8 +23,7 @@ const Question = ({
  
 
   const {data,loading,error,fetchData}=useFetch(null,{});
-  const [displayInstallPWA, setDisplayInstallPWA] = useState(false);
-
+  const installPWA=useRef();
   useEffect(() => {
     if (!data) return;
     onChangeResult(data);
@@ -45,15 +44,13 @@ const Question = ({
     onChangeRabbitAnimation(loading ? "searching" : "idle");
   }, [loading]);
 
- 
+  useEffect(()=>{
+     if(error) alert("Not allowed!")
+  },[error])
 
-  const onChangedisplayInstallPWA = (state) => {
-
-    setDisplayInstallPWA(state);
-  };
 
  async function onPromptSubmit(prompt) {
-  if (count==0){onChangedisplayInstallPWA(true);count=1;}
+ 
       if(!loading) fetchData(fetchUrl,{prompt, language} );
      
     
@@ -61,10 +58,7 @@ const Question = ({
 
   return (
     <>
-      <InstallPWA
-        onChangedisplayInstallPWA={onChangedisplayInstallPWA}
-        displayInstallPWA={displayInstallPWA}
-      />
+
       <QuestionForm onPromptSubmit={onPromptSubmit} language={language} loadingAnswer={loading} onChangeRabbitAnimation={onChangeRabbitAnimation} rabbitAnimation={rabbitAnimation}/>
     </>
   );

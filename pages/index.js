@@ -16,6 +16,9 @@ const History = dynamic(()=> import("../components/history/history"));
 
 export default function Home() {
 
+
+
+
   return (
     <div className="top">
       <Head>
@@ -37,6 +40,8 @@ export default function Home() {
         <LanguageContextProvider>
         <div className={styles.section}>
         <History  />
+        
+        <InstallPWA   />
         <Language   />
         </div>
         <div className={styles.content_wrapper}>
