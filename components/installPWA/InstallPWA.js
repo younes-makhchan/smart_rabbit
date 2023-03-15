@@ -26,9 +26,12 @@ export default function InstallPWA({onChangedisplayInstallPWA,displayInstallPWA}
           <div className={style["content"]}>
             <img src="icon-192x192.png"  className={style.icon}/>
             <h3 className={style["description"]}>
-              Smart Rabbit Available in <span  style={{color:"#fb942d"}}>Android</span> and <span style={{color:"#fb942d"}}>IOS</span> 
+              Download Smart Rabbit 
             </h3>
-            <button type="button" className={style["install"]} ref={installBtn}>Install</button>
+            <div>
+            <button type="button"  ref={installBtn} className={style.install}><img src="app-store.png" /></button>
+            <button type="button"  ref={installBtn} className={style.install}><img src="play-store.png" /></button>
+            </div>
             <button type="button" className={style["not-now"]} onClick={()=>onChangedisplayInstallPWA(false)}>Not now</button>
           </div>
         </div>

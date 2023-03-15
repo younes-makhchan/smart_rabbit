@@ -31,59 +31,16 @@
 
 }
 .install {
-    
-    align-items: center;
-    appearance: none;
-    border-radius: 4px;
-    border-width: 0;
-    box-shadow: rgb(45 35 66 / 40%) 0 2px 4px, rgb(45 35 66 / 30%) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
-    box-sizing: border-box;
-    
-    cursor: pointer;
-    display: inline-flex;
-    justify-content: center;
-    line-height: 1;
-    list-style: none;
-    overflow: hidden;
-    padding: 0 5px;
-    position: relative;
-    text-decoration: none;
-    transition: box-shadow .15s,transform .15s;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
-    white-space: nowrap;
-    will-change: box-shadow,transform;
-    font-size: 18px;
-    text-transform: uppercase;
-    height: fit-content;
-    padding: 5px;
-    font-family: cartoon;
-    margin-bottom: 15px;
-    padding: 12px 0;
-    color: rgb(255, 255, 255);
-    background-color: #76c836;
-    border: none;
-    height: 40px;
-    border-radius: 4px;
-    width: 60vw;
-    max-width: 250px;
-    text-align: center;
-    cursor: pointer;
-  }
- .install:focus {
-    box-shadow: #50b753 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
-  }
-  
- .install:hover {
-    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #50b753 0 -3px 0 inset;
-    transform: translateY(-2px);
-  }
-  
- .install:active {
-    box-shadow: #50b753 0 3px 7px inset;
-    transform: translateY(2px);
-  }
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: transparent;
+
+}
+.install img{
+  width: 128px;
+  height: 38px;
+}
 
   .not-now{
     border: solid 1px rgb(188, 185, 185);
