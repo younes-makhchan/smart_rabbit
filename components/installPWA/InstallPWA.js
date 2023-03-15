@@ -28,7 +28,7 @@ export default function InstallPWA({onChangedisplayInstallPWA,displayInstallPWA}
             <h3 className={style["description"]}>
               Download Smart Rabbit 
             </h3>
-            <div>
+            <div className={style.btn__wrapper}>
             <button type="button"  ref={installBtn} className={style.install}><img src="app-store.png" /></button>
             <button type="button"  ref={installBtn} className={style.install}><img src="play-store.png" /></button>
             </div>

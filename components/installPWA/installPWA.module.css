@@ -30,6 +30,11 @@
     padding: 15px;
 
 }
+.content .btn__wrapper{
+  display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
 .install {
   border: none;
   outline: none;
