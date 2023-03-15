@@ -1,16 +1,19 @@
 import { useEffect, useRef, useState } from "react";
-import useInstallPWA from "../../util/useInstallPWA.js";
+import useInstallPWA from "../../util/useInstallPWA";
+
 
 import style from "./installPWA.module.css";
 
-export default function InstallPWA({onChangedisplayInstallPWA}) {
+export default function InstallPWA({onChangedisplayInstallPWA,displayInstallPWA}) {
   const { installPWA, supportPWA } = useInstallPWA();
    const installBtn= useRef();
   useEffect(() => {
     if(!supportPWA)return;
+    console.log("support PWA :"+supportPWA);
     installBtn.current.addEventListener("click",()=>{
       installPWA.prompt();
-      onChangedisplayInstallPWA(false);
+      console.log("install");
+      onChangedisplayInstallPWA(true);
     });
   }, [supportPWA]);
   
@@ -18,7 +21,7 @@ export default function InstallPWA({onChangedisplayInstallPWA}) {
 
       return (
         
-        <div className={style["content-wrapper"]}>
+        <div className={style["content-wrapper"]} style={{display:(displayInstallPWA)?"block":"none"}}>
           <div className={style["overlay"]}></div>
           <div className={style["content"]}>
             <img src="icon-192x192.png"  className={style.icon}/>

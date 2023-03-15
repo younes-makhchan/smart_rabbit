@@ -3,10 +3,10 @@ import styles from "./InputPrompt.module.css"
 
 
 
-const  InputPrompt=({promptChangeHandler,prompt})=>{
+const  InputPrompt=({onChange,name})=>{
     return (
         <>
-               <label htmlFor="question" style={{ display: "flex" }}> 
+               <label htmlFor={name} style={{ display: "flex" }}> 
               <img
                 src="search.svg"
                 alt="search icon"
@@ -15,13 +15,12 @@ const  InputPrompt=({promptChangeHandler,prompt})=>{
             </label>
             <input
               type="text"
-              id="question"
-              name="question"
+              id={name}
+              name={name}
               className={styles["input_prompt"]}
               // placeholder={language["placeholder"]}
               placeholder=""
-              value={prompt}
-              onChange={promptChangeHandler}
+              onChange={onChange}
             />
         
         </>

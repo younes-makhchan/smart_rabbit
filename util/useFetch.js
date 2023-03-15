@@ -1,18 +1,11 @@
 import { useEffect, useState } from "react"
 
 
-const useFetch=(url,options)=>{
+const useFetch=(url,{prompt,language})=>{
     const [loading,setLoading]=useState(false);
     const [data,setData]=useState(null);
     const [error,setError]=useState(null);
-
-
-
-
-
-
-
-    
+ 
     useEffect(()=>{
       if(!url)return;
         setLoading(true);
@@ -25,18 +18,38 @@ const useFetch=(url,options)=>{
               "Access-Control-Allow-Headers": "Content-Type",
             },
             body: JSON.stringify({
-              description: options.prompt,
-              language: options.language.lang,
+              description: prompt,
+              language: language.lang,
             }),
           }).then(response=>response.json)
           .then(data=>setData(data))
           .catch(err=>setError(err))
-          .finally(()=>setLoading(true))
-        
-       
-        
+          .finally(()=>setLoading(false))
+         
     },[]);
 
-    return {data,loading,error}
+  function fetchData(url,{prompt,language}) {
+          setLoading(true);
+           fetch(url + "/api/generate", {
+         method: "POST",
+         mode: "cors",
+         headers: {
+           "Content-Type": "application/json",
+           "Access-Control-Allow-Methods": "POST",
+           "Access-Control-Allow-Headers": "Content-Type",
+         },
+         body: JSON.stringify({
+           description: prompt,
+           language: language.lang,
+         }),
+       }).then(response=>response.json())
+          .then(data=>setData(data))
+          .catch(err=>setError(err))
+          .finally(()=>setLoading(false));
+   
+       
+   }
+
+    return {data,loading,error,fetchData}
 }
 export default useFetch;

@@ -11,6 +11,7 @@ const  useInstallPWA=()=>{
       const  handle=(e)=>{
         e.preventDefault();
           setInstallPWA(e);
+          console.log("happend");
           setSupportPWA(true);
       }
         window.addEventListener('beforeinstallprompt',handle)
