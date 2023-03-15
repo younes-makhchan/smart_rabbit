@@ -4,6 +4,12 @@
   font-display: fallback;
 }
 
+
+.main *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .main {
   min-height: 100dvh;
   margin: 0;
@@ -21,6 +27,7 @@
 }
 .main .section{
   display:flex;
+  flex-wrap: wrap;
   flex-direction:row;
   width:100vw;
 }
