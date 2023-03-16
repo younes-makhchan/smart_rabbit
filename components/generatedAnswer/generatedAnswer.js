@@ -10,7 +10,7 @@ const GeneratedAnswer=({answer,onChangeRabbitAnimation})=>{
 
 return (
     <>
-    {/* <Voice answer={answer} voice={language.voice} onChangeRabbitAnimation={onChangeRabbitAnimation}/>     */}
+    <Voice answer={answer} voice={language.voice} onChangeRabbitAnimation={onChangeRabbitAnimation}/>    
     <Typewriter
         options={{
           strings: [answer],

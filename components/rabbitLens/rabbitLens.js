@@ -5,7 +5,7 @@ import { useState, useRef } from "react";
 import { Capacitor } from "@capacitor/core";
 import dynamic  from "next/dynamic";
 const ImageLens =dynamic(()=>import("../imageLens/imageLens"))
-function RabbitLens({language,setAnimalInput}) {
+function RabbitLens({language,onChangeQuestion}) {
 
   const [imageUrl, setImageUrl] = useState("");
   const [lines, setLines] = useState([]);
@@ -164,7 +164,7 @@ function RabbitLens({language,setAnimalInput}) {
 
   function send(){
     
-    setAnimalInput(selectedLines.join(" "));
+    onChangeQuestion(selectedLines.join(" "));
     close();
 
   }

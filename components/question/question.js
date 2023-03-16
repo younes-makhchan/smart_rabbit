@@ -97,13 +97,13 @@ const QuestionForm = ({onPromptSubmit,onChangeRabbitAnimation,rabbitAnimation,la
           name="question"
           onChange={onChangeQuestion}
           />
-          {/* <Record setAnimalInput={setPrompt} animalInput={prompt}   language={language}
-      /> */}
+          <Record onChangeQuestion={onChangeQuestion} question={question}   language={language}
+      />
 
-          {/* <RabbitLens
-        setAnimalInput={setPrompt}
+          <RabbitLens
+        onChangeQuestion={onChangeQuestion}
         language={language}
-      /> */}
+      />
         </div>
         <i>{language.note}</i>
       </div>
