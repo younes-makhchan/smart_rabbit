@@ -3,7 +3,7 @@
 /*history*/
 .history_wrapper {
     align-self: flex-start;
-    margin: 15px;
+    /* margin: 15px; */
     position: relative;
   }
   .history_wrapper .history_btn_wrapper {
@@ -16,7 +16,7 @@
     box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
     box-sizing: border-box;
     cursor: pointer;
-    display: inline-flex;
+    /* display: inline-flex; */
     font-family: "JetBrains Mono",monospace;
     justify-content: center;
     line-height: 1;
@@ -34,7 +34,7 @@
     will-change: box-shadow,transform;
     font-size: 18px;
     height: fit-content;
-    padding: 8px;
+    padding: var(--padding-sm);
   }
   .history_btn_wrapper:focus {
     box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;

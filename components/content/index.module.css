@@ -1,14 +1,15 @@
  .title {
     font-family: cartoon;
     font-size: var(--xl);
-    padding: 15px;
+    padding-block: var(--padding-sm);
+    padding-inline: var(--padding-md);
     position: relative;
     line-height: 40px;
     font-weight: normal;
     color: white;
     background: #fb942d;
     border-radius: 5px;
-    margin: 0px 0 40px;
+    margin: 0px 0 20px;
     width: fit-content;
     
   }

@@ -107,7 +107,7 @@ const QuestionForm = ({onPromptSubmit,onChangeRabbitAnimation,rabbitAnimation,la
         </div>
         <i>{language.note}</i>
       </div>
-      <label htmlFor="answer" style={{ visibility: "hidden" }}>
+      <label htmlFor="answer" style={{ display:"none" }}>
         submit your question
       </label>
       <div>

@@ -16,9 +16,9 @@ const [displayInstallPWA,setDisplayInstallPWA]=useState(true);
 
     return (
       <>
-      <div className={style.install_wrapper} style={{display: supportPWA?"block":"none"}} onClick={()=>{installPWA.prompt()}}  >
+      <div className={style.install_wrapper} style={{display: supportPWA?"":"none"}} onClick={()=>{installPWA.prompt()}}  >
       <button type="button" className={`${style.installbtn} `}  >
-        <img src="play-store.png"  />
+        <img src="google-play-sm.png"  />
       </button>
       </div>
       <div className={style["content-wrapper"]} style={{display:(displayInstallPWA&&supportPWA)?"block":"none"}}>
