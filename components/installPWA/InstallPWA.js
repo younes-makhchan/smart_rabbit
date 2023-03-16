@@ -31,6 +31,8 @@ const [displayInstallPWA,setDisplayInstallPWA]=useState(true);
           <div className={style.btn__wrapper} >
           <button type="button"   className={style.install} onClick={()=>installPWA.prompt()}><img src="app-store.png" /></button>
           <button type="button"  className={style.install} onClick={()=>installPWA.prompt()}><img src="play-store.png" /></button>
+          </div>
+          <div>
           <button type="button" className={style["not_now"]} onClick={()=>setDisplayInstallPWA(false)}>Not Now</button>
           </div>
         </div>
