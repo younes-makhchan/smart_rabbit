@@ -1,0 +1,13 @@
+
+@font-face {
+    font-family: "cartoon";
+    src: url(/cartoon.ttf);
+    font-display: fallback;
+  }
+
+  
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

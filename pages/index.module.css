@@ -1,20 +1,10 @@
-@font-face {
-  font-family: "cartoon";
-  src: url(/cartoon.ttf);
-  font-display: fallback;
-}
 
 
-.main *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
 .main {
   min-height: 100dvh;
   margin: 0;
   background-image: url(/background_orange-min.png);
-  margin: -8px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 // import * as gtag from '../lib/gtag'
 import { DefaultSeo } from 'next-seo'
 import SEO from "../next-seo.config"
+import "./style.css"
 const App = ({ Component, pageProps }) => {
   // const router = useRouter()
   // useEffect(() => {
