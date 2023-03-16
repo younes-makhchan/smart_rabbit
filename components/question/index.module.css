@@ -1,4 +1,5 @@
-.form .inputwrapper input{ font-size: 16px;
+.form .inputwrapper input{ 
+    font-size: var(--sm);
     line-height: 24px;
     color: #353740;
     font-family: "ColfaxAI", Helvetica, sans-serif;} 
@@ -59,7 +60,7 @@
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow,transform;
-    font-size: 18px;
+    font-size: var(--md);
     text-transform: uppercase;
     height: fit-content;
     padding: 5px;

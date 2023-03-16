@@ -75,7 +75,16 @@
     height:32px;
   
   }
+  @media (max-width:768px) {
+    .lang_menu .selected_lang .flag {
+      width:24px;
+      height:24px;
+    
+    }
+  }
   .lang_menu .selected_lang .dropdown {
+    width:24px;
+      height:24px;
     transition: transform 500ms;
   
   }

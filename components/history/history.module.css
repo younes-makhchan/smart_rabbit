@@ -61,7 +61,7 @@
     background: none;
     padding: 0px;
     outline: none;
-    font-size: 1.3rem;
+    font-size: var(--md);
     cursor: pointer;
     pointer-events: none;
   }

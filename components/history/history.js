@@ -3,11 +3,6 @@ import styles from "./history.module.css";
 import Image from "next/image"
 import LanguageContext from "../../context/language-context";
 
-function displayReducer(prevstate,action){
-
-    
-    return !prevstate;
-}
 
 
 function History() {

@@ -2,11 +2,14 @@
   font-weight: bold;
   width: 63vw;
   max-width: 450px;
-  padding: 15px;
+  padding: min(4vw,15px);
+  padding-top: min(5vw,20px);
+  padding-right: min(5vw,20px);
+  /* padding: 15px;
   padding-top: 25px;
-  padding-right: 25px;
+  padding-right: 25px; */
   overflow-y: auto;
-
+  font-size: var(--sm);
   word-break: break-word;
 }
  .result::-webkit-scrollbar {
@@ -44,8 +47,8 @@
  .wrapper::before {
   content: "";
   position: absolute;
-  height: 25px;
-  width: 25px;
+  height: min(2vh,25px);
+  width: min(4vw,25px);
   top: 0px;
   left: -5%;
   background-color: #fff;

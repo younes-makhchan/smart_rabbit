@@ -6,6 +6,7 @@
 .input_prompt {
  height: 37px;
   flex: 1;
+  font-size: var(--sm);
   background: transparent;
   outline: none;
   border: none;

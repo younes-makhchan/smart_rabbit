@@ -1,6 +1,6 @@
  .title {
     font-family: cartoon;
-    font-size: 2rem;
+    font-size: var(--xl);
     padding: 15px;
     position: relative;
     line-height: 40px;
