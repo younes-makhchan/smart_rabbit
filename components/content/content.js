@@ -31,7 +31,7 @@ function Content() {
 
 
 
-  console.log(result.type)
+  console.log(result)
 
   return (
     <>

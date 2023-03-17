@@ -32,7 +32,7 @@ import GeneratedImage from "../generatedImage/GeneratedImage";
             
           </div>
           {rabbitAnimation=="idle"&&<img alt={"smart rabbit idle"} className={styles["idle"]} src={"idle.gif" } />}
-          {rabbitAnimation=="answer"&&<img alt={"smart rabbit answer"} className={styles["answer"]} src={"answer.gif" } />}
+          {rabbitAnimation=="searching"&&<img alt={"smart rabbit searching"} className={styles["searching"]} src={"searching.gif" } />}
           {rabbitAnimation=="question"&&<img alt={"smart rabbit question"} className={styles["question"]} src={"question.gif" } />}
           {rabbitAnimation=="speaking"&&<img alt={"smart rabbit speaking"} className={styles["speaking"]} src={"speaking.gif" } />}
          

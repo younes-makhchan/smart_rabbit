@@ -24,11 +24,8 @@ const Question = ({
 
   const {data,loading,error,fetchData}=useFetch(null,{});
   const installPWA=useRef();
-  const [question,setQuestion]=useState(null);
 
-  useEffect(()=>{
-    if(!loading)  fetchData(fetchUrl,{question, language} );
-  },[question])
+  
   useEffect(() => {
     if (!data) return;
     onChangeResult(data);
@@ -56,14 +53,12 @@ const Question = ({
 
  async function onPromptSubmit(prompt) {
  
-      setQuestion(prompt);
-     
+  if(!loading)fetchData(fetchUrl,{prompt, language} )     
     
   }
 
   return (
     <>
-
       <QuestionForm onPromptSubmit={onPromptSubmit} language={language} loadingAnswer={loading} onChangeRabbitAnimation={onChangeRabbitAnimation} rabbitAnimation={rabbitAnimation}/>
     </>
   );
@@ -88,6 +83,10 @@ const QuestionForm = ({onPromptSubmit,onChangeRabbitAnimation,rabbitAnimation,la
 
   function onSubmit(e){
     e.preventDefault();
+
+    if(question==""){
+           return;
+    }
     onPromptSubmit(question)
     setQuestion("");
   }
