@@ -31,7 +31,12 @@ import GeneratedImage from "../generatedImage/GeneratedImage";
            {answerType=="image" && <GeneratedImage answer={answer}/>}
             
           </div>
-          <img alt={"smart rabbit "+rabbitAnimation} className={styles[rabbitAnimation]} src={rabbitAnimation+".gif" } />
+          {rabbitAnimation=="idle"&&<img alt={"smart rabbit idle"} className={styles["idle"]} src={"idle.gif" } />}
+          {rabbitAnimation=="answer"&&<img alt={"smart rabbit answer"} className={styles["answer"]} src={"answer.gif" } />}
+          {rabbitAnimation=="question"&&<img alt={"smart rabbit question"} className={styles["question"]} src={"question.gif" } />}
+          {rabbitAnimation=="speaking"&&<img alt={"smart rabbit speaking"} className={styles["speaking"]} src={"speaking.gif" } />}
+         
+
         </div>
       </div>
       <div>

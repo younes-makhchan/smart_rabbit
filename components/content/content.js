@@ -16,10 +16,6 @@ function Content() {
   
   function onChangeResult(result){
       setResult(result);
-
-      
-
-
   }
   
 
@@ -35,7 +31,7 @@ function Content() {
 
 
 
-
+  console.log(result.type)
 
   return (
     <>

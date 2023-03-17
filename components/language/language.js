@@ -29,8 +29,7 @@ function Language() {
 
   return (
     <>
-      <div className={styles.languages_wrapper}>
-        <div className={styles.lang_menu}>
+      <div className={styles.lang_menu}>
           <div className={styles.selected_lang} onClick={showMenu}>
             <img  alt={"flag of "+language.slug}
               src={"/s_" + language.slug + ".png"}
@@ -39,7 +38,6 @@ function Language() {
             <span style={{display:"none"}}>{language.slug}</span>
             <Image alt="drop down language" src="/arrow_drop_down.svg" className={styles.dropdown} width="32" height="32" ref={img}/>
           </div>
-
           <ul className={styles.unselected_languages} id="ul">
             {Object.keys(languages).map((e, i,arr) => {
               if (e != language.slug)
@@ -55,7 +53,6 @@ function Language() {
                 );
             })}
           </ul>
-        </div>
       </div>
     </>
   );

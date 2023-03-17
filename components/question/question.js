@@ -24,6 +24,11 @@ const Question = ({
 
   const {data,loading,error,fetchData}=useFetch(null,{});
   const installPWA=useRef();
+  const [question,setQuestion]=useState(null);
+
+  useEffect(()=>{
+    if(!loading)  fetchData(fetchUrl,{question, language} );
+  },[question])
   useEffect(() => {
     if (!data) return;
     onChangeResult(data);
@@ -51,7 +56,7 @@ const Question = ({
 
  async function onPromptSubmit(prompt) {
  
-      if(!loading) fetchData(fetchUrl,{prompt, language} );
+      setQuestion(prompt);
      
     
   }

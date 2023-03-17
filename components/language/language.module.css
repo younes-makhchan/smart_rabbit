@@ -1,4 +1,4 @@
-.languages_wrapper {
+.selected_lang {
  
   align-items: center;
   appearance: none;
@@ -11,7 +11,6 @@
   cursor: pointer;
   /* display: inline-flex; */
   font-family: "JetBrains Mono",monospace;
-  margin-left: auto;
   justify-content: center;
   line-height: 1;
   list-style: none;
@@ -35,6 +34,7 @@
   .lang_menu {
     text-align: right;
     font-weight: bold;
+    margin-left: auto;
     text-transform: capitalize;
     position: relative;
     /* padding: 3px; */
