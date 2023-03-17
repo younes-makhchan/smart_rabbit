@@ -20,7 +20,7 @@ function History() {
   return (
     <div className={styles.history_wrapper}>
       <div className={styles.history_btn_wrapper} onClick={()=>setDisplay(prevstate=>!prevstate)}>
-        <Image  alt="history icon" src="/history.svg" width="24" height="24" />
+        {/* <Image  alt="history icon" src="/history.svg" width="24" height="24" /> */}
         <button type="button">{language.history}</button>
       </div>
       <div className={styles.history} style={{display:display?"block":"none"}}>

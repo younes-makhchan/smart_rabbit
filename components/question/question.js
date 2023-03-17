@@ -23,15 +23,20 @@ const Question = ({
  
 
   const {data,loading,error,fetchData}=useFetch(null,{});
+  const [question,setQuestion]=useState(null);
   const installPWA=useRef();
 
-  
+    useEffect(()=>{
+      if(question)fetchData(fetchUrl,{question, language} ) 
+    },[question])
+
+
   useEffect(() => {
     if (!data) return;
     onChangeResult(data);
     //don't save image in history
     if (data.type != "image") {
-      saveHistory(prompt, data.result, data.type);
+      saveHistory(question, data.result, data.type);
     }
     saveToDatabase(
       prompt,
@@ -51,20 +56,20 @@ const Question = ({
   },[error])
 
 
- async function onPromptSubmit(prompt) {
+ async function onQuestionSubmit(prompt) {
  
-  if(!loading)fetchData(fetchUrl,{prompt, language} )     
+  if(!loading)setQuestion(prompt);    
     
   }
 
   return (
     <>
-      <QuestionForm onPromptSubmit={onPromptSubmit} language={language} loadingAnswer={loading} onChangeRabbitAnimation={onChangeRabbitAnimation} rabbitAnimation={rabbitAnimation}/>
+      <QuestionForm onQuestionSubmit={onQuestionSubmit} language={language} loadingAnswer={loading} onChangeRabbitAnimation={onChangeRabbitAnimation} rabbitAnimation={rabbitAnimation}/>
     </>
   );
 };
 
-const QuestionForm = ({onPromptSubmit,onChangeRabbitAnimation,rabbitAnimation,language,loadingAnswer}) => {
+const QuestionForm = ({onQuestionSubmit,onChangeRabbitAnimation,rabbitAnimation,language,loadingAnswer}) => {
   const  [question,setQuestion]=useState("");
 
 
@@ -87,7 +92,7 @@ const QuestionForm = ({onPromptSubmit,onChangeRabbitAnimation,rabbitAnimation,la
     if(question==""){
            return;
     }
-    onPromptSubmit(question)
+    onQuestionSubmit(question)
     setQuestion("");
   }
 

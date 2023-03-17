@@ -28,7 +28,7 @@ const useFetch=(url,{prompt,language})=>{
          
     },[]);
 
-  function fetchData(url,{prompt,language}) {
+  function fetchData(url,{question,language}) {
           setLoading(true);
            fetch(url + "/api/generate", {
          method: "POST",
@@ -39,7 +39,7 @@ const useFetch=(url,{prompt,language})=>{
            "Access-Control-Allow-Headers": "Content-Type",
          },
          body: JSON.stringify({
-           description: prompt,
+           description: question,
            language: language.lang,
          }),
        }).then(response=>response.json())

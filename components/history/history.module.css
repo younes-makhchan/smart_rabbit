@@ -2,7 +2,7 @@
 
 /*history*/
 .history_wrapper {
-    align-self: flex-start;
+    /* align-self: flex-start; */
     /* margin: 15px; */
     position: relative;
   }
@@ -19,7 +19,7 @@
     /* display: inline-flex; */
     font-family: "JetBrains Mono",monospace;
     justify-content: center;
-    line-height: 1;
+    /* line-height: 1; */
     list-style: none;
     overflow: hidden;
 
