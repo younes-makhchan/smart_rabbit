@@ -7,9 +7,9 @@
 
  :root{
   --xl: clamp(1.2rem,2vw + 1rem ,2rem);
-  --md:clamp(0.4rem,2vw + 0.4rem,1.3rem);;
-  --sm:clamp(0.3rem,2vw + 0.2rem,1rem);
-  --xsm:clamp(0.1rem,1vw + 0.1rem,0.8rem);
+  --md:clamp(0.8rem,2vw + 0.4rem,1.3rem);;
+  --sm:clamp(0.6rem,2vw + 0.2rem,1rem);
+  --xsm:clamp(0.4rem,1vw + 0.1rem,0.8rem);
   --padding-xxl:min(7vw,60px);
   --padding-xl:min(5vw,40px);
   --padding-md:min(3vw,20px);

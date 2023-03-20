@@ -29,9 +29,12 @@
   text-transform: uppercase;
   /* height: fit-content; */
     padding: var(--padding-sm);
+
+    display: flex;
     }
   
   .lang_menu {
+    display: flex;
     text-align: right;
     font-weight: bold;
     margin-left: auto;
@@ -71,20 +74,20 @@
   }
   .lang_menu .selected_lang .flag {
     display: inline-block;
-    width:24px;
-    height:24px;
+    width:calc(var(--md) + 0.4rem );;
+    height:calc(var(--md) + 0.4rem );;
   
   }
-  @media (max-width:768px) {
+  /* @media (max-width:768px) {
     .lang_menu .selected_lang .flag {
-      width:24px;
-      height:24px;
+      width:calc(var(--md) + 0.4rem );;
+      height:calc(var(--md) + 0.4rem );;
     
     }
-  }
+  } */
   .lang_menu .selected_lang .dropdown {
-    width:24px;
-      height:24px;
+    width:calc(var(--md) + 0.4rem );;
+      height:calc(var(--md) + 0.4rem );;
     transition: transform 500ms;
   
   }
