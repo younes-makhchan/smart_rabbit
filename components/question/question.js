@@ -71,6 +71,7 @@ const Question = ({
 
 const QuestionForm = ({onQuestionSubmit,onChangeRabbitAnimation,rabbitAnimation,language,loadingAnswer}) => {
   const  [question,setQuestion]=useState("");
+  const  [blur,setBlur]=useState(false);
 
 
   useEffect(()=>{
@@ -92,7 +93,9 @@ const QuestionForm = ({onQuestionSubmit,onChangeRabbitAnimation,rabbitAnimation,
     if(question==""){
            return;
     }
+
     onQuestionSubmit(question)
+    setBlur(true);
     setQuestion("");
   }
 
@@ -104,6 +107,8 @@ const QuestionForm = ({onQuestionSubmit,onChangeRabbitAnimation,rabbitAnimation,
         <div className={styles.inputwrapper}>
           <InputPrompt
           name="question"
+          blur={blur}
+          setBlur={setBlur}
           onChange={onChangeQuestion}
           />
           <Record onChangeQuestion={onChangeQuestion} question={question}   language={language}

@@ -6,7 +6,7 @@
   }
 
  :root{
-  --xl: clamp(1.2rem,2vw + 1rem ,2rem);
+  --xl: clamp(1rem,2vw + 0.8rem ,2rem);
   --md:clamp(0.8rem,2vw + 0.4rem,1.3rem);;
   --sm:clamp(0.6rem,2vw + 0.2rem,1rem);
   --xsm:clamp(0.4rem,1vw + 0.1rem,0.8rem);

@@ -6,7 +6,7 @@ const GeneratedImage = ({ answer }) => {
  
   
   return (
-    <>
+    <div>
     <div className={styles["options"]} >
      <img src="full-screen.svg" className={styles["full-screen"]} onClick={() => setDisplayImage(true)}/>
      {/* <img src="image-download.svg" className={styles["image-download"]} onClick={downloadImage}/> */}
@@ -20,7 +20,7 @@ const GeneratedImage = ({ answer }) => {
           pauseFor: 3600000,
         }}
       />
-      <div>
+      <div className={styles["image_wrapper"]}>
        
       <img
         src={answer}
@@ -41,7 +41,7 @@ const GeneratedImage = ({ answer }) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 export default GeneratedImage;

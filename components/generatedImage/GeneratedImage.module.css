@@ -1,3 +1,6 @@
+.image_wrapper{
+  padding-top: 15px;
+}
 .image{
     border-radius:6px;
     border:solid 1px #dbc9c994;
@@ -6,7 +9,6 @@
     max-width: 90%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     width: 256px;
-    height: 256px;
    
 }
 .options{
