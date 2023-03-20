@@ -7,7 +7,7 @@
     position: relative;
   }
   .history_wrapper .history_btn_wrapper {
-  
+    
     align-items: center;
     appearance: none;
     background-color: #FCFCFD;
@@ -35,6 +35,7 @@
     font-size: 18px;
     height: fit-content;
     padding: var(--padding-sm);
+    height: 100%;
   }
   .history_btn_wrapper:focus {
     box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
