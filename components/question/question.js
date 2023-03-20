@@ -52,7 +52,8 @@ const Question = ({
   }, [loading]);
 
   useEffect(()=>{
-     if(error) alert("Not allowed!")
+
+     if(error){ alert("Try different input!");console.log(error);}
   },[error])
 
 

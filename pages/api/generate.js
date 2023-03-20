@@ -24,7 +24,7 @@ export default async function (req, res) {
     });
     return;
   }
-
+  console.log(req.body)
   const description = req.body.description || "";
   const language = req.body.language || "";
   if (description.trim().length === 0) {
@@ -51,10 +51,11 @@ export default async function (req, res) {
   } catch (error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
-      console.error(error.response.status, error.response.data);
-      res.status(error.response.status).json(error.response.data);
+      console.log("Error:")
+      console.log(error.response.status, error.response.data);
+      res.status(404).json(error.response.data);
     } else {
-      console.error(`Error with OpenAI API request: ${error.message}`);
+      console.log(`Error with OpenAI API request: ${error.message}`);
       res.status(500).json({
         error: {
           message: "An error occurred during your request.",
