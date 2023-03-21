@@ -1,3 +1,6 @@
+ .hide{
+  visibility: hidden;
+ }
  .result {
   font-weight: bold;
   width: 63vw;

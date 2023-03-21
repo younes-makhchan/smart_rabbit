@@ -31,10 +31,10 @@ import GeneratedImage from "../generatedImage/GeneratedImage";
            {answerType=="image" && <GeneratedImage answer={answer}/>}
             
           </div>
-          {rabbitAnimation=="idle"&&<img alt={"smart rabbit idle"} className={styles["idle"]} src={"idle.gif" } />}
-          {rabbitAnimation=="searching"&&<img alt={"smart rabbit searching"} className={styles["searching"]} src={"searching.gif" } />}
-          {rabbitAnimation=="question"&&<img alt={"smart rabbit question"} className={styles["question"]} src={"question.gif" } />}
-          {rabbitAnimation=="speaking"&&<img alt={"smart rabbit speaking"} className={styles["speaking"]} src={"speaking.gif" } />}
+          <img alt={"smart rabbit idle"}  className={`${styles["idle"]} ${rabbitAnimation!="idle"&&styles["hide"]}`} src={"idle.gif" } />
+          <img alt={"smart rabbit searching"} className={`${styles["searching"]} ${rabbitAnimation!="searching"&&styles["hide"]}`} src={"searching.gif" } />
+          <img alt={"smart rabbit question"} className={`${styles["question"]} ${rabbitAnimation!="question"&&styles["hide"]}`} src={"question.gif" } />
+          <img alt={"smart rabbit speaking"} className={`${styles["speaking"]} ${rabbitAnimation!="speaking"&&styles["hide"]}`} src={"speaking.gif" } />
          
 
         </div>
