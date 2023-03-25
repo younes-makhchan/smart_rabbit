@@ -1,6 +1,6 @@
 import styles from "./index.module.css";
 import BarLoader from "react-spinners/BarLoader";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import Record from "../record/record.";
 import RabbitLens from "../rabbitLens/rabbitLens";
 import InputPrompt from "../inputPrompt/InputPrompt";
@@ -8,96 +8,40 @@ import InstallPWA from "../installPWA/InstallPWA";
 import saveHistory from "../../util/saveHistory";
 import saveToDatabase from "../../util/saveToDatabase";
 import useFetch from "../../util/useFetch";
+import { PromptContext } from "../../context/prompt-context";
   //fetching url
-let fetchUrl = Capacitor.isNativePlatform()
-? "https://srm-nine.vercel.app"
-: "";
 
 let count=0;
 const Question = ({
-  language,
-  onChangeResult,
-  rabbitAnimation,
-  onChangeRabbitAnimation,
-}) => {
+  language
+  }) => {
  
-
-  const {data,loading,error,fetchData}=useFetch(null,{});
-  const [question,setQuestion]=useState(null);
-  const installPWA=useRef();
-
-    useEffect(()=>{
-      if(question)fetchData(fetchUrl,{question, language} ) 
-    },[question])
-
-
-  useEffect(() => {
-    if (!data) return;
-    onChangeResult(data);
-    //don't save image in history
-    if (data.type != "image") {
-      saveHistory(question, data.result, data.type);
-    }
-    saveToDatabase(
-      prompt,
-      data.result,
-      data.type,
-      fetchUrl
-    ).then(() => console.log("saved to database"));
-
-  }, [data]);
-
-  useEffect(() => {
-    onChangeRabbitAnimation(loading ? "searching" : "idle");
-  }, [loading]);
-
-  useEffect(()=>{
-
-     if(error){ alert("Try different input!");console.log(error);}
-  },[error])
-
-
- async function onQuestionSubmit(prompt) {
- 
-  if(!loading)setQuestion(prompt);    
-    
-  }
-
-  return (
-    <>
-      <QuestionForm onQuestionSubmit={onQuestionSubmit} language={language} loadingAnswer={loading} onChangeRabbitAnimation={onChangeRabbitAnimation} rabbitAnimation={rabbitAnimation}/>
-    </>
-  );
-};
-
-const QuestionForm = ({onQuestionSubmit,onChangeRabbitAnimation,rabbitAnimation,language,loadingAnswer}) => {
-  const  [question,setQuestion]=useState("");
+  const {onGenerate,loading,onChangeQuestion,question}=useContext(PromptContext);
   const  [blur,setBlur]=useState(false);
 
 
+  const input=useRef();
   useEffect(()=>{
-      if(question==""&& loadingAnswer==false){
-        onChangeRabbitAnimation("idle");
-      }else if(rabbitAnimation!="question"){
-        onChangeRabbitAnimation("question");
-      }
-  },[question])
+    if(blur){input.current.blur();
+    
+  }
+  },[blur]);
 
-  const onChangeQuestion=({target})=>{
-    const {value}=target;
-    setQuestion(value);
+  function onChangeQuestionHandler({target}){
+    onChangeQuestion(target.value);
   }
 
   function onSubmit(e){
     e.preventDefault();
-
+    
     if(question==""){
            return;
     }
 
-    onQuestionSubmit(question)
+    if(!loading)onGenerate(language);
     setBlur(true);
-    setQuestion("");
+    onChangeQuestion("")
+
   }
 
 
@@ -106,12 +50,24 @@ const QuestionForm = ({onQuestionSubmit,onChangeRabbitAnimation,rabbitAnimation,
     <form onSubmit={onSubmit} className={styles.form}>
       <div>
         <div className={styles.inputwrapper}>
-          <InputPrompt
-          name="question"
-          blur={blur}
-          setBlur={setBlur}
-          onChange={onChangeQuestion}
-          />
+        <label htmlFor={"question"} style={{ display: "flex" }}> 
+              <img
+                src="search.svg"
+                alt="search icon"
+                className={styles.search_icon}
+              />
+            </label>
+            <input
+              type="text"
+              id={"question"}
+              ref={input}
+              name={"question"}
+              value={question}
+              className={styles["input_prompt"]}
+             onClick={()=>setBlur(false)}
+              onChange={onChangeQuestionHandler}
+            />
+        
           <Record onChangeQuestion={onChangeQuestion} question={question}   language={language}
       />
 
@@ -127,7 +83,7 @@ const QuestionForm = ({onQuestionSubmit,onChangeRabbitAnimation,rabbitAnimation,
       </label>
       <div>
         <button id="answer" type="submit">
-          {loadingAnswer ? (
+          {loading ? (
             <BarLoader color="#fff" size={15} speedMultiplier={0.5} />
           ) : (
             language.btn_title
@@ -136,5 +92,8 @@ const QuestionForm = ({onQuestionSubmit,onChangeRabbitAnimation,rabbitAnimation,
       </div>
     </form>
   );
+
 };
+
+
 export default Question;

@@ -4,7 +4,7 @@ import { Capacitor } from "@capacitor/core";
 import axios from "axios";
 import Image from "next/image"
 
-function Record ({onChangeQuestion,animalInput,language}){
+function Record ({onChangeQuestion,question,language}){
     let sdk=require("microsoft-cognitiveservices-speech-sdk")
     const [listening, setListening] = useState(false);
     const [recognizer, setRecognizer] = useState({});
@@ -59,7 +59,7 @@ function Record ({onChangeQuestion,animalInput,language}){
           // recognizer.recognized = (s, e) => {
           //   if (e.result.reason == sdk.ResultReason.RecognizedSpeech) {
           //     console.log(e.result)
-          //     console.log(`RECOGNIZED: Text=${e.result.text},animalInput `+animalInput);
+          //     console.log(`RECOGNIZED: Text=${e.result.text},question `+question);
           //     // input.current.value+=e.result.text;
           //     a=input.current.value;
     
@@ -91,15 +91,15 @@ function Record ({onChangeQuestion,animalInput,language}){
     
           recognizer.recognizing = (s, e) => {
             console.log(e.result);
-            onChangeQuestion(animalInput + e.result.text);
+            onChangeQuestion(question + e.result.text);
           };
           recognizer.recognized = (s, e) => {
             if (e.result.reason == sdk.ResultReason.RecognizedSpeech) {
               console.log(e.result);
               console.log(
-                `RECOGNIZED: Text=${e.result.text},animalInput ` + animalInput
+                `RECOGNIZED: Text=${e.result.text},question ` + question
               );
-              onChangeQuestion(animalInput + e.result.text);
+              onChangeQuestion(question + e.result.text);
               setListening(false);
               recognizer.stopContinuousRecognitionAsync();
             }

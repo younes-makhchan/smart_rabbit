@@ -25,7 +25,7 @@ export default async function (req, res) {
     return;
   }
   console.log(req.body)
-  const description = req.body.description || "";
+  const description = req.body.description?.toLowerCase() || "";
   const language = req.body.language || "";
   if (description.trim().length === 0) {
     res.status(400).json({
@@ -38,7 +38,7 @@ export default async function (req, res) {
 
   try {
     let result="",type="";
-  
+    
       if(description.indexOf("imag")>=0||description.indexOf("genera")>=0||description.indexOf("pictu")>=0){        
         type="image";
         result =await generateImage(description);
@@ -47,7 +47,7 @@ export default async function (req, res) {
        result= await generatePrompt(description,language);
       }
     //if image we will give  url , if  text we will give a text reply
-    res.status(200).json({ result,type });
+    res.status(200).json({ result,type,question:description });
   } catch (error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {

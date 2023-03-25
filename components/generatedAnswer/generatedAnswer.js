@@ -4,16 +4,15 @@ import LanguageContext from "../../context/language-context";
 import Voice from "../voice/voice";
 
 
-const GeneratedAnswer=({answer,onChangeRabbitAnimation})=>{
+const GeneratedAnswer=({answer,rabbitAnimationHandler})=>{
   const {language}=useContext(LanguageContext)
-  console.log("answer is :"+answer);
-
+  const paragraph=answer||language.smart_rabbit_opening;
 return (
     <>
-    <Voice answer={answer} voice={language.voice} onChangeRabbitAnimation={onChangeRabbitAnimation}/>    
+    <Voice paragraph={paragraph} voice={language.voice} rabbitAnimationHandler={rabbitAnimationHandler}/>    
     <Typewriter
         options={{
-          strings: [answer],
+          strings: [paragraph],
           autoStart: true,
           delay: 15,
           pauseFor: 3600000,

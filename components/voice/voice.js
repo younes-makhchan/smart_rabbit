@@ -5,7 +5,7 @@ import { Capacitor } from "@capacitor/core/"
 import Image from "next/image"
 
 import axios from "axios";
-function Voice ({answer,voice,onChangeRabbitAnimation}){
+function Voice ({paragraph,voice,rabbitAnimationHandler}){
     let sdk=require("microsoft-cognitiveservices-speech-sdk")
     let [speaking, setSpeaking] = useState(false);
     const [synthesizer, setSynthesizer] = useState(undefined);
@@ -20,7 +20,7 @@ function Voice ({answer,voice,onChangeRabbitAnimation}){
         
             loadVoice();
     }
-      },[answer,synthesizer])
+      },[paragraph,synthesizer])
 
     async function subscribe() {
         let url="";
@@ -75,7 +75,7 @@ function Voice ({answer,voice,onChangeRabbitAnimation}){
             console.log(audio.duration,audio.currentTime)
             if(audio.currentTime>audio.duration-1){
               console.log('cut');
-              onChangeRabbitAnimation("idle");
+              rabbitAnimationHandler("idle");
             }
           });
           
@@ -97,10 +97,10 @@ function Voice ({answer,voice,onChangeRabbitAnimation}){
       }
    
       async function loadVoice(){
-        // console.log("the answer :"+answer);
+        // console.log("the paragraph :"+paragraph);
         let smml = `<speak xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xmlns:emo="http://www.w3.org/2009/10/emotionml" version="1.0" xml:lang="en-US">
         <voice name="${voice}">
-        <prosody rate="5%" pitch="20%">${answer}</prosody>
+        <prosody rate="15%" pitch="30%">${paragraph}</prosody>
         </voice>
         </speak>`;
         // console.log(smml)
@@ -116,10 +116,10 @@ function Voice ({answer,voice,onChangeRabbitAnimation}){
                 
                     audio.play();
         
-                  onChangeRabbitAnimation("speaking")
+                  rabbitAnimationHandler("speaking")
                   setSpeaking(true);
             }else if(speaking){
-              onChangeRabbitAnimation("idle")
+              rabbitAnimationHandler("idle")
               audio.currentTime=0;
               audio.pause();
               setSpeaking(false);

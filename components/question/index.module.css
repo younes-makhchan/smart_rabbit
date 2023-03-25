@@ -91,3 +91,21 @@
     box-shadow: #50b753 0 3px 7px inset;
     transform: translateY(2px);
   }
+
+  .search_icon{
+    width: 24px;
+    height: 24px;
+  }
+  
+  .input_prompt {
+   height: 37px;
+    flex: 1;
+    font-size: var(--sm);
+    background: transparent;
+    outline: none;
+    border: none;
+  }
+  .input_prompt::placeholder {
+    color: #8e8ea0;
+    opacity: 1;
+  }

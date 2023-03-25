@@ -17,23 +17,7 @@ const  InputPrompt=({onChange,name,blur,setBlur})=>{
   },[blur]);
     return (
         <>
-               <label htmlFor={name} style={{ display: "flex" }}> 
-              <img
-                src="search.svg"
-                alt="search icon"
-                className={styles.search_icon}
-              />
-            </label>
-            <input
-              type="text"
-              id={name}
-              ref={input}
-              name={name}
-              className={styles["input_prompt"]}
-             onClick={()=>setBlur(false)}
-              onChange={onChange}
-            />
-        
+            
         </>
     )
 }

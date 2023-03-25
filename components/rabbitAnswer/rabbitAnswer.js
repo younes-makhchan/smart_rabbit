@@ -1,16 +1,18 @@
 import Typewriter from "typewriter-effect";
 import Voice from "../voice/voice";
-import {  useEffect, useRef } from "react";
+import {  useContext, useEffect, useRef } from "react";
 import styles from "./index.module.css";
 import GeneratedAnswer from "../generatedAnswer/generatedAnswer";
 import GeneratedImage from "../generatedImage/GeneratedImage";
+import { PromptContext } from "../../context/prompt-context";
 
 
 
- function RabbitAnswer({ answerType,answer,rabbitAnimation,onChangeRabbitAnimation }) {
+ function RabbitAnswer() {
   const resultBox = useRef();
-
+  const {result,rabbitAnimation,rabbitAnimationHandler}=useContext(PromptContext);
   
+  const {result:answer,type:answerType}=result;
   useEffect(() => {
     resultBox.current.style =
       "max-height:" +
@@ -20,14 +22,13 @@ import GeneratedImage from "../generatedImage/GeneratedImage";
   
 
   
-
   return (
     <>
       <div>
         <div className={styles.wrapper}>
           <label htmlFor="rabbitAnswer" style={{display:"none"}}  >Rabbit Answer</label>
           <div alt="Rabbit Answer" id="rabbitAnswer" className={styles.result} ref={resultBox}>
-           {answerType=="text" && <GeneratedAnswer answer={answer} onChangeRabbitAnimation={onChangeRabbitAnimation}/>}
+           {answerType=="text" && <GeneratedAnswer answer={answer} rabbitAnimationHandler={rabbitAnimationHandler}/>}
            {answerType=="image" && <GeneratedImage answer={answer}/>}
             
           </div>
