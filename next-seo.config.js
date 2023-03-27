@@ -1,5 +1,5 @@
 export default{
-    title:"The Smart Rabbit",
+    title:"Smart Rabbit",
     description:"Smart Rabbit answers children questions",
     keywords:"virtual pet,answer questions",
     canonical:"https://smart-rabbit.netlify.app",
@@ -7,9 +7,9 @@ export default{
         url:"https://smart-rabbit.netlify.app/",
         type:'website',
         title:"Smart Rabbit Answers Children Questions And Funny",
-        description:"Friendly and humorous smart rabbit who loves to answer questions and provide good and funny responses that are suitable for kids. I'm also quite wise and try to avoid adult questions.",
+        description:"Friendly and humorous Smart Rabbit who loves to answer questions and provide good and funny responses that are suitable for kids.Smart Rabbit also quite wise and try to avoid adult questions.",
         locale:'en_IE',
-        site_name:"The Smart Rabbit",
+        site_name:"Smart Rabbit",
         images:[
             {   
                 url: 'https://smart-rabbit.netlify.app/gr_thumbnail.png',

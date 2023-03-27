@@ -38,7 +38,7 @@ const LanguageContext=React.createContext({
           slug:"en",
           lang: "english",
           smart_rabbit_opening: "Hey, What i can help you with ?",
-          title: "The Smart Rabbit",
+          title: "Smart Rabbit",
           placeholder: "what's your question?",
           btn_title: "Answer",
           btn_title_change: "Am thinking...",
