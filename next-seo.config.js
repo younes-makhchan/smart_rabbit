@@ -2,7 +2,7 @@ export default{
     title:"The Smart Rabbit",
     description:"Smart Rabbit answers children questions",
     keywords:"virtual pet,answer questions",
-
+    canonical:"https://smart-rabbit.netlify.app",
     openGraph:{
         url:"https://smart-rabbit.netlify.app/",
         type:'website',
