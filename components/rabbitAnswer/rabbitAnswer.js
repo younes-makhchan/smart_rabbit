@@ -32,10 +32,10 @@ import { PromptContext } from "../../context/prompt-context";
            {answerType=="image" && <GeneratedImage answer={answer}/>}
             
           </div>
-          <img alt={"smart rabbit idle"}  className={`${styles["idle"]} ${rabbitAnimation!="idle"&&styles["hide"]}`} src={"idle.gif" } />
-          <img alt={"smart rabbit searching"} className={`${styles["searching"]} ${rabbitAnimation!="searching"&&styles["hide"]}`} src={"searching.gif" } />
-          <img alt={"smart rabbit question"} className={`${styles["question"]} ${rabbitAnimation!="question"&&styles["hide"]}`} src={"question.gif" } />
-          <img alt={"smart rabbit speaking"} className={`${styles["speaking"]} ${rabbitAnimation!="speaking"&&styles["hide"]}`} src={"speaking.gif" } />
+          <img alt={"Smart Rabbit idle"}  className={`${styles["idle"]} ${rabbitAnimation!="idle"&&styles["hide"]}`} src={"idle.gif" } />
+          <img alt={"Smart Rabbit searching"} className={`${styles["searching"]} ${rabbitAnimation!="searching"&&styles["hide"]}`} src={"searching.gif" } />
+          <img alt={"Smart Rabbit question"} className={`${styles["question"]} ${rabbitAnimation!="question"&&styles["hide"]}`} src={"question.gif" } />
+          <img alt={"Smart Rabbit speaking"} className={`${styles["speaking"]} ${rabbitAnimation!="speaking"&&styles["hide"]}`} src={"speaking.gif" } />
          
 
         </div>
