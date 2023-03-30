@@ -23,7 +23,7 @@ export default function Home() {
     <div className="top">
       <Head>
         {/* <html lang={language.slug} />  */}
-        <title>{"Smart Rabbit"}</title>
+        <title>{"Smart Rabbit Answers Children Questions And Funny"}</title>
         <link rel="icon" href="/icon-192x192.png" />
         <meta name="author" content="Younes makhchan"/>
         <meta name="title" content="Smart Rabbit Answers Children Questions And Funny"/>
