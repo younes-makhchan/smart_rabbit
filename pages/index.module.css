@@ -22,7 +22,7 @@
   padding: 10px;
   gap: 10px;
   flex-direction:row;
-  width:100vw;
+  width:100%;
 }
 .main .content_wrapper{
   
