@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import Content from "../components/content/content";
 import {LanguageContextProvider} from "../context/language-context";
 import InstallPWA from "../components/installPWA/InstallPWA";
+import About from "../components/About/About";
 // import Language from "../components/language"
 // import History from "../components/history";
 const  Language = dynamic(()=> import("../components/language/language"));
@@ -34,20 +35,21 @@ export default function Home() {
        
        
         <LoadingScreen time={1000}/>
-        {/* <div style={{zIndex:-1,position:"fixed",width:"100vw",height:"100vh"}}>
-          <Image  alt="background image" src="/2560x1440.png" fill style={{objectFit:"cover"}} priority ></Image>
-        </div> */}
-
         <LanguageContextProvider>
-        <div className={styles.section}>
-        <History  />
-        
+       
+        <header className={styles.section}>
+        <History  /> 
         <InstallPWA   />
         <Language   />
-        </div>
-        <div className={styles.content_wrapper}>
+        </header>
+      
+        <section className={styles.content_wrapper}>
         <Content   />
-        </div>
+        </section>
+       
+       
+        <About/>
+       
 
         </LanguageContextProvider>
         

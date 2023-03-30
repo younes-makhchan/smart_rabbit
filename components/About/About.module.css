@@ -1,0 +1,41 @@
+.section{
+    display: flex;
+    align-items: center;
+    
+}
+.article{
+    background-color: white;
+    border-radius: 8px;
+    width: 80%;
+    padding: var(--padding-xl);
+    max-width: 1440px;
+    margin-top:1rem ;
+    margin-bottom:10rem ;
+    display: flex;
+    
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+.title{
+    font-size: var(--xl);
+    color: rgb(43, 238, 43);
+    padding-block: 15px;
+    font-family: 'cartoon';
+}
+.description{
+    line-height: 1.5;
+    color: #54524e;
+    font-weight: bold;
+}
+
+
+.img{
+    transform: rotateY(180deg);
+}
+
+@media (max-width:765px) {
+    .section{
+        flex-direction: column;
+        align-items: flex-end;
+    }
+}
+
