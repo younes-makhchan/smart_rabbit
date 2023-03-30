@@ -26,6 +26,7 @@ export default function Home() {
         <title>{"Smart Rabbit"}</title>
         <link rel="icon" href="/icon-192x192.png" />
         <meta name="author" content="Younes makhchan"/>
+        <meta name="title" content="Smart Rabbit Answers Children Questions And Funny"/>
         <meta name="google-site-verification" content="cxDrYFXhDCAmz5Q8d5oDPB4InJrVVgCxYDnRUZlZJvk" />
       </Head>
 
