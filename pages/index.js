@@ -7,6 +7,7 @@ import Content from "../components/content/content";
 import {LanguageContextProvider} from "../context/language-context";
 import InstallPWA from "../components/installPWA/InstallPWA";
 import About from "../components/About/About";
+import Header from "../components/Header/Header";
 // import Language from "../components/language"
 // import History from "../components/history";
 const  Language = dynamic(()=> import("../components/language/language"));
@@ -37,11 +38,7 @@ export default function Home() {
         <LoadingScreen time={1000}/>
         <LanguageContextProvider>
        
-        <header className={styles.section}>
-        <History  /> 
-        <InstallPWA   />
-        <Language   />
-        </header>
+    <Header/>
       
         <section className={styles.content_wrapper}>
         <Content   />

@@ -5,8 +5,8 @@ import style from "./About.module.css"
 
 const About=()=>{
     return (
-        <section className={style.section}>
-                <article className={style.article}>
+        <section className={style.section} id="about">
+                <article className={style.article} >
                 <div className={style.content}>
                 <h1 className={style.title}>About Smart Rabbit</h1>
                 <p className={style.description}>
