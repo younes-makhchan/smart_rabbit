@@ -45,7 +45,7 @@ export default function Home() {
         </section>
        
        
-        <About/>
+        {/* <About/> */}
        
 
         </LanguageContextProvider>
