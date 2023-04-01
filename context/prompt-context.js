@@ -55,7 +55,11 @@ const PromptContextProvider=({children})=>{
           data.result,
           data.type,
           fetchUrl
-        ).then(() =>{});
+        ).then(() =>{
+          console.log("done ")
+        }).catch(()=>{
+          console.log("problem")
+        });
       }, [data]);
     
       useEffect(() => {
