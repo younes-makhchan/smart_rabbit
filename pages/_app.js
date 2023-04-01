@@ -18,6 +18,7 @@ const App = ({ Component, pageProps }) => {
 
   return(
       <>
+      
       <DefaultSeo {...SEO} />
      <Component {...pageProps} />
       </>

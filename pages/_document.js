@@ -1,13 +1,18 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-
 // import { GA_TRACKING_ID } from '../lib/gtag'
 
 export default class MyDocument extends Document {
+
+
+
   render() {
     return (
       <Html lang='en'>
         <Head>
+          {/* <!-- Clarity tracking code for https://smart-rabbit.netlify.app/ --> */}
+        
           <link rel="manifest" href="/manifest.json"></link>
+         
         {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9485022839769098"
      crossOrigin="anonymous"></script> */}
           {/* Global Site Tag (gtag.js) - Google Analytics */}
