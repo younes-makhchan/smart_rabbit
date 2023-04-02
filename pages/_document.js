@@ -8,7 +8,7 @@ export default class MyDocument extends Document {
     return (
       <Html lang='en'>
         <Head>
-        <Script  strategy='afterInteractive'>
+        <Script  strategy='beforeInteractive'>
       {`
     (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
