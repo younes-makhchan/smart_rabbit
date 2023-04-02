@@ -4,6 +4,7 @@ import { useRouter } from 'next/router'
 import { DefaultSeo } from 'next-seo'
 import SEO from "../next-seo.config"
 import "./style.css"
+import Script from 'next/script'
 const App = ({ Component, pageProps }) => {
   // const router = useRouter()
   // useEffect(() => {
@@ -18,8 +19,17 @@ const App = ({ Component, pageProps }) => {
 
   return(
       <>
-      
+        
+     <Script strategy='afterInteractive' src="https://www.googletagmanager.com/gtag/js?id=G-VLEB4TRHNW" ></Script>
+      <Script strategy='afterInteractive' id="google-analytics">
+     {` window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VLEB4TRHNW');`}
+    </Script>
       <DefaultSeo {...SEO} />
+
      <Component {...pageProps} />
       </>
      )

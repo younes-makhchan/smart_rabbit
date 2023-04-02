@@ -21,7 +21,7 @@ const fetchUrl = Capacitor.isNativePlatform()
 const PromptContextProvider=({children})=>{
     const {data,loading,error,fetchData}=useFetch(null,{prompt:null,language:null});
 
-    const [question,setQuestion]=useState(null);
+    const [question,setQuestion]=useState("");
     const [result,setResult]=useState({result:null,type:"text"});
     let [rabbitAnimation,setRabbitAnimation]=useState("idle")
 
