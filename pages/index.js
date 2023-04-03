@@ -19,7 +19,7 @@ import Header from "../components/Header/Header";
 export default function Home() {
 
   useEffect(()=>{
-    fetch('http://localhost:3000/organisationSchema.txt')
+    fetch('https://smart-rabbit.netlify.app/organisationSchema.txt')
     .then(response => response.text())
     .then(structuredDataText => {
       const script = document.createElement('script');
