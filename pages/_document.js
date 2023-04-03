@@ -10,7 +10,7 @@ export default class MyDocument extends Document {
       "@graph":[
         {
             "@context":"http://schema.org",
-            "@type": "Corporation",
+            "@type": "OnlineBusiness",
             "name": "Smart Rabbit",
             "alternateName": "The Smart Rabbit",
             "description":"Friendly and humorous Smart Rabbit who loves to answer questions and provide good and funny responses that are suitable for kids.",
