@@ -1,24 +1,33 @@
 import Head from "next/head";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styles from "./index.module.css";
 import LoadingScreen from "../components/loadingScreen/loadingScreen";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 import Content from "../components/content/content";
 import {LanguageContextProvider} from "../context/language-context";
-import InstallPWA from "../components/installPWA/InstallPWA";
-import About from "../components/About/About";
+
 import Header from "../components/Header/Header";
+
 // import Language from "../components/language"
 // import History from "../components/history";
-const  Language = dynamic(()=> import("../components/language/language"));
-const History = dynamic(()=> import("../components/history/history"));
+// const  Language = dynamic(()=> import("../components/language/language"));
+// const History = dynamic(()=> import("../components/history/history"));
 
 
 
 
 export default function Home() {
 
-
+  useEffect(()=>{
+    fetch('http://localhost:3000/organisationSchema.txt')
+    .then(response => response.text())
+    .then(structuredDataText => {
+      const script = document.createElement('script');
+      script.setAttribute('type', 'application/ld+json');
+      script.textContent = structuredDataText;
+      document.head.appendChild(script);
+    });
+  },[])
 
 
   return (

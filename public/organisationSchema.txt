@@ -1,0 +1,6 @@
+{
+      "@context": "https://schema.org",
+      "@type": "Smart Rabbit",
+      "url": "http://smart-rabbit.netlify.app/",
+      "logo": "https://smart-rabbit.netlify.app/icon-192x192.png"
+}

@@ -2,9 +2,11 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 import Script from 'next/script'
 export default class MyDocument extends Document {
 
-
+ 
 
   render() {
+    
+    
     return (
       <Html lang='en'>
         <Head>
@@ -14,7 +16,6 @@ export default class MyDocument extends Document {
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
       t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
       y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      console.log(t)
     })(window, document, "clarity", "script", "ghdubkv8u6");
     `}
     </Script>
