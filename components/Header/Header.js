@@ -8,7 +8,7 @@ const  Header=()=>{
         <header className={styles.section}>
         <History  /> 
         <div className={styles.about_btn_wrapper} >
-        {/* <a href="#about" className={styles.about_a}>{"About"}</a> */}
+        <a href="#about" className={styles.about_a}>{"About"}</a>
       </div>
         <InstallPWA   />
         <Language   />

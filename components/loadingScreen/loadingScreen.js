@@ -6,8 +6,10 @@ function LoadingScreen({time}){
     const [loaded, setLoaded] = useState(false);
 
     useEffect(()=>{
-        setTimeout(() => {
-            setLoaded(true);
+      document.body.style.overflow="hidden";
+      setTimeout(() => {
+        setLoaded(true);
+        document.body.style.overflow="";
         }, time);
       },[])
   

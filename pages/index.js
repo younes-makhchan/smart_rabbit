@@ -7,6 +7,7 @@ import Content from "../components/content/content";
 import {LanguageContextProvider} from "../context/language-context";
 
 import Header from "../components/Header/Header";
+import About from "../components/About/About";
 
 // import Language from "../components/language"
 // import History from "../components/history";
@@ -19,7 +20,7 @@ import Header from "../components/Header/Header";
 export default function Home() {
 
   useEffect(()=>{
-    fetch('https://smart-rabbit.netlify.app/organisationSchema.txt')
+    fetch('/organisationSchema.txt')
     .then(response => response.text())
     .then(structuredDataText => {
       const script = document.createElement('script');
@@ -54,7 +55,7 @@ export default function Home() {
         </section>
        
        
-        {/* <About/> */}
+        <About/>
        
 
         </LanguageContextProvider>
