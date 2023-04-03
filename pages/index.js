@@ -19,21 +19,12 @@ import About from "../components/About/About";
 
 export default function Home() {
 
-  useEffect(()=>{
-    fetch('/organisationSchema.txt')
-    .then(response => response.text())
-    .then(structuredDataText => {
-      const script = document.createElement('script');
-      script.setAttribute('type', 'application/ld+json');
-      script.textContent = structuredDataText;
-      document.head.appendChild(script);
-    });
-  },[])
 
 
   return (
     <div className="top">
       <Head>
+       
         {/* <html lang={language.slug} />  */}
         <title>{"Smart Rabbit Answers Children Questions And Funny"}</title>
         <link rel="icon" href="/icon-192x192.png" />
