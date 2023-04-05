@@ -7,9 +7,10 @@
 .article{
     background-color: white;
     border-radius: 8px;
-    width: 65%;
     padding: var(--padding-xl);
-    max-width: 1440px;
+    max-width: 50rem;
+align-items: center;
+
     margin-top:1rem ;
     margin-bottom:10rem ;
     display: flex;
@@ -26,8 +27,13 @@
     line-height: 1.5;
     color: #54524e;
     font-weight: bold;
+    font-size: var(--sm);
 }
 
+.img{
+    display: block;
+    margin-left: auto;
+}
 
 .img{
     transform: rotateY(180deg);
