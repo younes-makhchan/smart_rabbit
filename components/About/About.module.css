@@ -5,13 +5,14 @@
     justify-content: center;
 }
 .article{
+    margin-top: 8rem;
     background-color: white;
     border-radius: 8px;
     padding: var(--padding-xl);
     max-width: 50rem;
 align-items: center;
 
-    margin-top:1rem ;
+    
     margin-bottom:10rem ;
     display: flex;
     
