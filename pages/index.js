@@ -8,6 +8,7 @@ import {LanguageContextProvider} from "../context/language-context";
 
 import Header from "../components/Header/Header";
 import About from "../components/About/About";
+import Shutdown from "../components/shutdown/Shutdown";
 
 // import Language from "../components/language"
 // import History from "../components/history";
@@ -39,15 +40,15 @@ export default function Home() {
         <LoadingScreen time={1000}/>
         <LanguageContextProvider>
        
-    <Header/>
+    {/* <Header/> */}
       
-        <section className={styles.content_wrapper}>
+        {/* <section className={styles.content_wrapper}>
         <Content   />
-        </section>
+        </section> */}
        
        
-        <About/>
-       
+        {/* <About/> */}
+       <Shutdown/>
 
         </LanguageContextProvider>
         

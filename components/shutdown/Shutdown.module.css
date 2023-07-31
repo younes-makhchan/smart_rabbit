@@ -1,0 +1,49 @@
+.section{
+    display: flex;
+    align-items: flex-start;
+    min-height: 100vh;
+    justify-content: center;
+}
+.article{
+    margin-top: 8rem;
+    background-color: white;
+    border-radius: 8px;
+    padding: var(--padding-xl);
+    max-width: 50rem;
+align-items: center;
+
+    
+    margin-bottom:10rem ;
+    display: flex;
+    
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+}
+.title{
+    font-size: var(--xl);
+    color: rgb(43, 238, 43);
+    padding-block: 15px;
+    font-family: 'cartoon';
+}
+.description{
+    line-height: 1.5;
+    color: #54524e;
+    font-weight: bold;
+    font-size: var(--sm);
+}
+
+.img{
+    display: block;
+    margin-left: auto;
+}
+
+.img{
+    transform: rotateY(180deg);
+}
+
+@media (max-width:765px) {
+    .article{
+        flex-direction: column;
+       
+    }
+}
+
